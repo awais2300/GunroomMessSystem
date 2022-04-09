@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Armoury Automation System</title>
+    <title>Gunroom & Mess System</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
-                <div class="sidebar-brand-text mx-3">ARMOURY SYSTEM</div>
+                <div class="sidebar-brand-text mx-3">GUNROOM & MESS SYSTEM</div>
             </a>
 
             <!-- Divider -->
