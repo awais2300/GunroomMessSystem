@@ -22,6 +22,67 @@ $this->load->view('uto/common/header');
 
     <!-- <div class="col-md-12 img">
     </div> -->
+    <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>User_Login/edit_profile_process">
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <h6>&nbsp;Name:</h6>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="text" class="form-control form-control-user"  id="name" name="name" placeholder="name*">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <h6>&nbsp;Full Name:</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6>&nbsp;Email ID:</h6>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="text" class="form-control form-control-user"  id="fullname" name="fullname" placeholder="Full Name">
+                                    </div>
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="email" class="form-control form-control-user"  id="email" name="email" placeholder="Email Address*">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <h6>&nbsp;Contact No:</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6>&nbsp;Address:</h6>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="tel" class="form-control form-control-user"  id="phone" name="phone" pattern="[0-9]{11}" placeholder="Phone No*">
+                                    </div>
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="text" class="form-control form-control-user" id="address"  name="address" placeholder="Address*">
+                                    </div>
+                                </div>
+
+                         
+
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-sm-4">
+                                        <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
+                                            <!-- <i class="fab fa-google fa-fw"></i>  -->
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
 <!-- 
     <form class="user" role="form" method="post" id="add_form">
 
