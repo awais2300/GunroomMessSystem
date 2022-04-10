@@ -18,37 +18,33 @@ $this->load->view('uto/common/header');
 </style>
 
 <div class="container">
-    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
-                                    echo $this->session->userdata('full_name');
-                                } else {
-                                    echo $this->session->userdata('username');
-                                } ?>!</h2>
+    <h1 style="" class="my-4">Gunroom 2</h1>
 
-    <div class="col-md-12 img">
-    </div>
-
+    <!-- <div class="col-md-12 img">
+    </div> -->
+<!-- 
     <form class="user" role="form" method="post" id="add_form">
 
         <div class="form-group row justify-content-center" style="margin-top:50px;">
             <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_weapons'">
                     <h5 style="font-weight: bold;">Gunroom 1</h5>
                 </button>
             </div>
 
             <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom2'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_officers'">
                     <h5 style="font-weight: bold;">Gunroom 2</h5>
                 </button>
             </div>
             <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom3'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/allocate_weapon'">
                     <h5 style="font-weight: bold;">Gunroom 3</h5>
                 </button>
             </div>
 
         </div>
-    </form>
+    </form> -->
 
 
 </div>

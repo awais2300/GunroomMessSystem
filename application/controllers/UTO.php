@@ -21,7 +21,30 @@ class UTO extends CI_Controller
             $this->load->view('login');
         }
     }
-
+    public function gunroom1(){
+        if ($this->session->has_userdata('user_id')) {
+            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
+            $this->load->view('uto/Gunroom1');
+        }
+    }
+    public function gunroom2(){
+        if ($this->session->has_userdata('user_id')) {
+            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
+            $this->load->view('uto/Gunroom2');
+        }
+    }
+    public function gunroom3(){
+        if ($this->session->has_userdata('user_id')) {
+            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
+            $this->load->view('uto/Gunroom3');
+        }
+    }
+    public function complaint(){
+        if ($this->session->has_userdata('user_id')) {
+            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
+            $this->load->view('uto/complaint');
+        }
+    }
     public function add_weapons()
     {
         if ($this->session->has_userdata('user_id')) {

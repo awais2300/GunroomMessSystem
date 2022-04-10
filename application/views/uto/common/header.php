@@ -53,7 +53,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?><?php  echo 'Project_Officer';?>">
+                <a class="nav-link" href="<?php echo base_url(); ?>UTO">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,24 +67,30 @@
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Project_Officer/add_weapons" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom1" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <span> Gunroom 1 </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom2" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <span> Gunroom 2 </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom3" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <span> Gunroom 3 </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-tasks"></i>
-                    <span> Add Weapons </span>
+                    <span> Complaints </span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Project_Officer/add_officers" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-file-signature"></i>
-                    <span> Add Officers </span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Project_Officer/allocate_weapon" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-file-signature"></i>
-                    <span> Allocate Weapon </span>
-                </a>
-            </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Project_Officer/view_activity_log" aria-expanded="true">
                     <i style="font-size:20px" class="far fa-list-alt"></i>
                     <span> Weapon Allocation log </span>
@@ -101,7 +107,7 @@
                     <i style="font-size:20px" class="fas fa-unlock-alt"></i>
                     <span> Change Password </span>
                 </a>
-            </li>
+            </li> -->
             
             <br>
 
@@ -142,7 +148,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle text-dark-500" type="button" onclick="location.href='<?php echo base_url(); ?>Project_Officer'"> Home </a>
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -150,7 +156,7 @@
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" type="button" onclick="location.href='<?php echo base_url(); ?>Project_Officer/about'">About </a>
-                        </li>
+                        </li> -->
 
                         <!-- Nav Item - Alerts -->
                         <!-- <li class="nav-item dropdown no-arrow mx-1" id="notifications">
