@@ -3,13 +3,19 @@ $this->load->view('uto/common/header');
 ?>
 
 <style>
-    .img {
-        background: url('<?= base_url() ?>assets/img/project-banner.jpg');
-        background-position: center;
-        background-size: cover;
-        height: 200px;
-        /* filter: blur(1px); */
-        border-radius: 25px;
+    #attachement {
+        position: relative;
+        /*  top: 150px;*/
+        font-family: calibri;
+        width: 100%;
+        padding: 10px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border: 1px dashed #BBB;
+        border-radius:20px;
+        text-align: center;
+        background-color: #DDD;
+        cursor: pointer;
     }
 
     .red-border {
@@ -17,128 +23,131 @@ $this->load->view('uto/common/header');
     }
 </style>
 
-<div class="container">
-    <h1 style="" class="my-4">Complaints</h1>
-
-    <!-- <div class="col-md-12 img">
-    </div> -->
-    <form class="user" role="form"  enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/add_complaint_process">
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;Name:</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;P_no:</h6>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="text" class="form-control form-control-user"  id="name" name="name" placeholder="name*">
-                                    </div>
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="text" class="form-control form-control-user"  id="p_no" name="p_no" placeholder="p_no*">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;Allocated To:</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;Date:</h6>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="text" class="form-control form-control-user"  id="allocated_to" name="allocated_to" placeholder="allocated to*">
-                                    </div>
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="date" class="form-control form-control-user"  id="date" name="date" placeholder="date*">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;Type:</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h6>&nbsp;Location:</h6>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-
-                                    <div class="col-sm-6 mb-1">
-                                    <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
-                                    <option value="">Account Type</option>
-                                    <option value="gunroom">Gunroom</option>
-                                    <option value="mess">Mess</option>
-                                    </select>
-                                    </div>
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="text" class="form-control form-control-user" id="location"  name="location" placeholder="location*">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <h6>&nbsp;Attachement:</h6>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-1">
-                                        <input type="file" multiple="multiple"  class="form-control form-control-user" id="attachement"  name="attachement[]" placeholder="attachement*">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <h6>&nbsp;Description:</h6>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-1">
-                                    <textarea id="description" name="description" class="form-control " rows="4">
-                                    </textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row justify-content-center">
-                                    <div class="col-sm-4">
-                                        <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
-                                            <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                            Add Complaint
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-<!-- 
-    <form class="user" role="form" method="post" id="add_form">
-
-        <div class="form-group row justify-content-center" style="margin-top:50px;">
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_weapons'">
-                    <h5 style="font-weight: bold;">Gunroom 1</h5>
-                </button>
-            </div>
-
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_officers'">
-                    <h5 style="font-weight: bold;">Gunroom 2</h5>
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/allocate_weapon'">
-                    <h5 style="font-weight: bold;">Gunroom 3</h5>
-                </button>
-            </div>
+<div class="container-fluid my-2">
+    <div class="form-group row justify-content-center">
+        <div class="col-lg-1">
 
         </div>
-    </form> -->
+        <div class="col-lg-11">
+            <h1 style="text-align:center; padding:40px"><strong>Register Complaint</strong></h1>
+        </div>
 
+    </div>
+
+    <div class="card-body bg-custom3">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-header bg-custom1">
+                        <h1 class="h4">Enter Data</h1>
+                    </div>
+
+                    <div class="card-body bg-custom3">
+                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/add_complaint_process">
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;Name:</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;P_no:</h6>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="name*">
+                                </div>
+                                <div class="col-sm-6 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;Allocated To:</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;Date:</h6>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="allocated to*">
+                                </div>
+                                <div class="col-sm-6 mb-1">
+                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;Type:</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>&nbsp;Location:</h6>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <div class="col-sm-6 mb-1">
+                                    <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
+                                        <option value="">Account Type</option>
+                                        <option value="gunroom">Gunroom</option>
+                                        <option value="mess">Mess</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="location" name="location" placeholder="location*">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Attachement:</h6>
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <input type="file" multiple="multiple" class="form-control form-control-user" id="attachement" name="attachement[]" placeholder="attachement*">
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-1">
+                                    <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Description:</h6>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-1">
+                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4">
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row justify-content-center">
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
+                                        <!-- <i class="fab fa-google fa-fw"></i>  -->
+                                        Add Complaint
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -146,7 +155,7 @@ $this->load->view('uto/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
-     $('#add_btni').on('click', function() {
+    $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
         var validate = 0;
         var name = $('#name').val();
@@ -156,9 +165,9 @@ $this->load->view('uto/common/header');
         var type = $('#type').val();
         var location = $('#location').val();
         var description = $('#description').val();
-       
 
-        
+
+
         if (name == '') {
             validate = 1;
             $('#name').addClass('red-border');
@@ -183,7 +192,7 @@ $this->load->view('uto/common/header');
             validate = 1;
             $('#location').addClass('red-border');
         }
-        if(document.getElementById('attachement').files.length == 0){
+        if (document.getElementById('attachement').files.length == 0) {
             validate = 1;
             $('#attachement').addClass('red-border');
         }

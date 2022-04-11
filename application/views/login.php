@@ -23,7 +23,7 @@
 <style>
   .img-bg {
     /* background-image: url('<?= base_url() ?>assets/img/bg-image.jpg'); */
-    background-color:  #000154 !important;
+    background-color:  #303030 !important;
     background-size: cover;
     width: 100%;
   }
@@ -31,7 +31,7 @@
   .region {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
     /* background: transparent !important; */
-    background-color:  #E2F1FC !important;
+    background-color:  #A8A8AA !important;
     text-align: center !important;
     font-weight: 700 !important;
     border-radius: 20px !important;
