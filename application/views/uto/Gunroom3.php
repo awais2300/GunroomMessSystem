@@ -19,7 +19,41 @@ $this->load->view('uto/common/header');
 
 <div class="container">
     <h1 style="" class="my-4">Gunroom 3</h1>
-
+    <table class="table table-bordered" style="background-color:white;color:black">
+    <!-- <thead class="thead-dark">
+      <tr  class="table-primary">
+       <th>dfsdfd</th>
+      </tr>
+    </thead> -->
+    <tbody>
+      
+      <tr class="table-active">
+        <td><b>Total rooms</b></td>
+        <td>10</td>
+       
+      </tr>
+      <tr>
+        <td><b> Total floors</td>
+        <td>3</td>
+      
+      </tr>
+      <tr class="table-active">
+        <td><b>Occupied</b></td>
+        <td>5</td>
+       
+      </tr>
+      <tr>
+        <td><b>Empty rooms</b></td>
+        <td>2</td>
+       
+      </tr>
+      <tr class="table-active">
+        <td><b>Total accomodation officers</b></td>
+        <td>30</td>
+       
+      </tr>
+    </tbody>
+  </table>
     <!-- <div class="col-md-12 img">
     </div> -->
 <!-- 

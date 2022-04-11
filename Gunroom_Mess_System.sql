@@ -266,6 +266,25 @@ ALTER TABLE `gunrooms_rooms`
   ADD CONSTRAINT `gunrooms_rooms_ibfk_2` FOREIGN KEY (`gunroom_floor_id`) REFERENCES `gunrooms_floors` (`id`);
 COMMIT;
 
+
+CREATE TABLE `complaints` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `p_no` bigint(20) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `allocated_to` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+ `remarks` varchar(255) NOT NULL,
+ `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `complaints` 
+  ADD column `attachement` varchar(255);
+ 
+COMMIT;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
