@@ -30,7 +30,7 @@ $this->load->view('uto/common/header');
       
       <tr class="table-active">
         <td><b>Total rooms</b></td>
-        <td>10</td>
+        <td>60</td>
        
       </tr>
       <tr>
@@ -40,12 +40,12 @@ $this->load->view('uto/common/header');
       </tr>
       <tr class="table-active">
         <td><b>Occupied</b></td>
-        <td>5</td>
+        <td><?=  $room_occupied; ?></td>
        
       </tr>
       <tr>
         <td><b>Empty rooms</b></td>
-        <td>2</td>
+        <td><?=  $room_vacant; ?></td>
        
       </tr>
       <tr class="table-active">
@@ -57,29 +57,30 @@ $this->load->view('uto/common/header');
   </table>
     <!-- <div class="col-md-12 img">
     </div> -->
-<!-- 
+ 
+    
     <form class="user" role="form" method="post" id="add_form">
 
         <div class="form-group row justify-content-center" style="margin-top:50px;">
             <div class="col-sm-4">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_weapons'">
-                    <h5 style="font-weight: bold;">Gunroom 1</h5>
+                    <h5 style="font-weight: bold;">Floor 1</h5>
                 </button>
             </div>
 
             <div class="col-sm-4">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/add_officers'">
-                    <h5 style="font-weight: bold;">Gunroom 2</h5>
+                    <h5 style="font-weight: bold;">Floor 2</h5>
                 </button>
             </div>
             <div class="col-sm-4">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Project_Officer/allocate_weapon'">
-                    <h5 style="font-weight: bold;">Gunroom 3</h5>
+                    <h5 style="font-weight: bold;">FLoor 3</h5>
                 </button>
             </div>
 
         </div>
-    </form> -->
+    </form>
 
 
 </div>

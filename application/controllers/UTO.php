@@ -23,20 +23,24 @@ class UTO extends CI_Controller
     }
     public function gunroom1(){
         if ($this->session->has_userdata('user_id')) {
-            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
-            $this->load->view('uto/Gunroom1');
+            $data['room_occupied'] = $this->db->where('gunroom_id','1')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant'] = $this->db->where('gunroom_id','1')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
+            //echo  $data['room_occupied'];exit;
+            $this->load->view('uto/Gunroom1',$data);
         }
     }
     public function gunroom2(){
         if ($this->session->has_userdata('user_id')) {
-            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
-            $this->load->view('uto/Gunroom2');
+            $data['room_occupied_2'] = $this->db->where('gunroom_id','2')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant_2'] = $this->db->where('gunroom_id','2')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
+            $this->load->view('uto/Gunroom2',$data);
         }
     }
     public function gunroom3(){
         if ($this->session->has_userdata('user_id')) {
-            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
-            $this->load->view('uto/Gunroom3');
+            $data['room_occupied_3'] = $this->db->where('gunroom_id','3')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant_3'] = $this->db->where('gunroom_id','3')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();;
+            $this->load->view('uto/Gunroom3',$data);
         }
     }
     public function complaint(){

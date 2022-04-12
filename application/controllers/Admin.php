@@ -69,11 +69,12 @@ class Admin extends CI_Controller
             $phone = $_POST['phone'];
             $address = $_POST['address'];
             $name = $_POST['name'];
+            $acct_type=$_POST['acct_type'];
 
             $insert_array = array(
                 'username' => $username,
                 'password' => $password,
-                'acct_type' => 'user',
+                'acct_type' => $acct_type,
                 'email' => $email,
                 'phone' => $phone,
                 'address' => $address,

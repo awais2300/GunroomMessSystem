@@ -32,27 +32,7 @@
 
                                 </div>
 
-                                <!-- <div class="form-group row">
-
-                                    <div class="col-sm-6 mb-1">
-                                        <select class="form-control rounded-pill" name="status" id="status" data-placeholder="Select Controller" style="font-size: 0.8rem; height:50px;">\
-                                            <option class="form-control form-control-user" value="">Select Account Type</option>
-                                            <option class="form-control form-control-user" value="SO_STORE">SO Store</option>
-                                            <option class="form-control form-control-user" value="PO">Project Officer</option>
-                                            <option class="form-control form-control-user" value="SO_CW">SO CW</option>
-                                            <option class="form-control form-control-user" value="SO_RECORD">SO Record</option>
-
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6 mb-1">
-                                        <select class="form-control rounded-pill" name="region" id="region" data-placeholder="Select Controller" style="font-size: 0.8rem; height:50px;">\
-                                            <option class="form-control form-control-user" value="">Select Region</option>
-                                            <option class="form-control form-control-user" value="north">North</option>
-                                            <option class="form-control form-control-user" value="south">South</option>
-                                            <option class="form-control form-control-user" value="both">Both</option>
-                                        </select>
-                                    </div>
-                                </div> -->
+                              
 
                                 <hr>
 
@@ -67,10 +47,22 @@
                                     </div>
 
                                 </div>
+                                <div class="form-group row">
 
+                                    <div class="col-sm-12 mb-1">
+                                        <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
+                                            <option class="form-control form-control-user" value="">Select Account Type</option>
+                                            <option class="form-control form-control-user" value="UTO">UTO</option>
+                                            <option class="form-control form-control-user" value="Operator">Operator</option>
+                                        
+
+                                        </select>
+                                    </div>
+
+                                    </div> 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
-                                        <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email Address*">
+                                        <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email*">
                                     </div>
 
                                     <div class="col-sm-6 mb-1">

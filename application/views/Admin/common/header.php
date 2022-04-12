@@ -59,8 +59,13 @@
                 </a>
             </li>
 
-
             <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>Admin/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Complaints</span>
+                </a>
+            </li>
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>User_Login/edit_profile" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-user-edit"></i>
                     <span> Edit Profile </span>
@@ -77,7 +82,7 @@
                     <i style="font-size:20px" class="far fa-list-alt"></i>
                     <span> View Activity Log </span>
                 </a>
-            </li>
+            </li> -->
             <br><br>
 
             <!-- Nav Item - Utilities Collapse Menu -->

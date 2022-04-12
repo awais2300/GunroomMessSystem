@@ -164,6 +164,144 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (59, 1, 3, '19', '', 'Vacant'),
 (60, 1, 3, '20', '', 'Vacant');
 
+
+-- room 2
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 2, 1, '1', '', 'Vacant'),
+('', 2, 1, '2', '', 'Vacant'),
+('', 2, 1, '3', '', 'Vacant'),
+('', 2, 1, '4', '', 'Vacant'),
+('', 2, 1, '5', '', 'Vacant'),
+('', 2, 1, '6', '', 'Vacant'),
+('', 2, 1, '7', '', 'Vacant'),
+('', 2, 1, '8', '', 'Vacant'),
+('', 2, 1, '9', '', 'Vacant'),
+('',2, 1, '10', '', 'Vacant'),
+('', 2, 1, '11', '', 'Vacant'),
+('', 2, 1, '12', '', 'Vacant'),
+('', 2, 1, '13', '', 'Vacant'),
+('', 2, 1, '14', '', 'Vacant'),
+('', 2, 1, '15', '', 'Vacant'),
+('', 2, 1, '16', '', 'Vacant'),
+('', 2, 1, '17', '', 'Vacant'),
+('', 2, 1, '18', '', 'Vacant'),
+('', 2, 1, '19', '', 'Vacant'),
+('', 2, 1, '20', '', 'Vacant');
+
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 2, 2, '1', '', 'Vacant'),
+('', 2, 2, '2', '', 'Vacant'),
+('', 2, 2, '3', '', 'Vacant'),
+('', 2, 2, '4', '', 'Vacant'),
+('', 2, 2, '5', '', 'Vacant'),
+('', 2, 2, '6', '', 'Vacant'),
+('', 2, 2, '7', '', 'Vacant'),
+('', 2, 2, '8', '', 'Vacant'),
+('', 2, 2, '9', '', 'Vacant'),
+('', 2, 2, '10', '', 'Vacant'),
+('', 2, 2, '11', '', 'Vacant'),
+('', 2, 2, '12', '', 'Vacant'),
+('', 2, 2, '13', '', 'Vacant'),
+('', 2, 2, '14', '', 'Vacant'),
+('', 2, 2, '15', '', 'Vacant'),
+('', 2, 2, '16', '', 'Vacant'),
+('', 2, 2, '17', '', 'Vacant'),
+('', 2, 2, '18', '', 'Vacant'),
+('', 2, 2, '19', '', 'Vacant'),
+('', 2, 2, '20', '', 'Vacant');
+
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 2, 3, '1', '', 'Vacant'),
+('', 2, 3, '2', '', 'Vacant'),
+('', 2, 3, '3', '', 'Vacant'),
+('', 2, 3, '4', '', 'Vacant'),
+('', 2, 3, '5', '', 'Vacant'),
+('', 2, 3, '6', '', 'Vacant'),
+('', 2, 3, '7', '', 'Vacant'),
+('', 2, 3, '8', '', 'Vacant'),
+('', 2, 3, '9', '', 'Vacant'),
+('', 2, 3, '10', '', 'Vacant'),
+('', 2, 3, '11', '', 'Vacant'),
+('', 2, 3, '12', '', 'Vacant'),
+('', 2, 3, '13', '', 'Vacant'),
+('', 2, 3, '14', '', 'Vacant'),
+('', 2, 3, '15', '', 'Vacant'),
+('', 2, 3, '16', '', 'Vacant'),
+('', 2, 3, '17', '', 'Vacant'),
+('', 2, 3, '18', '', 'Vacant'),
+('', 2, 3, '19', '', 'Vacant'),
+('', 2, 3, '20', '', 'Vacant');
+
+
+-- room 3
+
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 3, 1, '1', '', 'Vacant'),
+('', 3, 1, '2', '', 'Vacant'),
+('', 3, 1, '3', '', 'Vacant'),
+('', 3, 1, '4', '', 'Vacant'),
+('', 3, 1, '5', '', 'Vacant'),
+('', 3, 1, '6', '', 'Vacant'),
+('', 3, 1, '7', '', 'Vacant'),
+('', 3, 1, '8', '', 'Vacant'),
+('', 3, 1, '9', '', 'Vacant'),
+('',3, 1, '10', '', 'Vacant'),
+('', 3, 1, '11', '', 'Vacant'),
+('', 3, 1, '12', '', 'Vacant'),
+('', 3, 1, '13', '', 'Vacant'),
+('', 3, 1, '14', '', 'Vacant'),
+('', 3, 1, '15', '', 'Vacant'),
+('', 3, 1, '16', '', 'Vacant'),
+('', 3, 1, '17', '', 'Vacant'),
+('', 3, 1, '18', '', 'Vacant'),
+('', 3, 1, '19', '', 'Vacant'),
+('', 3, 1, '20', '', 'Vacant');
+
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 3, 2, '1', '', 'Vacant'),
+('', 3, 2, '2', '', 'Vacant'),
+('', 3, 2, '3', '', 'Vacant'),
+('', 3, 2, '4', '', 'Vacant'),
+('', 3, 2, '5', '', 'Vacant'),
+('', 3, 2, '6', '', 'Vacant'),
+('', 3, 2, '7', '', 'Vacant'),
+('', 3, 2, '8', '', 'Vacant'),
+('', 3, 2, '9', '', 'Vacant'),
+('', 3, 2, '10', '', 'Vacant'),
+('', 3, 2, '11', '', 'Vacant'),
+('', 3, 2, '12', '', 'Vacant'),
+('', 3, 2, '13', '', 'Vacant'),
+('', 3, 2, '14', '', 'Vacant'),
+('', 3, 2, '15', '', 'Vacant'),
+('', 3, 2, '16', '', 'Vacant'),
+('', 3, 2, '17', '', 'Vacant'),
+('', 3, 2, '18', '', 'Vacant'),
+('', 3, 2, '19', '', 'Vacant'),
+('', 3, 2, '20', '', 'Vacant');
+
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+('', 3, 3, '1', '', 'Vacant'),
+('', 3, 3, '2', '', 'Vacant'),
+('', 3, 3, '3', '', 'Vacant'),
+('', 3, 3, '4', '', 'Vacant'),
+('', 3, 3, '5', '', 'Vacant'),
+('', 3, 3, '6', '', 'Vacant'),
+('', 3, 3, '7', '', 'Vacant'),
+('', 3, 3, '8', '', 'Vacant'),
+('', 3, 3, '9', '', 'Vacant'),
+('', 3, 3, '10', '', 'Vacant'),
+('', 3, 3, '11', '', 'Vacant'),
+('', 3, 3, '12', '', 'Vacant'),
+('', 3, 3, '13', '', 'Vacant'),
+('', 3, 3, '14', '', 'Vacant'),
+('', 3, 3, '15', '', 'Vacant'),
+('', 3, 3, '16', '', 'Vacant'),
+('', 3, 3, '17', '', 'Vacant'),
+('', 3, 3, '18', '', 'Vacant'),
+('', 3, 3, '19', '', 'Vacant'),
+('', 3, 3, '20', '', 'Vacant');
+
+
 --
 -- Table structure for table `security_info`
 --
