@@ -25,7 +25,8 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied'] = $this->db->where('gunroom_id','1')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant'] = $this->db->where('gunroom_id','1')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
-            //echo  $data['room_occupied'];exit;
+            $data['accomodated_officers'] = $this->db->where('gunroom_id','1')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
+          //  echo  $data['accomodated_officers'];exit;
             $this->load->view('uto/Gunroom1',$data);
         }
     }
@@ -33,6 +34,7 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied_2'] = $this->db->where('gunroom_id','2')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant_2'] = $this->db->where('gunroom_id','2')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_2'] = $this->db->where('gunroom_id','2')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
             $this->load->view('uto/Gunroom2',$data);
         }
     }
@@ -40,13 +42,21 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied_3'] = $this->db->where('gunroom_id','3')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant_3'] = $this->db->where('gunroom_id','3')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();;
+            $data['accomodated_officers_3'] = $this->db->where('gunroom_id','3')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
             $this->load->view('uto/Gunroom3',$data);
         }
     }
     public function complaint(){
         if ($this->session->has_userdata('user_id')) {
-            //$data['weapon_records'] = $this->db->get('weapons')->result_array();
-            $this->load->view('uto/complaint');
+            $data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->order_by('date','desc')->get('complaints')->result_array();
+            $this->load->view('uto/complaint',$data);
+        }
+    }
+
+    public function register_complaint(){
+        if ($this->session->has_userdata('user_id')) {
+            //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
+            $this->load->view('uto/register_complaint');
         }
     }
 
@@ -90,10 +100,10 @@ class UTO extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Complaint Submitted successfully');
-            redirect('uto');
+            redirect('uto/register_complaint');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('uto');
+            redirect('uto/register_complaint');
         }
     }
     

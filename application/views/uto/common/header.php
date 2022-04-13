@@ -14,13 +14,28 @@
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
 <style>
+    .numberCircle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    margin-left:25px;
+
+    background: red;
+    border: 2px solid #666;
+    color: white;
+    text-align: center;
+
+    font: 20px Arial, sans-serif;
+}
     .img-logo {
         background: url('<?= base_url() ?>assets/img/logo-inverted.png');
         /* background-position: center; */
@@ -66,6 +81,7 @@
                 Features
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
+            <?php if($this->session->userdata('login_type')=='gunroom'){?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom1" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-hotel"></i>
@@ -84,12 +100,37 @@
                     <span> Gunroom 3 </span>
                 </a>
             </li>
+            <?php $unseen_complaints= $this->db->where('name',$this->session->userdata('username'))->where('seen','no')->from('complaints')->count_all_results(); ?>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-tasks"></i>
+                    <span> Complaints </span>
+                    <?php if($unseen_complaints != '0'){ ?>
+                    <span class="numberCircle"><?=  $unseen_complaints; ?></span>
+                    <?php } ?>
+                </a>
+            </li>
+            <?php }else if($this->session->userdata('login_type')=='mess'){ ?>
+                <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom1" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <span> Guest Reservation </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom2" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-list"></i>
+                    <span> Requesting Menu </span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-tasks"></i>
                     <span> Complaints </span>
                 </a>
             </li>
+
+                <?php } ?>
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Project_Officer/view_activity_log" aria-expanded="true">
                     <i style="font-size:20px" class="far fa-list-alt"></i>

@@ -49,7 +49,7 @@ $this->load->view('uto/common/header');
       </tr>
       <tr class="table-active">
         <td><b>Total accomodation officers</b></td>
-        <td>30</td>
+        <td><?=  $accomodated_officers_2; ?></td>
        
       </tr>
     </tbody>

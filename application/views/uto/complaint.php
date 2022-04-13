@@ -29,7 +29,7 @@ $this->load->view('uto/common/header');
 
         </div>
         <div class="col-lg-11">
-            <h1 style="text-align:center; padding:40px"><strong>Register Complaint</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Complaint Data</strong></h1>
         </div>
 
     </div>
@@ -37,112 +37,49 @@ $this->load->view('uto/common/header');
     <div class="card-body bg-custom3">
         <!-- Nested Row within Card Body -->
         <div class="row">
+        <a class="btn btn-primary" href="<?= base_url();?>uto/register_complaint" style="margin-block-end: 10px;
+    margin-left: 900px;">+ Register Complaint</a>
             <div class="col-lg-12">
-
+            
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Enter Data</h1>
+                        <h1 class="h4">Complaints</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/add_complaint_process">
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Name:</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;P_no:</h6>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="name*">
-                                </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
-                                </div>
-                            </div>
+                    <table id="example" class="table table-striped table-bordered" style="width:100%;color:black">
+                    <?php if($complaint_data != null){?>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Complaints</th>
+                            <th>Date Added</th>
+                            <th>Remarks</th>
+                           
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <?php 
 
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Allocated To:</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Date:</h6>
-                                </div>
-                            </div>
+                        $count=0;
+                         foreach($complaint_data as $data){
+                             $count++; ?>
+                        <tr>
+                            <td><?= $count;?></td>
+                            <td><?= $data['description'];?></td>
+                            <td><?= date('Y-m-d',strtotime($data['date']))?></td>
+                            <td><?= $data['remarks']?></td>
+                          
+                        </tr>
 
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="allocated to*">
-                                </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Type:</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Location:</h6>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-sm-6 mb-1">
-                                    <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
-                                        <option value="">Account Type</option>
-                                        <option value="gunroom">Gunroom</option>
-                                        <option value="mess">Mess</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="location" name="location" placeholder="location*">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <h6>&nbsp;Attachement:</h6>
-                                </div>
-                            </div>
-
-                            <!-- <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <input type="file" multiple="multiple" class="form-control form-control-user" id="attachement" name="attachement[]" placeholder="attachement*">
-                                </div>
-                            </div> -->
-                            <div class="form-group row">
-                                <div class="col-sm-12 mb-1">
-                                    <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <h6>&nbsp;Description:</h6>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12 mb-1">
-                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4">
-                                    </textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group row justify-content-center">
-                                <div class="col-sm-4">
-                                    <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
-                                        <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                        Add Complaint
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        <?php } ?>
+                   <?php } else {?>
+                    <tr><strong> No complaints available </strong> </tr>
+                    <?php } ?>
+            </tbody>
+            </table>
                     </div>
                 </div>
             </div>
@@ -155,6 +92,10 @@ $this->load->view('uto/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
         var validate = 0;

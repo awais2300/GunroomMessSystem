@@ -45,6 +45,7 @@ class User_Login extends CI_Controller
 			//To create encrypted password use
 			$username = $postedData['username'];
 			$password = $postedData['password'];
+			$login_type = $postedData['optradio'];
 
 			$status = $this->db->select('acct_type, full_name')->where('username', $username)->get('security_info')->row_array();
 
@@ -58,6 +59,7 @@ class User_Login extends CI_Controller
 						$this->session->set_userdata('acct_type', $query['acct_type']);
 						$this->session->set_userdata('full_name', $query['full_name']);
 						$this->session->set_userdata('username', $query['username']);
+						$this->session->set_userdata('login_type', $postedData['optradio']);
 						$this->session->set_flashdata('success', 'Login successfully');
 
 						$this->db->set('status', 'online');
