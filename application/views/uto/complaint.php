@@ -12,7 +12,7 @@ $this->load->view('uto/common/header');
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border: 1px dashed #BBB;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         background-color: #DDD;
         cursor: pointer;
@@ -25,61 +25,59 @@ $this->load->view('uto/common/header');
 
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
-        <div class="col-lg-1">
-
+        <div class="col-lg-12">
+            <h1 style="text-align:center; padding:40px"><strong>Complaint Records</strong></h1>
         </div>
-        <div class="col-lg-11">
-            <h1 style="text-align:center; padding:40px"><strong>Complaint Data</strong></h1>
-        </div>
-
     </div>
 
     <div class="card-body bg-custom3">
         <!-- Nested Row within Card Body -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+            <h1 class="h3 mb-0 text-black-800"></h1>
+            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/register_complaint" style="margin-block-end: 10px; ">+ Register New Complaint</a>
+        </div>
+
         <div class="row">
-        <a class="btn btn-primary" href="<?= base_url();?>uto/register_complaint" style="margin-block-end: 10px;
-    margin-left: 900px;">+ Register Complaint</a>
             <div class="col-lg-12">
-            
                 <div class="card">
                     <div class="card-header bg-custom1">
                         <h1 class="h4">Complaints</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%;color:black">
-                    <?php if($complaint_data != null){?>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Complaints</th>
-                            <th>Date Added</th>
-                            <th>Remarks</th>
-                           
-                           
-                        </tr>
-                    </thead>
-                    <tbody>
-                      
-                        <?php 
+                        <table id="example" class="table table-striped table-bordered" style="width:100%;color:black">
+                            <?php if ($complaint_data != null) { ?>
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Complaints</th>
+                                        <th>Date Added</th>
+                                        <th>Remarks</th>
 
-                        $count=0;
-                         foreach($complaint_data as $data){
-                             $count++; ?>
-                        <tr>
-                            <td><?= $count;?></td>
-                            <td><?= $data['description'];?></td>
-                            <td><?= date('Y-m-d',strtotime($data['date']))?></td>
-                            <td><?= $data['remarks']?></td>
-                          
-                        </tr>
 
-                        <?php } ?>
-                   <?php } else {?>
-                    <tr><strong> No complaints available </strong> </tr>
-                    <?php } ?>
-            </tbody>
-            </table>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+
+                                    $count = 0;
+                                    foreach ($complaint_data as $data) {
+                                        $count++; ?>
+                                        <tr>
+                                            <td><?= $count; ?></td>
+                                            <td><?= $data['description']; ?></td>
+                                            <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
+                                            <td><?= $data['remarks'] ?></td>
+
+                                        </tr>
+
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <tr><strong> No complaints available </strong> </tr>
+                                <?php } ?>
+                                </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -93,8 +91,8 @@ $this->load->view('uto/common/header');
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable();
-} );
+        $('#example').DataTable();
+    });
 
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);

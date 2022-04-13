@@ -31,9 +31,15 @@
                                     </div>
 
                                 </div>
-
-                              
-
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-1">
+                                        <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
+                                            <option class="form-control form-control-user" value="">Select Account Type</option>
+                                            <option class="form-control form-control-user" value="UTO">UTO</option>
+                                            <option class="form-control form-control-user" value="Operator">Operator</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <hr>
 
                                 <h4 style="text-decoration:underline; margin-left:5px;padding:5px">Personal Information (optional)</h4>
@@ -45,21 +51,9 @@
                                     <div class="col-sm-6 mb-1">
                                         <input type="text" class="form-control form-control-user" id="address" name="address" placeholder="Address*">
                                     </div>
-
                                 </div>
-                                <div class="form-group row">
+                                
 
-                                    <div class="col-sm-12 mb-1">
-                                        <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
-                                            <option class="form-control form-control-user" value="">Select Account Type</option>
-                                            <option class="form-control form-control-user" value="UTO">UTO</option>
-                                            <option class="form-control form-control-user" value="Operator">Operator</option>
-                                        
-
-                                        </select>
-                                    </div>
-
-                                    </div> 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
                                         <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email*">

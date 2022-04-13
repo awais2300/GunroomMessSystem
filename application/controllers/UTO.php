@@ -46,6 +46,55 @@ class UTO extends CI_Controller
             $this->load->view('uto/Gunroom3',$data);
         }
     }
+
+    public function gunroom1_floor1(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom1-Floor1');
+        }
+    }
+    public function gunroom1_floor2(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom1-Floor2');
+        }
+    }
+    public function gunroom1_floor3(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom1-Floor3',);
+        }
+    }
+
+    public function gunroom2_floor1(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom2-Floor1');
+        }
+    }
+    public function gunroom2_floor2(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom2-Floor2');
+        }
+    }
+    public function gunroom2_floor3(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom2-Floor3',);
+        }
+    }
+
+    public function gunroom3_floor1(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom3-Floor1');
+        }
+    }
+    public function gunroom3_floor2(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom3-Floor2');
+        }
+    }
+    public function gunroom3_floor3(){
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('uto/Gunroom3-Floor3',);
+        }
+    }
+
     public function complaint(){
         if ($this->session->has_userdata('user_id')) {
             $data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->order_by('date','desc')->get('complaints')->result_array();
@@ -121,7 +170,7 @@ class UTO extends CI_Controller
             $_FILES['file']['size']     = $_FILES['attachement']['size'][$i];
 
             $config['upload_path'] = 'uploads/complaints';
-            $config['allowed_types']        = 'gif|jpg|png|doc|xls|pdf|xlsx|docx|ppt|pptx';
+            $config['allowed_types']        = 'gif|jpg|png|doc|xls|pdf|xlsx|docx|ppt|pptx|txt';
 
 
             $this->load->library('upload', $config);

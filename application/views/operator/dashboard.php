@@ -1,5 +1,5 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('operator/common/header');
 ?>
 
 <style>
@@ -17,69 +17,33 @@ $this->load->view('uto/common/header');
     }
 </style>
 
-<div class="container-fluid my-2">
-    <div class="form-group row justify-content-center">
-        <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Gunroom 1</strong></h1>
-        </div>
+<div class="container">
+    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
+                                    echo $this->session->userdata('full_name');
+                                } else {
+                                    echo $this->session->userdata('username');
+                                } ?>!</h2>
+
+    <div class="col-md-12 img">
     </div>
 
-    <table class="table table-bordered" style="background-color:white;color:black">
-   
-    <tbody>
-      
-      <tr class="table-active">
-        <td><b>Total rooms</b></td>
-        <td>60</td>
-       
-      </tr>
-      <tr>
-        <td><b> Total floors</td>
-        <td>3</td>
-      
-      </tr>
-      <tr class="table-active">
-        <td><b>Occupied</b></td>
-        <td><?=  $room_occupied; ?></td>
-       
-      </tr>
-      <tr>
-        <td><b>Empty rooms</b></td>
-        <td><?=  $room_vacant; ?></td>
-       
-      </tr>
-      <tr class="table-active">
-        <td><b>Total accomodation officers</b></td>
-        <td><?=  $accomodated_officers; ?></td>
-       
-      </tr>
-    </tbody>
-  </table>
-    <!-- <div class="col-md-12 img">
-    </div> -->
- 
-    
     <form class="user" role="form" method="post" id="add_form">
 
         <div class="form-group row justify-content-center" style="margin-top:50px;">
             <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1_floor1'">
-                    <h5 style="font-weight: bold;">Floor 1</h5>
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Operator/allocate_rooms'">
+                    <h5 style="font-weight: bold;">Room Allocation</h5>
                 </button>
             </div>
 
             <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1_floor2'">
-                    <h5 style="font-weight: bold;">Floor 2</h5>
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1_floor3'">
-                    <h5 style="font-weight: bold;">Floor 3</h5>
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Operator/update_menu'">
+                    <h5 style="font-weight: bold;">Update Mess Menu</h5>
                 </button>
             </div>
 
         </div>
+
     </form>
 
 
