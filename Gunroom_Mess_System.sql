@@ -406,7 +406,7 @@ COMMIT;
 
 
 CREATE TABLE `complaints` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1,
+  `id` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `p_no` bigint(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -428,7 +428,17 @@ ALTER TABLE `complaints`
 ALTER TABLE `complaints` 
   ADD column `admin_seen` enum('no','yes');
 
+--
+-- Indexes for table `security_info`
+--
+ALTER TABLE `complaints`
+  ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT for table `gunrooms_rooms`
+--
+ALTER TABLE `complaints`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 
 COMMIT;

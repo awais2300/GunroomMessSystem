@@ -7,7 +7,7 @@ $this->load->view('uto/common/header');
         background: url('<?= base_url() ?>assets/img/project-banner.jpg');
         background-position: center;
         background-size: cover;
-        height: 200px;
+        height: 300px;
         /* filter: blur(1px); */
         border-radius: 25px;
     }
