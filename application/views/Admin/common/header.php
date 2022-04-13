@@ -19,7 +19,22 @@
     <link href="<?php echo base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<style>
+.numberCircle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    margin-left:25px;
 
+    background: red;
+    border: 2px solid #666;
+    color: white;
+    text-align: center;
+
+    font: 20px Arial, sans-serif;
+}
+</style>
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -58,11 +73,14 @@
                     <span>Create New User</span>
                 </a>
             </li>
-
+            <?php $unseen_complaints= $this->db->where('admin_seen','no')->from('complaints')->count_all_results(); ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>Admin/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="<?= base_url(); ?>Admin/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Complaints</span>
+                    <?php if($unseen_complaints != '0'){ ?>
+                    <span class="numberCircle"><?=  $unseen_complaints; ?></span>
+                    <?php } ?>
                 </a>
             </li>
             <!-- <li class="nav-item">

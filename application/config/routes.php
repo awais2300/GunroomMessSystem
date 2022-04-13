@@ -70,6 +70,11 @@ $route['Project_Officer/add_weapons/update-notification'] = 'ChatController/upda
 $route['Project_Officer/add_weapons/check-activity'] = 'ChatController/check_activity';
 $route['Project_Officer/add_weapons/check-notification'] = 'ChatController/check_notification';
 
+$route['Admin/update_complaint/update-activity'] = 'ChatController/update_activity';
+$route['Admin/update_complaint/update-notification'] = 'ChatController/update_notification';
+$route['Admin/update_complaint/check-activity'] = 'ChatController/check_activity';
+$route['Admin/update_complaint/add_weapons/check-notification'] = 'ChatController/check_notification';
+
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 
 $route['mission/(:any)']='Mission/mission/$1';

@@ -1,5 +1,5 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('Admin/common/header');
 ?>
 
 <style>
@@ -45,7 +45,7 @@ $this->load->view('uto/common/header');
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/add_complaint_process">
+                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>Admin/update_complaint_process">
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Name:</h6>
@@ -56,10 +56,10 @@ $this->load->view('uto/common/header');
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo $this->session->userdata('username');?>" name="name" placeholder="name*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?= $complaint_data['name']; ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
+                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['p_no']; ?>" id="p_no" name="p_no" placeholder="p_no*" readonly>
                                 </div>
                             </div>
 
@@ -74,10 +74,10 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="allocated to*">
+                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['allocated_to']; ?>" id="allocated_to" name="allocated_to" placeholder="allocated to*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
+                                    <input type="date" class="form-control form-control-user" id="date" value="<?= date('Y-m-d',strtotime($complaint_data['date'])); ?>" name="date" placeholder="date*" readonly>
                                 </div>
                             </div>
 
@@ -93,14 +93,14 @@ $this->load->view('uto/common/header');
                             <div class="form-group row">
 
                                 <div class="col-sm-6 mb-1">
-                                    <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
+                                    <select class="form-control form-control-user" name="type" id="type"   style="height:50px;padding:10px" readonly>
                                         <option value="">Account Type</option>
-                                        <option value="gunroom">Gunroom</option>
-                                        <option value="mess">Mess</option>
+                                        <option value="gunroom" <?= ($complaint_data['type']=="gunroom")?'selected':'' ?> >Gunroom</option>
+                                        <option value="mess"  <?= ($complaint_data['type']=="mess")?'selected':'' ?> >Mess</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="location" name="location" placeholder="location*">
+                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['location']; ?>" id="location" name="location" placeholder="location*" readonly>
                                 </div>
                             </div>
 
@@ -108,8 +108,9 @@ $this->load->view('uto/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Attachement:</h6>
                                 </div>
+                             
                             </div>
-
+                           <input type="hidden" value="<?= $complaint_data['id']; ?>" name="complaint_id">
                             <!-- <div class="form-group row">
                                 <div class="col-sm-12">
                                     <input type="file" multiple="multiple" class="form-control form-control-user" id="attachement" name="attachement[]" placeholder="attachement*">
@@ -119,8 +120,10 @@ $this->load->view('uto/common/header');
                                 <div class="col-sm-12 mb-1">
                                     <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*">
                                 </div>
+                                <label><?= $complaint_data['attachement']; ?></label>
                             </div>
-
+                            <input type="hidden" name="old_file" value="<?= $complaint_data['attachement']; ?>">
+                            
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Description:</h6>
@@ -129,15 +132,25 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4"></textarea>
+                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4"><?= trim($complaint_data['description']); ?></textarea>
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Remarks:</h6>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-1">
+                                    <textarea id="remarks" style="border-radius:20px" name="remarks" class="form-control " rows="4"></textarea>
+                                </div>
+                            </div>
                             <div class="form-group row justify-content-center">
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
                                         <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                        Add Complaint
+                                        Update Complaint
                                     </button>
                                 </div>
                             </div>
@@ -191,10 +204,7 @@ $this->load->view('uto/common/header');
             validate = 1;
             $('#location').addClass('red-border');
         }
-        if (document.getElementById('attachement').files.length == 0) {
-            validate = 1;
-            $('#attachement').addClass('red-border');
-        }
+    
 
         if (validate == 0) {
             $('#save_form')[0].submit();
@@ -222,29 +232,29 @@ $this->load->view('uto/common/header');
     //      });
     //  }
 
-    function seen(data) {
-        // var receiver_id=$(this).attr('id');
-        $.ajax({
-            url: '<?= base_url(); ?>ChatController/seen',
-            method: 'POST',
-            data: {
-                'id': data
-            },
-            success: function(data) {
-                $('#notification').html(data);
-            },
-            async: true
-        });
-    }
+    // function seen(data) {
+    //     // var receiver_id=$(this).attr('id');
+    //     $.ajax({
+    //         url: '<?= base_url(); ?>ChatController/seen',
+    //         method: 'POST',
+    //         data: {
+    //             'id': data
+    //         },
+    //         success: function(data) {
+    //             $('#notification').html(data);
+    //         },
+    //         async: true
+    //     });
+    // }
 
-    $('#notifications').focusout(function() {
-        // alert('notification clicked');
-        $.ajax({
-            url: '<?= base_url(); ?>ChatController/activity_seen',
-            success: function(data) {
-                $('#notifications').html(data);
-            },
-            async: true
-        });
-    });
+    // $('#notifications').focusout(function() {
+    //     // alert('notification clicked');
+    //     $.ajax({
+    //         url: '<?= base_url(); ?>ChatController/activity_seen',
+    //         success: function(data) {
+    //             $('#notifications').html(data);
+    //         },
+    //         async: true
+    //     });
+    // });
 </script>

@@ -97,8 +97,11 @@ class UTO extends CI_Controller
 
     public function complaint(){
         if ($this->session->has_userdata('user_id')) {
-            $data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->order_by('date','desc')->get('complaints')->result_array();
+            $data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->where('type',$this->session->userdata('login_type'))->order_by('date','desc')->get('complaints')->result_array();
+            $query=$this->db->set('seen','yes')->where('seen','no')->where('type',$this->session->userdata('login_type'))->update('complaints');
+            if($query){
             $this->load->view('uto/complaint',$data);
+            }
         }
     }
 
@@ -141,7 +144,9 @@ class UTO extends CI_Controller
                     'allocated_to' => $allocated_to,
                     'type'=> $type,
                     'attachement' => $attachement,
-                    'location'=>$location
+                    'location'=>$location,
+                    'seen'=>'no',
+                    'admin_seen'=>'no'
                 );
                 //print_r($insert_array);exit;
                 $insert = $this->db->insert('complaints', $insert_array);
@@ -149,7 +154,7 @@ class UTO extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Complaint Submitted successfully');
-            redirect('uto/register_complaint');
+            redirect('uto/complaint');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
             redirect('uto/register_complaint');

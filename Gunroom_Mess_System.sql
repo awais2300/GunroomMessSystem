@@ -406,7 +406,7 @@ COMMIT;
 
 
 CREATE TABLE `complaints` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1,
   `name` varchar(255) NOT NULL,
   `p_no` bigint(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -423,6 +423,13 @@ ALTER TABLE `complaints`
  
 ALTER TABLE `complaints` 
   ADD column `seen` enum('no','yes');
+
+   
+ALTER TABLE `complaints` 
+  ADD column `admin_seen` enum('no','yes');
+
+
+
 
 COMMIT;
 

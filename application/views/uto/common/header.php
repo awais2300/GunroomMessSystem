@@ -100,7 +100,10 @@
                     <span> Gunroom 3 </span>
                 </a>
             </li>
-            <?php $unseen_complaints= $this->db->where('name',$this->session->userdata('username'))->where('seen','no')->from('complaints')->count_all_results(); ?>
+            <?php $unseen_complaints= $this->db->where('name',$this->session->userdata('username'))->where('seen','no')->where('type',$this->session->userdata('login_type'))->from('complaints')->count_all_results(); 
+
+            ?>
+           
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-tasks"></i>

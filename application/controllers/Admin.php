@@ -50,6 +50,60 @@ class Admin extends CI_Controller
             }
         }
     }
+    public function update_complaint_process()
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['name'];
+        $p_no = $postData['p_no'];
+        $date = $postData['date'];
+        $allocated_to = $postData['allocated_to'];
+        $type = $postData['type'];
+        $location = $postData['location'];
+        $description= $postData['description'];
+        $remarks=$postData['remarks'];
+        $old_file=$postData['old_file'];
+        $complaint_id=$postData['complaint_id'];
+        // echo $_FILES['attachement'];exit;
+        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+        if ($_FILES['attachement']['name'][0] != NULL) {
+            $upload1 = $this->upload_attachement($_FILES['attachement']);
+            if (count($upload1) > 1) {
+                $attachement = implode(',', $upload1);
+            } else {
+                $attachement = $upload1[0];
+            }
+        } else {
+            $attachement =  $old_file;
+        }
+       
+                $insert_array = array(
+                    'name' => $name,
+                    'p_no' => $p_no,
+                    'description' => $description,
+                    'date' =>$date,
+                    'allocated_to' => $allocated_to,
+                    'type'=> $type,
+                    'attachement' => $attachement,
+                    'location'=>$location,
+                    'remarks'=>$remarks,
+                    'seen'=>'no',
+                    'admin_seen'=>'no'
+                );
+                //print_r($insert_array);exit;
+                $this->db->where('id',$complaint_id);
+                $insert = $this->db->update('complaints', $insert_array);
+     
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'Remarks added successfully');
+            redirect('Admin/complaint');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('Admin/update_complaint');
+        }
+    }
+    
 
     public function logout()
     {
@@ -95,7 +149,22 @@ class Admin extends CI_Controller
             redirect('Admin/add_users');
         }
     }
-
+    public function complaint(){
+        if ($this->session->has_userdata('user_id')) {
+            $data['complaint_data'] = $this->db->get('complaints')->result_array();
+            $query=$this->db->set('admin_seen','yes')->where('admin_seen','no')->update('complaints');
+            if($query){
+            $this->load->view('Admin/complaint',$data);
+            }
+        }
+    }
+    public function update_complaint($complaint_id=null){
+        if ($this->session->has_userdata('user_id')) {
+            $data['complaint_data'] = $this->db->where('id',$complaint_id)->get('complaints')->row_array();
+            $this->load->view('Admin/update_complaint',$data);
+        }
+    }
+    
     public function view_activity_log()
     {
         if ($this->session->has_userdata('user_id')) {
