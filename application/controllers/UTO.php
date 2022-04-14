@@ -21,91 +21,286 @@ class UTO extends CI_Controller
             $this->load->view('login');
         }
     }
-    public function gunroom1(){
+    public function gunroom1()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $data['room_occupied'] = $this->db->where('gunroom_id','1')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['room_vacant'] = $this->db->where('gunroom_id','1')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers'] = $this->db->where('gunroom_id','1')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
-          //  echo  $data['accomodated_officers'];exit;
-            $this->load->view('uto/Gunroom1',$data);
+            $data['room_occupied'] = $this->db->where('gunroom_id', '1')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant'] = $this->db->where('gunroom_id', '1')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers'] = $this->db->where('gunroom_id', '1')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            //  echo  $data['accomodated_officers'];exit;
+            $this->load->view('uto/Gunroom1', $data);
         }
     }
-    public function gunroom2(){
+    public function gunroom2()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $data['room_occupied_2'] = $this->db->where('gunroom_id','2')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['room_vacant_2'] = $this->db->where('gunroom_id','2')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_2'] = $this->db->where('gunroom_id','2')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
-            $this->load->view('uto/Gunroom2',$data);
+            $data['room_occupied_2'] = $this->db->where('gunroom_id', '2')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant_2'] = $this->db->where('gunroom_id', '2')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', '2')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            $this->load->view('uto/Gunroom2', $data);
         }
     }
-    public function gunroom3(){
+    public function gunroom3()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $data['room_occupied_3'] = $this->db->where('gunroom_id','3')->where('status!=','vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['room_vacant_3'] = $this->db->where('gunroom_id','3')->where('status','vacant')->from("gunrooms_rooms")->count_all_results();;
-            $data['accomodated_officers_3'] = $this->db->where('gunroom_id','3')->where('allocated_to!=','')->from("gunrooms_rooms")->count_all_results();
-            $this->load->view('uto/Gunroom3',$data);
-        }
-    }
-
-    public function gunroom1_floor1(){
-        if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom1-Floor1');
-        }
-    }
-    public function gunroom1_floor2(){
-        if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom1-Floor2');
-        }
-    }
-    public function gunroom1_floor3(){
-        if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom1-Floor3',);
+            $data['room_occupied_3'] = $this->db->where('gunroom_id', '3')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant_3'] = $this->db->where('gunroom_id', '3')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();;
+            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', '3')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            $this->load->view('uto/Gunroom3', $data);
         }
     }
 
-    public function gunroom2_floor1(){
+    public function gunroom1_floor1()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom2-Floor1');
+            $data['rooms_data_g1f1r1'] = $this->db->where('id', 1)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r2'] = $this->db->where('id', 2)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r3'] = $this->db->where('id', 3)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r4'] = $this->db->where('id', 4)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r5'] = $this->db->where('id', 5)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r6'] = $this->db->where('id', 6)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r7'] = $this->db->where('id', 7)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r8'] = $this->db->where('id', 8)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r9'] = $this->db->where('id', 9)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r10'] = $this->db->where('id', 10)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r11'] = $this->db->where('id', 11)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r12'] = $this->db->where('id', 12)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r13'] = $this->db->where('id', 13)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r14'] = $this->db->where('id', 14)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r15'] = $this->db->where('id', 15)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r16'] = $this->db->where('id', 16)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r17'] = $this->db->where('id', 17)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r18'] = $this->db->where('id', 18)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r19'] = $this->db->where('id', 19)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f1r20'] = $this->db->where('id', 20)->where('gunroom_id', 1)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            // print_r($data); exit;
+            $this->load->view('uto/Gunroom1-Floor1', $data);
         }
     }
-    public function gunroom2_floor2(){
+    public function gunroom1_floor2()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom2-Floor2');
+            $data['rooms_data_g1f2r1'] = $this->db->where('id', 21)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r2'] = $this->db->where('id', 22)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r3'] = $this->db->where('id', 23)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r4'] = $this->db->where('id', 24)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r5'] = $this->db->where('id', 25)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r6'] = $this->db->where('id', 26)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r7'] = $this->db->where('id', 27)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r8'] = $this->db->where('id', 28)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r9'] = $this->db->where('id', 29)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r10'] = $this->db->where('id', 30)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r11'] = $this->db->where('id', 31)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r12'] = $this->db->where('id', 32)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r13'] = $this->db->where('id', 33)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r14'] = $this->db->where('id', 34)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r15'] = $this->db->where('id', 35)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r16'] = $this->db->where('id', 36)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r17'] = $this->db->where('id', 37)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r18'] = $this->db->where('id', 38)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r19'] = $this->db->where('id', 39)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f2r20'] = $this->db->where('id', 40)->where('gunroom_id', 1)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom1-Floor2', $data);
         }
     }
-    public function gunroom2_floor3(){
+    public function gunroom1_floor3()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom2-Floor3',);
+            $data['rooms_data_g1f3r1'] = $this->db->where('id', 41)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r2'] = $this->db->where('id', 42)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r3'] = $this->db->where('id', 43)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r4'] = $this->db->where('id', 44)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r5'] = $this->db->where('id', 45)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r6'] = $this->db->where('id', 46)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r7'] = $this->db->where('id', 47)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r8'] = $this->db->where('id', 48)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r9'] = $this->db->where('id', 49)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r10'] = $this->db->where('id', 50)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r11'] = $this->db->where('id', 51)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r12'] = $this->db->where('id', 52)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r13'] = $this->db->where('id', 53)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r14'] = $this->db->where('id', 54)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r15'] = $this->db->where('id', 55)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r16'] = $this->db->where('id', 56)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r17'] = $this->db->where('id', 57)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r18'] = $this->db->where('id', 58)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r19'] = $this->db->where('id', 59)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g1f3r20'] = $this->db->where('id', 60)->where('gunroom_id', 1)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom1-Floor3', $data);
         }
     }
 
-    public function gunroom3_floor1(){
+    public function gunroom2_floor1()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom3-Floor1');
+            $data['rooms_data_g2f1r1'] = $this->db->where('id', 61)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r2'] = $this->db->where('id', 62)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r3'] = $this->db->where('id', 63)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r4'] = $this->db->where('id', 64)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r5'] = $this->db->where('id', 65)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r6'] = $this->db->where('id', 66)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r7'] = $this->db->where('id', 67)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r8'] = $this->db->where('id', 68)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r9'] = $this->db->where('id', 69)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r10'] = $this->db->where('id', 70)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r11'] = $this->db->where('id', 71)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r12'] = $this->db->where('id', 72)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r13'] = $this->db->where('id', 73)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r14'] = $this->db->where('id', 74)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r15'] = $this->db->where('id', 75)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r16'] = $this->db->where('id', 76)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r17'] = $this->db->where('id', 77)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r18'] = $this->db->where('id', 78)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r19'] = $this->db->where('id', 79)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f1r20'] = $this->db->where('id', 80)->where('gunroom_id', 2)->where('gunroom_floor_id', 1)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom2-Floor1', $data);
         }
     }
-    public function gunroom3_floor2(){
+    public function gunroom2_floor2()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom3-Floor2');
+            $data['rooms_data_g2f2r1'] = $this->db->where('id', 81)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r2'] = $this->db->where('id', 82)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r3'] = $this->db->where('id', 83)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r4'] = $this->db->where('id', 84)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r5'] = $this->db->where('id', 85)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r6'] = $this->db->where('id', 86)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r7'] = $this->db->where('id', 87)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r8'] = $this->db->where('id', 88)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r9'] = $this->db->where('id', 89)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r10'] = $this->db->where('id', 90)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r11'] = $this->db->where('id', 91)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r12'] = $this->db->where('id', 92)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r13'] = $this->db->where('id', 93)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r14'] = $this->db->where('id', 94)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r15'] = $this->db->where('id', 95)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r16'] = $this->db->where('id', 96)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r17'] = $this->db->where('id', 97)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r18'] = $this->db->where('id', 98)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r19'] = $this->db->where('id', 99)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f2r20'] = $this->db->where('id', 100)->where('gunroom_id', 2)->where('gunroom_floor_id', 2)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom2-Floor2',$data);
         }
     }
-    public function gunroom3_floor3(){
+    public function gunroom2_floor3()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('uto/Gunroom3-Floor3',);
+            $data['rooms_data_g2f3r1'] = $this->db->where('id', 101)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r2'] = $this->db->where('id', 102)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r3'] = $this->db->where('id', 103)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r4'] = $this->db->where('id', 104)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r5'] = $this->db->where('id', 105)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r6'] = $this->db->where('id', 106)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r7'] = $this->db->where('id', 107)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r8'] = $this->db->where('id', 108)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r9'] = $this->db->where('id', 109)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r10'] = $this->db->where('id', 110)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r11'] = $this->db->where('id', 111)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r12'] = $this->db->where('id', 112)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r13'] = $this->db->where('id', 113)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r14'] = $this->db->where('id', 114)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r15'] = $this->db->where('id', 115)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r16'] = $this->db->where('id', 116)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r17'] = $this->db->where('id', 117)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r18'] = $this->db->where('id', 118)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r19'] = $this->db->where('id', 119)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g2f3r20'] = $this->db->where('id', 120)->where('gunroom_id', 2)->where('gunroom_floor_id', 3)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom2-Floor3',$data);
         }
     }
 
-    public function complaint(){
+    public function gunroom3_floor1()
+    {
         if ($this->session->has_userdata('user_id')) {
-            $data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->where('type',$this->session->userdata('login_type'))->order_by('date','desc')->get('complaints')->result_array();
-            $query=$this->db->set('seen','yes')->where('seen','no')->where('type',$this->session->userdata('login_type'))->update('complaints');
-            if($query){
-            $this->load->view('uto/complaint',$data);
+            $data['rooms_data_g3f1r1'] = $this->db->where('id',121)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r2'] = $this->db->where('id',122)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r3'] = $this->db->where('id',123)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r4'] = $this->db->where('id',124)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r5'] = $this->db->where('id',125)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r6'] = $this->db->where('id',126)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r7'] = $this->db->where('id',127)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r8'] = $this->db->where('id',128)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r9'] = $this->db->where('id',129)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r10'] = $this->db->where('id',130)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r11'] = $this->db->where('id',131)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r12'] = $this->db->where('id',132)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r13'] = $this->db->where('id',133)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r14'] = $this->db->where('id',134)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r15'] = $this->db->where('id',135)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r16'] = $this->db->where('id',136)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r17'] = $this->db->where('id',137)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r18'] = $this->db->where('id',138)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r19'] = $this->db->where('id',139)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f1r20'] = $this->db->where('id',140)->where('gunroom_id',3)->where('gunroom_floor_id',1)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom3-Floor1',$data);
+        }
+    }
+    public function gunroom3_floor2()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['rooms_data_g3f2r1'] = $this->db->where('id',141)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r2'] = $this->db->where('id',142)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r3'] = $this->db->where('id',143)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r4'] = $this->db->where('id',144)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r5'] = $this->db->where('id',145)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r6'] = $this->db->where('id',146)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r7'] = $this->db->where('id',147)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r8'] = $this->db->where('id',148)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r9'] = $this->db->where('id',149)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r10'] = $this->db->where('id',150)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r11'] = $this->db->where('id',151)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r12'] = $this->db->where('id',152)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r13'] = $this->db->where('id',153)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r14'] = $this->db->where('id',154)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r15'] = $this->db->where('id',155)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r16'] = $this->db->where('id',156)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r17'] = $this->db->where('id',157)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r18'] = $this->db->where('id',158)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r19'] = $this->db->where('id',159)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f2r20'] = $this->db->where('id',160)->where('gunroom_id',3)->where('gunroom_floor_id',2)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom3-Floor2',$data);
+        }
+    }
+    public function gunroom3_floor3()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['rooms_data_g3f3r1'] = $this->db->where('id',161)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r2'] = $this->db->where('id',162)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r3'] = $this->db->where('id',163)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r4'] = $this->db->where('id',164)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r5'] = $this->db->where('id',165)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r6'] = $this->db->where('id',166)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r7'] = $this->db->where('id',167)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r8'] = $this->db->where('id',168)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r9'] = $this->db->where('id',169)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r10'] = $this->db->where('id',170)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r11'] = $this->db->where('id',171)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r12'] = $this->db->where('id',172)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r13'] = $this->db->where('id',173)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r14'] = $this->db->where('id',174)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r15'] = $this->db->where('id',175)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r16'] = $this->db->where('id',176)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r17'] = $this->db->where('id',177)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r18'] = $this->db->where('id',178)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r19'] = $this->db->where('id',179)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $data['rooms_data_g3f3r20'] = $this->db->where('id',180)->where('gunroom_id',3)->where('gunroom_floor_id',3)->get('gunrooms_rooms')->row_array();
+            $this->load->view('uto/Gunroom3-Floor3',$data);
+        }
+    }
+
+    public function complaint()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['complaint_data'] = $this->db->where('name', $this->session->userdata('username'))->where('type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('type', $this->session->userdata('login_type'))->update('complaints');
+            if ($query) {
+                $this->load->view('uto/complaint', $data);
             }
         }
     }
 
-    public function register_complaint(){
+    public function register_complaint()
+    {
         if ($this->session->has_userdata('user_id')) {
             //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
             $this->load->view('uto/register_complaint');
@@ -122,7 +317,7 @@ class UTO extends CI_Controller
         $allocated_to = $postData['allocated_to'];
         $type = $postData['type'];
         $location = $postData['location'];
-        $description= $postData['description'];
+        $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
         if ($_FILES['attachement']['name'][0] != NULL) {
@@ -135,22 +330,22 @@ class UTO extends CI_Controller
         } else {
             $attachement = '';
         }
-       
-                $insert_array = array(
-                    'name' => $name,
-                    'p_no' => $p_no,
-                    'description' => $description,
-                    'date' =>$date,
-                    'allocated_to' => $allocated_to,
-                    'type'=> $type,
-                    'attachement' => $attachement,
-                    'location'=>$location,
-                    'seen'=>'no',
-                    'admin_seen'=>'no'
-                );
-                //print_r($insert_array);exit;
-                $insert = $this->db->insert('complaints', $insert_array);
-     
+
+        $insert_array = array(
+            'name' => $name,
+            'p_no' => $p_no,
+            'description' => $description,
+            'date' => $date,
+            'allocated_to' => $allocated_to,
+            'type' => $type,
+            'attachement' => $attachement,
+            'location' => $location,
+            'seen' => 'no',
+            'admin_seen' => 'no'
+        );
+        //print_r($insert_array);exit;
+        $insert = $this->db->insert('complaints', $insert_array);
+
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Complaint Submitted successfully');
@@ -160,7 +355,7 @@ class UTO extends CI_Controller
             redirect('uto/register_complaint');
         }
     }
-    
+
     public function upload_attachement($fieldname)
     {
         //$data = NULL;
