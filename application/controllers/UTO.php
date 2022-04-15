@@ -322,6 +322,7 @@ class UTO extends CI_Controller
             $this->load->view('uto/requesting_menu');
         }
     }
+    
     public function add_complaint_process()
     {
         $postData = $this->security->xss_clean($this->input->post());
@@ -370,6 +371,7 @@ class UTO extends CI_Controller
             redirect('uto/register_complaint');
         }
     }
+
     public function guest_reservation_process()
     {
         $postData = $this->security->xss_clean($this->input->post());

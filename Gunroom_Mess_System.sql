@@ -327,6 +327,13 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_typ
 (1, 'awais', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'UTO', 'offline', '', '', '', 'Awais Ahmad'),
 (2, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', '');
 
+
+CREATE TABLE `mess_menu` (
+  `id` bigint(20) NOT NULL,
+  `menu_name` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -359,6 +366,12 @@ ALTER TABLE `security_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `gunrooms`
+--
+ALTER TABLE `mess_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -384,6 +397,12 @@ ALTER TABLE `gunrooms_rooms`
 -- AUTO_INCREMENT for table `security_info`
 --
 ALTER TABLE `security_info`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
+-- AUTO_INCREMENT for table `mess_menu`
+--
+ALTER TABLE `mess_menu`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
