@@ -29,7 +29,7 @@ $this->load->view('uto/common/header');
 
         </div>
         <div class="col-lg-11">
-            <h1 style="text-align:center; padding:40px"><strong>Update Mess Menu</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Requesting Menu</strong></h1>
         </div>
 
     </div>

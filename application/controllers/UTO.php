@@ -306,7 +306,22 @@ class UTO extends CI_Controller
             $this->load->view('uto/register_complaint');
         }
     }
+    public function guest_reservation()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
+            $this->load->view('uto/guest_reservation');
+        }
+    }
+ 
 
+    public function requesting_menu()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
+            $this->load->view('uto/requesting_menu');
+        }
+    }
     public function add_complaint_process()
     {
         $postData = $this->security->xss_clean($this->input->post());
@@ -350,6 +365,74 @@ class UTO extends CI_Controller
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Complaint Submitted successfully');
             redirect('uto/complaint');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('uto/register_complaint');
+        }
+    }
+    public function guest_reservation_process()
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['name'];
+        $p_no = $postData['p_no'];
+        $date = $postData['date'];
+        $total_guests = $postData['total_guests'];
+        $menu = $postData['menu'];
+      
+        $description = $postData['description'];
+        // echo $_FILES['attachement'];exit;
+        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+       
+
+        $insert_array = array(
+            'name' => $name,
+            'p_no' => $p_no,
+            'description' => $description,
+            'date' => $date,
+            'total_guests' => $total_guests,
+            'menu' => $menu,
+        );
+        //print_r($insert_array);exit;
+        $insert = $this->db->insert('complaints', $insert_array);
+
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'Complaint Submitted successfully');
+            redirect('uto/guest_reservation');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('uto/register_complaint');
+        }
+    }
+    public function requesting_menu_process()
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['name'];
+        $p_no = $postData['p_no'];
+        $date = $postData['date'];
+        $no_of_persons = $postData['no_of_persons'];
+        $menu = $postData['menu'];
+        $description = $postData['description'];
+        // echo $_FILES['attachement'];exit;
+        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+
+        $insert_array = array(
+            'name' => $name,
+            'p_no' => $p_no,
+            'description' => $description,
+            'date' => $date,
+            'no_of_persons' => $no_of_persons,
+            'menu' => $menu
+        );
+        //print_r($insert_array);exit;
+        $insert = $this->db->insert('complaints', $insert_array);
+
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'Complaint Submitted successfully');
+            redirect('uto/requesting_menu');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
             redirect('uto/register_complaint');
