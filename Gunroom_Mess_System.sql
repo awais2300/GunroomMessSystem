@@ -88,7 +88,10 @@ CREATE TABLE `gunrooms_rooms` (
   `gunroom_id` bigint(20) NOT NULL,
   `gunroom_floor_id` bigint(20) NOT NULL,
   `Room_no` varchar(255) NOT NULL,
-  `allocated_to` varchar(255) NOT NULL,
+  `allocated_to_1` varchar(255) NULL,
+  `allocated_to_2` varchar(255) NULL,
+  `allocated_to_3` varchar(255) NULL,
+  `allocated_to_4` varchar(255) NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -98,7 +101,7 @@ CREATE TABLE `gunrooms_rooms` (
 -- Dumping data for table `gunrooms_rooms`
 --
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (1, 1, 1, '1', '', 'Vacant'),
 (2, 1, 1, '2', '', 'Vacant'),
 (3, 1, 1, '3', '', 'Vacant'),
@@ -120,7 +123,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (19, 1, 1, '19', '', 'Vacant'),
 (20, 1, 1, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (21, 1, 2, '1', '', 'Vacant'),
 (22, 1, 2, '2', '', 'Vacant'),
 (23, 1, 2, '3', '', 'Vacant'),
@@ -142,7 +145,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (39, 1, 2, '19', '', 'Vacant'),
 (40, 1, 2, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (41, 1, 3, '1', '', 'Vacant'),
 (42, 1, 3, '2', '', 'Vacant'),
 (43, 1, 3, '3', '', 'Vacant'),
@@ -166,7 +169,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 
 
 -- room 2
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (61, 2, 1, '1', '', 'Vacant'),
 (62, 2, 1, '2', '', 'Vacant'),
 (63, 2, 1, '3', '', 'Vacant'),
@@ -188,7 +191,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (79, 2, 1, '19', '', 'Vacant'),
 (80, 2, 1, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (81, 2, 2, '1', '', 'Vacant'),
 (82, 2, 2, '2', '', 'Vacant'),
 (83, 2, 2, '3', '', 'Vacant'),
@@ -210,7 +213,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (99, 2, 2, '19', '', 'Vacant'),
 (100, 2, 2, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (101, 2, 3, '1', '', 'Vacant'),
 (102, 2, 3, '2', '', 'Vacant'),
 (103, 2, 3, '3', '', 'Vacant'),
@@ -235,7 +238,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 
 -- room 3
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (121, 3, 1, '1', '', 'Vacant'),
 (122, 3, 1, '2', '', 'Vacant'),
 (123, 3, 1, '3', '', 'Vacant'),
@@ -257,7 +260,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (139, 3, 1, '19', '', 'Vacant'),
 (140, 3, 1, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (141, 3, 2, '1', '', 'Vacant'),
 (142, 3, 2, '2', '', 'Vacant'),
 (143, 3, 2, '3', '', 'Vacant'),
@@ -279,7 +282,7 @@ INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`,
 (159, 3, 2, '19', '', 'Vacant'),
 (160, 3, 2, '20', '', 'Vacant');
 
-INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to`, `status`) VALUES
+INSERT INTO `gunrooms_rooms` (`id`, `gunroom_id`, `gunroom_floor_id`, `Room_no`, `allocated_to_1`, `status`) VALUES
 (161, 3, 3, '1', '', 'Vacant'),
 (162, 3, 3, '2', '', 'Vacant'),
 (163, 3, 3, '3', '', 'Vacant'),
