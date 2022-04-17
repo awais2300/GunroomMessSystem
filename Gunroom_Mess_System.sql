@@ -463,6 +463,39 @@ ALTER TABLE `complaints`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 
+CREATE TABLE `guest_reservation` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `p_no` varchar(255) NOT NULL,
+  `total_guests` bigint(20) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `menu`bigint(20) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `requesting_menu` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `p_no` varchar(255) NOT NULL,
+  `total_persons` bigint(20) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `menu`bigint(20) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `guest_reservation`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `guest_reservation`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `requesting_menu`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `requesting_menu`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+
 COMMIT;
 
 

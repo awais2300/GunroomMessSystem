@@ -309,8 +309,8 @@ class UTO extends CI_Controller
     public function guest_reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
-            $this->load->view('uto/guest_reservation');
+            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+            $this->load->view('uto/guest_reservation',$data);
         }
     }
  
@@ -319,7 +319,8 @@ class UTO extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
-            $this->load->view('uto/requesting_menu');
+            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+            $this->load->view('uto/requesting_menu',$data);
         }
     }
     
@@ -396,11 +397,11 @@ class UTO extends CI_Controller
             'menu' => $menu,
         );
         //print_r($insert_array);exit;
-        $insert = $this->db->insert('complaints', $insert_array);
+        $insert = $this->db->insert('guest_reservation', $insert_array);
 
 
         if (!empty($insert)) {
-            $this->session->set_flashdata('success', 'Complaint Submitted successfully');
+            $this->session->set_flashdata('success', 'Submitted successfully');
             redirect('uto/guest_reservation');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
@@ -425,15 +426,15 @@ class UTO extends CI_Controller
             'p_no' => $p_no,
             'description' => $description,
             'date' => $date,
-            'no_of_persons' => $no_of_persons,
+            'total_persons' => $no_of_persons,
             'menu' => $menu
         );
         //print_r($insert_array);exit;
-        $insert = $this->db->insert('complaints', $insert_array);
+        $insert = $this->db->insert('requesting_menu', $insert_array);
 
 
         if (!empty($insert)) {
-            $this->session->set_flashdata('success', 'Complaint Submitted successfully');
+            $this->session->set_flashdata('success', 'Submitted successfully');
             redirect('uto/requesting_menu');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');

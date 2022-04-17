@@ -92,9 +92,11 @@ $this->load->view('uto/common/header');
 
                                 <div class="col-sm-12 mb-1">
                                     <select class="form-control form-control-user" name="menu" id="menu" style="height:50px;padding:10px">
-                                        <option value="">Menu Items</option>
-                                        <option value="gunroom">Gunroom</option>
-                                        <option value="mess">Mess</option>
+                               
+                                        <option value="">Select Menu Items</option>
+                                        <?php foreach($menu_data as $data){?>
+                                        <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
+                                         <?php } ?>
                                     </select>
                                 </div>
                               

@@ -56,13 +56,13 @@ $this->load->view('uto/common/header');
         <?php } else if($this->session->userdata('login_type')=='mess'){ ?>
             <div class="form-group row justify-content-center" style="margin-top:50px;">
             <div class="col-sm-3">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/guest_reservation'">
                     <h5 style="font-weight: bold;">Guest Reservation</h5>
                 </button>
             </div>
 
             <div class="col-sm-3">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom2'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/requesting_menu'">
                     <h5 style="font-weight: bold;">Requesting Menu</h5>
                 </button>
             </div>
