@@ -22,7 +22,11 @@ class Admin extends CI_Controller
         $this->load->view('Admin/create_user');
     }
 
-
+    public function multiselect()
+    {
+        $this->load->view('multiselect');
+    
+    }
     public function login_process()
     {
         if ($this->input->post()) {

@@ -469,7 +469,7 @@ CREATE TABLE `guest_reservation` (
   `p_no` varchar(255) NOT NULL,
   `total_guests` bigint(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `menu`bigint(20) NOT NULL,
+  `menu`  varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -479,7 +479,7 @@ CREATE TABLE `requesting_menu` (
   `p_no` varchar(255) NOT NULL,
   `total_persons` bigint(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `menu`bigint(20) NOT NULL,
+  `menu`  varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

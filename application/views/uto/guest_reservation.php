@@ -91,7 +91,7 @@ $this->load->view('uto/common/header');
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user" name="menu" id="menu" style="height:50px;padding:10px">
+                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple">
                                
                                         <option value="">Select Menu Items</option>
                                         <?php foreach($menu_data as $data){?>
@@ -136,6 +136,12 @@ $this->load->view('uto/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
+
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+
+
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
         var validate = 0;

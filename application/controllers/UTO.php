@@ -382,7 +382,9 @@ class UTO extends CI_Controller
         $date = $postData['date'];
         $total_guests = $postData['total_guests'];
         $menu = $postData['menu'];
-      
+       //print_r($menu);
+       $muenu_items=implode(',',$menu);
+      // print_r($muenu_items);exit;
         $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
@@ -394,7 +396,7 @@ class UTO extends CI_Controller
             'description' => $description,
             'date' => $date,
             'total_guests' => $total_guests,
-            'menu' => $menu,
+            'menu' => $muenu_items,
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('guest_reservation', $insert_array);
@@ -418,6 +420,8 @@ class UTO extends CI_Controller
         $no_of_persons = $postData['no_of_persons'];
         $menu = $postData['menu'];
         $description = $postData['description'];
+
+        $muenu_items=implode(',',$menu);
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
 
@@ -427,7 +431,7 @@ class UTO extends CI_Controller
             'description' => $description,
             'date' => $date,
             'total_persons' => $no_of_persons,
-            'menu' => $menu
+            'menu' => $muenu_items
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('requesting_menu', $insert_array);

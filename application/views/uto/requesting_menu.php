@@ -94,15 +94,15 @@ $this->load->view('uto/common/header');
                                 </div>
                               
                             </div>
-                            <!-- <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script>
-                            <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" /> -->
+                            <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script>
+                            <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" />
 
                           
 
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu" id="menu" style="height:50px;padding:10px" >
+                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" >
                                         <option value="">Select Menu</option>
                                         <?php foreach($menu_data as $data){?>
                                             <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
