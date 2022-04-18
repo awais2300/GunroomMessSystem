@@ -43,7 +43,7 @@
         </a>
         <!-- Code begins here -->
         <?php if ($this->session->has_userdata('user_id')) { ?>
-        <!-- <a href="<?= base_url(); ?>ChatController?sender_id=" class="float">
+            <!-- <a href="<?= base_url(); ?>ChatController?sender_id=" class="float">
             <i class="fas fa-comment-dots my-float"></i>
         </a> -->
         <?php } ?>
@@ -73,6 +73,9 @@
         <script src="<?php echo base_url(); ?>assets/js/canvasjs.react"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.canvasjs.min"></script> -->
 
+        <!-- Bootstrap core JavaScript-->
+        <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+
         <!-- JS link for calender -->
         <!-- <script src="<?php echo base_url(); ?>assets/fullcalendar/lib/jquery.min.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -81,10 +84,10 @@
         <script src="<?php echo base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <!-- <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.min.js"></script> -->
+        <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <!-- <script src="<?php echo base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script> -->
+        <script src="<?php echo base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
         <script src="<?php echo base_url(); ?>assets/js/demo/chart-area-demo.js"></script>
