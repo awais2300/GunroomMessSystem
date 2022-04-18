@@ -1,6 +1,13 @@
 <?php
 $this->load->view('uto/common/header');
 ?>
+<link rel="stylesheet" type="text/css" href="http://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css+demos,_assets,_style.css+demos,_assets,_prettify.css.pagespeed.cc.8klr74YZ6Y.css">
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/ehynds/jquery-ui-multiselect-widget/1.10/src/jquery.multiselect.js"></script>
+
 
 <style>
     #attachement {
@@ -87,11 +94,15 @@ $this->load->view('uto/common/header');
                                 </div>
                               
                             </div>
+                            <!-- <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script>
+                            <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" /> -->
+
+                          
 
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user" name="menu" id="menu" style="height:50px;padding:10px">
+                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu" id="menu" style="height:50px;padding:10px" >
                                         <option value="">Select Menu</option>
                                         <?php foreach($menu_data as $data){?>
                                             <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
@@ -134,6 +145,12 @@ $this->load->view('uto/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
+
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+
+
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
         var validate = 0;

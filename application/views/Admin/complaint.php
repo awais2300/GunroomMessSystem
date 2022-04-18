@@ -34,7 +34,7 @@ $this->load->view('Admin/common/header');
         <!-- Nested Row within Card Body -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
             <h1 class="h3 mb-0 text-black-800"></h1>
-            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/register_complaint" style="margin-block-end: 10px; ">+ Register New Complaint</a>
+            <!-- <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/register_complaint" style="margin-block-end: 10px; ">+ Register New Complaint</a> -->
         </div>
 
         <div class="row">

@@ -118,7 +118,7 @@ $this->load->view('Admin/common/header');
                             </div> -->
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*">
+                                    <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*" readonly>
                                 </div>
                                 <label><?= $complaint_data['attachement']; ?></label>
                             </div>
@@ -132,7 +132,7 @@ $this->load->view('Admin/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4"><?= trim($complaint_data['description']); ?></textarea>
+                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4" readonly><?= trim($complaint_data['description']); ?></textarea>
                                 </div>
                             </div>
 
