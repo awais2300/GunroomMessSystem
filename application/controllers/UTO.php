@@ -26,7 +26,7 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied'] = $this->db->where('gunroom_id', '1')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant'] = $this->db->where('gunroom_id', '1')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers'] = $this->db->where('gunroom_id', '1')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers'] = $this->db->where('gunroom_id', '1')->where('allocated_to_1 !=', '')->from("gunrooms_rooms")->count_all_results();
             //  echo  $data['accomodated_officers'];exit;
             $this->load->view('uto/Gunroom1', $data);
         }
@@ -36,7 +36,7 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied_2'] = $this->db->where('gunroom_id', '2')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant_2'] = $this->db->where('gunroom_id', '2')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', '2')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', '2')->where('allocated_to_1 !=', '')->from("gunrooms_rooms")->count_all_results();
             $this->load->view('uto/Gunroom2', $data);
         }
     }
@@ -45,7 +45,7 @@ class UTO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['room_occupied_3'] = $this->db->where('gunroom_id', '3')->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant_3'] = $this->db->where('gunroom_id', '3')->where('status', 'vacant')->from("gunrooms_rooms")->count_all_results();;
-            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', '3')->where('allocated_to!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', '3')->where('allocated_to_1 !=', '')->from("gunrooms_rooms")->count_all_results();
             $this->load->view('uto/Gunroom3', $data);
         }
     }
