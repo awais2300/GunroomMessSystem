@@ -28,6 +28,54 @@ class Operator extends CI_Controller
             $this->load->view('operator/allocate_rooms');
         }
     }
+
+    public function add_new_gunroom()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['gunrooms'] = $this->db->get('gunrooms')->result_array();
+            $this->load->view('operator/add_new_gunroom',$data);
+        }
+    }
+    public function add_new_floor($gunroom_id = NULL)
+    {
+        if ($this->session->has_userdata('user_id')) {
+
+            // $data['gunrooms_floors'] = $this->db->where('gunroom_id',$gunroom_id)->get('gunrooms_floors')->result_array();
+
+            $this->db->select('g.gunroom_name, gf.*');
+            $this->db->from('gunrooms_floors gf');
+            $this->db->join('gunrooms g', 'gf.gunroom_id = g.id');
+            $this->db->where('g.id', $gunroom_id);
+            $this->db->where('gf.gunroom_id', $gunroom_id);
+            $data['gunrooms_floors'] = $this->db->get()->result_array();
+            $data['gunroom_id'] = $gunroom_id;
+
+            $this->load->view('operator/add_new_floor',$data);
+        }
+    }
+
+    public function add_new_room($floor_id = NULL, $gunroom_id = NULL)
+    {
+        
+        if ($this->session->has_userdata('user_id')) {
+
+            // $data['gunrooms_floors'] = $this->db->where('gunroom_id',$gunroom_id)->get('gunrooms_floors')->result_array();
+
+            $this->db->select('g.gunroom_name, gf.gunroom_floor_name, gr.*');
+            $this->db->from('gunrooms_rooms gr');
+            $this->db->join('gunrooms_floors gf', 'gr.gunroom_floor_id = gf.id');
+            $this->db->join('gunrooms g', 'gf.gunroom_id = g.id');
+            $this->db->where('gr.gunroom_floor_id', $floor_id);
+            $this->db->where('gr.gunroom_id', $gunroom_id);
+            $data['gunrooms_rooms'] = $this->db->get()->result_array();
+
+            $data['gunroom_id'] = $gunroom_id;
+            $data['floor_id'] = $floor_id;
+
+            $this->load->view('operator/add_new_room',$data);
+        }
+    }
+
     public function update_menu()
     {
         if ($this->session->has_userdata('user_id')) {
@@ -56,6 +104,101 @@ class Operator extends CI_Controller
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
             redirect('operator/update_menu');
+        }
+    }
+
+    public function insert_new_gunroom()
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['gunroom_name'];
+
+        $insert_array = array(
+            'gunroom_name' => $name,
+            'total_floors' => '0'
+        );
+
+        $insert = $this->db->insert('gunrooms', $insert_array);
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'New Gunroom Added Successfully');
+            redirect('operator/add_new_gunroom');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('operator/add_new_gunroom');
+        }
+    }
+
+    public function insert_new_floor($gunroom_id = NULL)
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['floor_name'];
+
+        $insert_array = array(
+            'gunroom_id ' => $gunroom_id,
+            'gunroom_floor_name' => $name,
+            'total_rooms' => 0
+        );
+
+        $insert = $this->db->insert('gunrooms_floors', $insert_array);
+
+        if (!empty($insert)) {
+
+            $floors = $this->db->select('total_floors')->where('id',$gunroom_id)->get('gunrooms')->row_array();
+            $cond  = [
+                'id' => $gunroom_id
+            ];
+            $data_update = [
+                'total_floors' => ($floors['total_floors'] + 1)
+            ];
+    
+            $this->db->where($cond);
+            $insert =  $this->db->update('gunrooms', $data_update);
+
+            $this->session->set_flashdata('success', 'New Floor Added Successfully');
+            redirect('operator/add_new_floor/'.$gunroom_id);
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('operator/add_new_floor/'.$gunroom_id);
+        }
+    }
+
+    public function insert_new_room($gunroom_id = NULL, $floor_id = NULL)
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $room_no = $postData['room_no'];
+        $total_beds = $postData['total_beds'];
+
+        $insert_array = array(
+            'gunroom_id ' => $gunroom_id,
+            'gunroom_floor_id  ' => $floor_id,
+            'Room_no' => $room_no,
+            'total_beds' => $total_beds
+        );
+
+        $insert = $this->db->insert('gunrooms_rooms', $insert_array);
+
+        if (!empty($insert)) {
+
+            $rooms = $this->db->select('total_rooms')->where('id',$floor_id)->where('gunroom_id',$gunroom_id)->get('gunrooms_floors')->row_array();
+            $cond  = [
+                'id' => $floor_id,
+                'gunroom_id' => $gunroom_id
+            ];
+            $data_update = [
+                'total_rooms' => ($rooms['total_rooms'] + 1)
+            ];
+    
+            $this->db->where($cond);
+            $insert =  $this->db->update('gunrooms_floors', $data_update);
+
+            $this->session->set_flashdata('success', 'New Floor Added Successfully');
+            redirect('operator/add_new_room/'.$floor_id.'/'.$gunroom_id);
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('operator/add_new_room/'.$floor_id.'/'.$gunroom_id);
         }
     }
 

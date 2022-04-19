@@ -84,14 +84,21 @@
             
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/allocate_rooms" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <i class="fas fa-hotel"></i>
                     <span> Room Allocations </span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/update_menu" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-hotel"></i>
+                    <i class="fas fa-hotel"></i>
                     <span> Update Mess Menu </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/add_new_gunroom" aria-expanded="true">
+                    <i class="fas fa-folder-plus"></i>
+                    <span> Add New Gunroom </span>
                 </a>
             </li>
            

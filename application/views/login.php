@@ -22,8 +22,8 @@
 
 <style>
   .img-bg {
-    /* background-image: url('<?= base_url() ?>assets/img/bg-image.jpg'); */
-    background-color:  #303030 !important;
+    background-image: url('<?= base_url() ?>assets/img/bg-image.jpg');
+    background-color: #303030 !important;
     background-size: cover;
     width: 100%;
   }
@@ -31,11 +31,11 @@
   .region {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
     /* background: transparent !important; */
-    background-color:  #A8A8AA !important;
-    text-align: center !important;
+    background-color:  #DEDEF9 !important;
+    /* text-align: center !important; */
     font-weight: 700 !important;
-    border-radius: 20px !important;
-    height: 386px;
+    border-radius: 15px !important;
+    height: 358px;
     border-color: #000154 !important;
   }
 
@@ -50,16 +50,16 @@
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
-      <h1 class="h1 text-grey-900 " style="margin-top:50px; padding:0%; margin-bottom:0px;color:white; text-align:center;text-decoration:underline"><strong> Gunroom & Mess Management System </strong></h1>
+      <h1 class="h1 text-grey-900 " style="margin-top:50px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline"><strong> Gunroom & Mess Management System </strong></h1>
       <div class="col-xl-7">
         <div class="card o-hidden border-0 shadow-lg my-5 region">
           <!-- <div class="card-body p-0" style=""> -->
           <!-- Nested Row within Card Body -->
           <div class="row">
             <div class="col-lg-6 d-none d-lg-block bg-login-image "></div>
-           
+
             <div class="col-lg-6">
-              <div class="p-5" style="margin-top:10px">
+              <div class="p-5">
                 <form class="user" role="form" id="login_form" method="post" action="<?php echo base_url(); ?>User_Login/login_process">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Enter Username...">
@@ -68,7 +68,7 @@
                     <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" style="margin-bottom:5px !important;">
                     <select class="form-control form-control-user" name="optradio" id="optradio" style="height:50px;padding:10px">
                       <option value="">Account Type</option>
                       <option value="gunroom">Gunroom</option>
@@ -76,21 +76,28 @@
                     </select>
                   </div>
 
+                  <div class="form-check form-group" style="margin-left:5px">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Remember Me
+                    </label>
+                  </div>
+
                   <span style="color: red; display: none;font-size: 12px" id="Account_error">
                     *Please select Account type
                   </span>
 
-                  <hr>
-                  <button type="button" class="btn btn-primary btn-user btn-block" id="login_btn">
+                  <!-- <hr> -->
+                  <button type="button" class="btn btn-primary btn-user btn-block" id="login_btn" style="background-color:#0d6efd; border: solid 1px #0d6efd">
                     <i class="fas fa-key"></i>
                     Login
                   </button>
-                  
-                 
+                  <!-- <label href="#">Forgot your password?</label> -->
+                  <a href="#" style="margin-left:5px">Forgot your password?</a>
 
                 </form>
-                <hr>
-                <br><br>
+                <!-- <hr> -->
+                <!-- <br><br> -->
 
               </div>
             </div>
