@@ -194,7 +194,7 @@ class Operator extends CI_Controller
             $this->db->where($cond);
             $insert =  $this->db->update('gunrooms_floors', $data_update);
 
-            $this->session->set_flashdata('success', 'New Floor Added Successfully');
+            $this->session->set_flashdata('success', 'New Room Added Successfully');
             redirect('operator/add_new_room/'.$floor_id.'/'.$gunroom_id);
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
