@@ -7,7 +7,7 @@ $this->load->view('operator/common/header');
         background: url('<?= base_url() ?>assets/img/project-banner.jpg');
         background-position: center;
         background-size: cover;
-        height: 300px;
+        height: 250px;
         /* filter: blur(1px); */
         border-radius: 25px;
     }
@@ -29,7 +29,7 @@ $this->load->view('operator/common/header');
 
     <form class="user" role="form" method="post" id="add_form">
 
-        <div class="form-group row justify-content-center" style="margin-top:50px;">
+        <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
             <div class="col-sm-4">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Operator/allocate_rooms'">
                     <h5 style="font-weight: bold;">Room Allocation</h5>
@@ -39,6 +39,12 @@ $this->load->view('operator/common/header');
             <div class="col-sm-4">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Operator/update_menu'">
                     <h5 style="font-weight: bold;">Update Mess Menu</h5>
+                </button>
+            </div>
+
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>Operator/add_new_gunroom'">
+                    <h5 style="font-weight: bold;">Add New Gunroom</h5>
                 </button>
             </div>
 

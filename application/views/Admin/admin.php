@@ -1,5 +1,19 @@
 <?php $this->load->view('Admin/common/header'); ?>
 
+<style>
+    .img {
+        background: url('<?= base_url() ?>assets/img/project-banner.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 300px;
+        /* filter: blur(1px); */
+        border-radius: 25px;
+    }
+
+    .red-border {
+        border: 1px solid red !important;
+    }
+</style>
 
 <div class="container-fluid my-4">
 
@@ -10,11 +24,10 @@
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#all_projects"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
     <!-- Content Row -->
-    <div class="row">
 
-      
+    <div class="col-md-12 img">
     </div>
-
+    
 </div>
 
 </div>

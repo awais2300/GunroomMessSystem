@@ -20,21 +20,22 @@
 
 </head>
 <style>
-.numberCircle {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 8px;
-   
+    .numberCircle {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        padding: 8px;
 
-    background: red;
-    border: 2px solid #666;
-    color: white;
-    text-align: center;
 
-    font: 20px Arial, sans-serif;
-}
+        background: red;
+        border: 2px solid #666;
+        color: white;
+        text-align: center;
+
+        font: 20px Arial, sans-serif;
+    }
 </style>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -73,37 +74,38 @@
                     <span>Create New User</span>
                 </a>
             </li>
-            <?php $unseen_complaints= $this->db->where('admin_seen','no')->from('complaints')->count_all_results(); ?>
+            <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->from('complaints')->count_all_results(); ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>Admin/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Complaints</span>
-                    <?php if($unseen_complaints != '0'){ ?>
-                    <span class="numberCircle"><?=  $unseen_complaints; ?></span>
+                    <?php if ($unseen_complaints != '0') { ?>
+                        <span class="numberCircle"><?= $unseen_complaints; ?></span>
                     <?php } ?>
                 </a>
             </li>
-            <?php $unseen_reservations= $this->db->where('admin_seen','no')->from('guest_reservation')->count_all_results(); ?>
-             <li class="nav-item">
+            <?php $unseen_reservations = $this->db->where('admin_seen', 'no')->from('guest_reservation')->count_all_results(); ?>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/reservation" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-user-edit"></i>
+                    <i class="fas fa-user-edit"></i>
                     <span> Guest Reservations</span>
                     <?php if ($unseen_reservations != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
-                        <?php } ?>
+                        <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                    <?php } ?>
                 </a>
             </li>
-            <?php $unseen_menu_requests= $this->db->where('admin_seen','no')->from('requesting_menu')->count_all_results(); ?>
+            <?php $unseen_menu_requests = $this->db->where('admin_seen', 'no')->from('requesting_menu')->count_all_results(); ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/menu_requests" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-unlock-alt"></i>
+                    <i class="fas fa-unlock-alt"></i>
                     <span> Menu Requests </span>
                     <?php if ($unseen_menu_requests != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
-                        <?php } ?>
+                        <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                    <?php } ?>
                 </a>
             </li>
-           <!-- <li class="nav-item">
+            
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/view_activity_log" aria-expanded="true">
                     <i style="font-size:20px" class="far fa-list-alt"></i>
                     <span> View Activity Log </span>
