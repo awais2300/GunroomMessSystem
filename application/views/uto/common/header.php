@@ -123,13 +123,13 @@
             </li>
             <?php }else if($this->session->userdata('login_type')=='mess'){ ?>
                 <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/guest_reservation" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/reservation" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-hotel"></i>
                     <span> Guest Reservation </span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/requesting_menu" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/menu_requests" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-list"></i>
                     <span> Requesting Menu </span>
                 </a>

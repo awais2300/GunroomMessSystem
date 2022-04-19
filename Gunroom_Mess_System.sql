@@ -493,6 +493,10 @@ ALTER TABLE `requesting_menu`
 ALTER TABLE `requesting_menu`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
+ALTER TABLE `guest_reservation`
+  ADD column `remarks` varchar(255) NOT NULL;
+ALTER TABLE `requesting_menu` 
+  ADD column `remarks` varchar(255) NOT NULL;
 
 
 

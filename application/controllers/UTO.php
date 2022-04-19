@@ -309,6 +309,7 @@ class UTO extends CI_Controller
     public function guest_reservation()
     {
         if ($this->session->has_userdata('user_id')) {
+            
             $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
             $this->load->view('uto/guest_reservation',$data);
         }
@@ -372,6 +373,21 @@ class UTO extends CI_Controller
             redirect('uto/register_complaint');
         }
     }
+    public function reservation()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['reservation_data'] = $this->db->where('name',$this->session->userdata('username'))->get('guest_reservation')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('guest_reservation');
+            $this->load->view('uto/reservations',$data);
+        }
+    } public function menu_requests()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['menu_request_data'] = $this->db->where('name',$this->session->userdata('username'))->get('requesting_menu')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
+            $this->load->view('uto/menu_requests',$data);
+        }
+    }
 
     public function guest_reservation_process()
     {
@@ -397,6 +413,8 @@ class UTO extends CI_Controller
             'date' => $date,
             'total_guests' => $total_guests,
             'menu' => $muenu_items,
+            'seen'=>'no',
+            'admin_seen'=>'no'
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('guest_reservation', $insert_array);
@@ -431,7 +449,9 @@ class UTO extends CI_Controller
             'description' => $description,
             'date' => $date,
             'total_persons' => $no_of_persons,
-            'menu' => $muenu_items
+            'menu' => $muenu_items,
+            'seen'=>'no',
+            'admin_seen'=>'no'
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('requesting_menu', $insert_array);
