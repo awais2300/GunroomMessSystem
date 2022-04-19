@@ -25,7 +25,7 @@
     width: 20px;
     height: 20px;
     padding: 8px;
-    margin-left:25px;
+   
 
     background: red;
     border: 2px solid #666;
@@ -83,19 +83,27 @@
                     <?php } ?>
                 </a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>User_Login/edit_profile" aria-expanded="true">
+            <?php $unseen_reservations= $this->db->where('admin_seen','no')->from('guest_reservation')->count_all_results(); ?>
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/reservation" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-user-edit"></i>
-                    <span> Edit Profile </span>
+                    <span> Guest Reservations</span>
+                    <?php if ($unseen_reservations != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                        <?php } ?>
                 </a>
             </li>
+            <?php $unseen_menu_requests= $this->db->where('admin_seen','no')->from('requesting_menu')->count_all_results(); ?>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>User_Login/change_password" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/menu_requests" aria-expanded="true">
                     <i style="font-size:20px" class="fas fa-unlock-alt"></i>
-                    <span> Change Password </span>
+                    <span> Menu Requests </span>
+                    <?php if ($unseen_menu_requests != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                        <?php } ?>
                 </a>
             </li>
-            <li class="nav-item">
+           <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/view_activity_log" aria-expanded="true">
                     <i style="font-size:20px" class="far fa-list-alt"></i>
                     <span> View Activity Log </span>

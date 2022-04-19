@@ -26,7 +26,7 @@ $this->load->view('uto/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Reservation Records</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Menu Requests Records</strong></h1>
         </div>
     </div>
 
@@ -41,7 +41,7 @@ $this->load->view('uto/common/header');
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Complaints</h1>
+                        <h1 class="h4">Menu Requests</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
@@ -71,16 +71,12 @@ $this->load->view('uto/common/header');
                                             <?php $arr= explode(',',$data['menu']);?>
                                             <?php for($i=0;$i<count($arr);$i++){
                                             $menu_items=$this->db->where('id',$arr[$i])->get('mess_menu')->row_array();
-                                          
                                             $item_string .= $menu_items['menu_name']." , ";
-                                           
                                             }?>
-                                          
                                             <td><?= $item_string ?></td>
                                             <td><?= $data['total_persons']; ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
-
                                         </tr>
 
                                     <?php } ?>

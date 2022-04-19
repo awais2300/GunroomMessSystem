@@ -107,7 +107,116 @@ class Admin extends CI_Controller
             redirect('Admin/update_complaint');
         }
     }
-    
+    public function  update_guest_reservation_process($id=null)
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['name'];
+        $p_no = $postData['p_no'];
+        $date = $postData['date'];
+        $total_guests = $postData['total_guests'];
+        $menu = $postData['menu'];
+        $remarks=$postData['remarks'];
+       //print_r($menu);
+       $muenu_items=implode(',',$menu);
+      // print_r($muenu_items);exit;
+        $description = $postData['description'];
+        // echo $_FILES['attachement'];exit;
+        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+       
+
+        $insert_array = array(
+            'name' => $name,
+            'p_no' => $p_no,
+            'description' => $description,
+            'date' => $date,
+            'total_guests' => $total_guests,
+            'menu' => $muenu_items,
+            'seen'=>'no',
+            'admin_seen'=>'no',
+            'remarks'=>$remarks
+        );
+        //print_r($insert_array);exit;
+        $this->db->where('id',$id);
+        $insert = $this->db->update('guest_reservation', $insert_array);
+
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'Submitted successfully');
+            redirect('Admin/reservation');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('Admin/update_guest_reservation');
+        }
+    }
+
+    public function  update_requesting_menu_process($id=null)
+    {
+        $postData = $this->security->xss_clean($this->input->post());
+
+        $name = $postData['name'];
+        $p_no = $postData['p_no'];
+        $date = $postData['date'];
+        $no_of_persons = $postData['no_of_persons'];
+        $menu = $postData['menu'];
+        $description = $postData['description'];
+        $remarks=$postData['remarks'];
+
+        $muenu_items=implode(',',$menu);
+        // echo $_FILES['attachement'];exit;
+        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+
+        $insert_array = array(
+            'name' => $name,
+            'p_no' => $p_no,
+            'description' => $description,
+            'date' => $date,
+            'total_persons' => $no_of_persons,
+            'menu' => $muenu_items,
+            'seen'=>'no',
+            'admin_seen'=>'no',
+            'remarks'=>$remarks
+        );
+        //print_r($insert_array);exit;
+        $this->db->where('id',$id);
+        $insert = $this->db->insert('requesting_menu', $insert_array);
+
+
+        if (!empty($insert)) {
+            $this->session->set_flashdata('success', 'Submitted successfully');
+            redirect('Admin/menu_requests');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('Admin/update_menu_requests');
+        }
+
+    }
+    public function reservation()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['reservation_data'] = $this->db->get('guest_reservation')->result_array();
+            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('guest_reservation');
+            $this->load->view('Admin/reservations',$data);
+        }
+    } public function menu_requests()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
+            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('requesting_menu');
+            $this->load->view('Admin/menu_requests',$data);
+        }
+    }
+    public function update_guest_reservation($id=null){
+        $data['update_guest_reservation_data'] = $this->db->where('id',$id)->get('guest_reservation')->row_array();
+        $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+        $this->load->view('Admin/update_guest_reservation',$data);
+    }
+
+    public function update_menu_requests($id=null){
+        $data['update_menu_requests_data'] = $this->db->where('id',$id)->get('requesting_menu')->row_array();
+        $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+        $this->load->view('Admin/update_requesting_menu',$data);
+    }
 
     public function logout()
     {

@@ -30,8 +30,7 @@
         width: 20px;
         height: 20px;
         padding: 8px;
-        margin-left: 25px;
-
+        
         background: red;
         border: 2px solid #666;
         color: white;
@@ -118,18 +117,28 @@
                     </a>
                 </li>
             <?php } else if ($this->session->userdata('login_type') == 'mess') { ?>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/reservation" aria-expanded="true">
-                        <i style="font-size:20px" class="fas fa-hotel"></i>
-                        <span> Guest Reservation </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/menu_requests" aria-expanded="true">
-                        <i style="font-size:20px" class="fas fa-list"></i>
-                        <span> Requesting Menu </span>
-                    </a>
-                </li>
+                <?php $unseen_reservations= $this->db->where('seen','no')->from('guest_reservation')->count_all_results(); ?>
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/reservation" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-user-edit"></i>
+                    <span> Guest Reservations</span>
+                    <?php if ($unseen_reservations != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                        <?php } ?>
+                </a>
+            </li>
+
+            <?php $unseen_menu_requests= $this->db->where('seen','no')->from('requesting_menu')->count_all_results(); ?>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/menu_requests" aria-expanded="true">
+                    <i style="font-size:20px" class="fas fa-unlock-alt"></i>
+                    <span> Menu Requests </span>
+                    <?php if ($unseen_menu_requests != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                        <?php } ?>
+                </a>
+            </li>
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
                         <i style="font-size:20px" class="fas fa-tasks"></i>

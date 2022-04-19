@@ -1,5 +1,5 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('Admin/common/header');
 ?>
 
 <style>
@@ -34,14 +34,14 @@ $this->load->view('uto/common/header');
         <!-- Nested Row within Card Body -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
             <h1 class="h3 mb-0 text-black-800"></h1>
-            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/guest_reservation" style="margin-block-end: 10px; ">+ Guest Reservation</a>
+            <!-- <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/guest_reservation" style="margin-block-end: 10px; ">+ Guest Reservation</a> -->
         </div>
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Guest Reservation</h1>
+                        <h1 class="h4">Guest Reservations</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
@@ -54,6 +54,8 @@ $this->load->view('uto/common/header');
                                         <th>Total guests</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
+                                        <th> Action </th>
+
 
 
                                     </tr>
@@ -80,6 +82,7 @@ $this->load->view('uto/common/header');
                                             <td><?= $data['total_guests']; ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
+                                            <td><a href="<?= base_url(); ?>Admin/update_guest_reservation/<?= $data['id'] ?>"><i class="fa fa-edit"></i></a></td>
 
                                         </tr>
 
