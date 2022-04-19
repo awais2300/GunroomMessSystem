@@ -498,7 +498,15 @@ ALTER TABLE `guest_reservation`
 ALTER TABLE `requesting_menu` 
   ADD column `remarks` varchar(255) NOT NULL;
 
+ALTER TABLE `guest_reservation`
+  ADD column `seen` enum('no','yes');
+ALTER TABLE `guest_reservation`
+  ADD column `admin_seen` enum('no','yes');
 
+ALTER TABLE `requesting_menu` 
+  ADD column `seen` enum('no','yes');
+ALTER TABLE `requesting_menu` 
+  ADD column `admin_seen` enum('no','yes');
 
 COMMIT;
 
