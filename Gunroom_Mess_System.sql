@@ -567,12 +567,12 @@ ALTER TABLE `guest_reservation`
 ALTER TABLE `requesting_menu` 
   ADD column `remarks` varchar(255) NOT NULL;
 
-<<<<<<< HEAD
+
 ALTER TABLE `guest_reservation`
   ADD column `seen` enum('no','yes');
 ALTER TABLE `guest_reservation`
   ADD column `admin_seen` enum('no','yes');
-=======
+
 ALTER TABLE `gunrooms_rooms`
   ADD column `total_beds` INT NULL DEFAULT 4;
 
@@ -586,7 +586,7 @@ ALTER TABLE `guest_reservation`
 ALTER TABLE `guest_reservation` 
   ADD column `admin_seen` enum('no','yes');
 
->>>>>>> b07e0ab088e8ca4d9143a847c600e77d245ea07e
+
 
 ALTER TABLE `requesting_menu` 
   ADD column `seen` enum('no','yes');

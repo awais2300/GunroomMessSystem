@@ -25,9 +25,34 @@ class Operator extends CI_Controller
     public function allocate_rooms()
     {
         if ($this->session->has_userdata('user_id')) {
-            $this->load->view('operator/allocate_rooms');
+            $data['gunrooms'] = $this->db->get('gunrooms')->result_array();
+            //$data['floors'] = $this->db->get('gunrooms_floor')->result_array();
+            $this->load->view('operator/allocate_rooms',$data);
         }
     }
+    public function get_floors_of_gunroom(){
+        if ($this->input->post()) {
+            $gunroom_id = $_POST['gunroom_id'];
+    
+                $query = $this->db->where('gunroom_id', $gunroom_id)->get('gunrooms_floors')->result_array();
+
+           // print_r($query);exit;
+            echo json_encode($query);
+        }
+    }
+    public function get_rooms_of_floor(){
+        if ($this->input->post()) {
+            $gunroom_id = $_POST['gunroom_id'];
+
+            $floor_id = $_POST['floor_id'];
+    
+                $query = $this->db->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $floor_id)->get('gunrooms_rooms')->result_array();
+
+           // print_r($query);exit;
+            echo json_encode($query);
+        }
+    }
+
 
     public function add_new_gunroom()
     {

@@ -53,44 +53,23 @@ $this->load->view('operator/common/header');
                                 <div class="col-sm-4 mb-1">
                                     <select class="form-control form-control-user" name="gunroom" id="gunroom" style="height:50px;padding:10px">
                                         <option value="">Select Gunroom</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
+                                        <?php foreach ($gunrooms as $data){?>
+                                        <option value="<?= $data['id']?>"><?= $data['gunroom_name']?></option>
+                                       <?php } ?>
+                                       
                                     </select>
                                 </div>
 
                                 <div class="col-sm-4 mb-1">
                                     <select class="form-control form-control-user" name="floor" id="floor" style="height:50px;padding:10px">
                                         <option value="">Select Floor</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                    
                                     </select>
                                 </div>
                                 <div class="col-sm-4 mb-1">
                                     <select class="form-control form-control-user" name="room" id="room" style="height:50px;padding:10px">
                                         <option value="">Select Room</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
+                                       
                                     </select>
                                 </div>
                             </div>
@@ -148,6 +127,69 @@ $this->load->view('operator/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
+    $(document).on('change', '#gunroom', function() {
+        var value=  $('#gunroom').val();
+    //alert(value);
+    $.ajax({
+                url: '<?= base_url(); ?>Operator/get_floors_of_gunroom',
+                method: 'POST',
+                data: {
+                    'gunroom_id': value
+                },
+                success: function(data) {
+                    var result = jQuery.parseJSON(data);
+                    var len = result.length;
+
+                    $("#floor").empty();
+                    $("#floor").append("<option value=''>Select Floor</option>");
+                for( var i = 0; i<len; i++){
+                    var id = result[i]['id'];
+                    var name = result[i]['gunroom_floor_name'];
+                    
+                  
+                    $("#floor").append("<option value='"+id+"'>"+name+"</option>");
+
+                }
+                   
+
+                },
+                async: true
+            });
+});
+
+$(document).on('change', '#floor', function() {
+        var value=  $('#gunroom').val();
+        var value2=$('#floor').val();
+    //alert(value);
+    $.ajax({
+                url: '<?= base_url(); ?>Operator/get_rooms_of_floor',
+                method: 'POST',
+                data: {
+                    'gunroom_id': value,
+                    'floor_id':value2
+                },
+                success: function(data) {
+                    var result = jQuery.parseJSON(data);
+                    var len = result.length;
+
+                    $("#room").empty();
+                    $("#room").append("<option value=''>Select Room</option>");
+                for( var i = 0; i<len; i++){
+                    var id = result[i]['id'];
+                    var name = result[i]['Room_no'];
+                    
+                   
+                    $("#room").append("<option value='"+id+"'>"+name+"</option>");
+
+                }
+                   
+
+                },
+                async: true
+            });
+});
+   
+   
     //  window.onload = function exampleFunction() {
     //      //alert('HIii');
     //      $.ajax({
