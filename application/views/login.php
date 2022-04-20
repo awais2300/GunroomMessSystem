@@ -30,8 +30,8 @@
 
   .region {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
-    /* background: transparent !important; */
-    background-color: #DEDEF9 !important;
+    background: transparent !important;
+    /* background-color: #DEDEF9 !important; */
     /* text-align: center !important; */
     font-weight: 700 !important;
     /* border-radius: 15px !important; */
@@ -50,7 +50,7 @@
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
-      <h1 class="h1 text-grey-900 " style="margin-top:40px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline;font-family:'Brush Script MT';color:navy;font-size:70px"><strong> Gunroom & Mess Management System </strong></h1>
+
       <div class="col-xl-7">
         <div class="card o-hidden border-0 shadow-lg my-5 region">
           <!-- <div class="card-body p-0" style=""> -->
@@ -107,12 +107,9 @@
           </div>
 
         </div>
-        <!-- DIv 2 -->
-
-
 
       </div>
-
+      <h1 class="h1 text-grey-900 " style="margin-top:0px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline;font-family:'Apple Chancery';color:navy;font-size:50px"><strong> Gunroom & Mess Management System </strong></h1>
     </div>
 
   </div>
