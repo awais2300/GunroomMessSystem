@@ -23,19 +23,20 @@
 
 <style>
     .numberCircle {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 8px;
-    margin-left:25px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        padding: 8px;
+        margin-left: 25px;
 
-    background: red;
-    border: 2px solid #666;
-    color: white;
-    text-align: center;
+        background: red;
+        border: 2px solid #666;
+        color: white;
+        text-align: center;
 
-    font: 20px Arial, sans-serif;
-}
+        font: 20px Arial, sans-serif;
+    }
+
     .img-logo {
         background: url('<?= base_url() ?>assets/img/logo-inverted.png');
         /* background-position: center; */
@@ -44,6 +45,20 @@
         width: 39px;
         /* filter: blur(1px); */
         /* border-radius: 25px; */
+    }
+
+    span {
+        color:black;
+        font-size:18px !important;
+    }
+
+    .fas {
+        color:black !important;
+        font-size:18px !important
+    }
+
+    .sidebar-brand-text {
+        color:black !important;
     }
 </style>
 
@@ -56,7 +71,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?><?php echo 'Project_Officer';?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?><?php echo 'Project_Officer'; ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
@@ -81,7 +96,7 @@
                 Features
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
-            
+
             <li class="nav-item">
                 <!-- <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/allocate_rooms" aria-expanded="true"> -->
                 <a class="nav-link collapsed" href="#" aria-expanded="true">
@@ -100,12 +115,12 @@
             <li class="nav-item">
                 <!-- <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/add_new_gunroom" aria-expanded="true"> -->
                 <a class="nav-link collapsed" href="#" aria-expanded="true">
-                <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>
                     <span> Current Mess Menu </span>
                 </a>
             </li>
-           
-            
+
+
             <br>
 
 
@@ -137,7 +152,7 @@
                                 <div class="img-logo"></div>
                             </div>
                             <div class="col-sm-10">
-                                <h5 style="color:white;"> <strong>GUNROOM & MESS SYSTEM</strong></h5>
+                                <h5 style="color:black;"> <strong>GUNROOM & MESS SYSTEM</strong></h5>
                             </div>
                         </div>
                     </form>
@@ -204,7 +219,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $this->session->userdata('username'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-black small"><?php echo $this->session->userdata('username'); ?></span>
                                 <span id="user_id" style="display:none"><?php echo $this->session->userdata('user_id'); ?></span>
                                 <img class="img-profile rounded-circle" src="<?php echo base_url(); ?>assets/img/undraw_profile.svg">
                             </a>

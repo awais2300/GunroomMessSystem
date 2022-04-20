@@ -2510,15 +2510,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-    color: white;
-    background-color: #303030;
-    border-color: #303030
+    color: black;
+    background-color: #89ADFE;
+    border-color: #89ADFE
 }
 
 .btn-primary:hover {
-    color: white;
-    background-color: #5a5c69;
-    border-color: #5a5c69
+    color: black;
+    background-color: #D4E0FD;
+    border-color: #D4E0FD
 }
 
 .btn-primary.focus,
@@ -6732,16 +6732,16 @@ a.close.disabled {
 }
 
 .bg-custom1 {
-    background-color: #303030 !important;
+    background-color: #89ADFE !important;
     color: white !important;
 }
 
 .bg-custom2 {
-    background-color: #E5E2E2 !important;
+    background-color: #D4E0FD !important;
 }
 
 .bg-custom3 {
-    background-color: #CECCCC !important;
+    background-color: #F3F7FF !important;
 }
 
 .bg-primary {
@@ -10256,9 +10256,9 @@ a:focus {
 
 .bg-gradient-primary {
     /* background-color: rgb(0, 1, 84) !important; */
-    background-color: #303030 !important;
-    background-image: linear-gradient(180deg, #303030 10%, #7C7C7E 100%);
-    background-size: cover
+    background-color: #89ADFE !important;
+    background-image: linear-gradient(180deg, #89ADFE 10%, #D4E0FD 100%);
+    background-size: cover;
 }
 
 .bg-gradient-secondary {

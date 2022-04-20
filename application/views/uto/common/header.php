@@ -48,6 +48,20 @@
         /* filter: blur(1px); */
         /* border-radius: 25px; */
     }
+
+    span {
+        color:black;
+        font-size:18px !important;
+    }
+
+    .fas {
+        color:black !important;
+        font-size:18px !important
+    }
+
+    .sidebar-brand-text {
+        color:black !important;
+    }
 </style>
 
 <body id="page-top">
@@ -197,7 +211,7 @@
                                 <div class="img-logo"></div>
                             </div>
                             <div class="col-sm-10">
-                                <h5 style="color:white;"> <strong>GUNROOM & MESS SYSTEM</strong></h5>
+                                <h5 style="color:black;"> <strong>GUNROOM & MESS SYSTEM</strong></h5>
                             </div>
                         </div>
                     </form>
@@ -264,7 +278,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $this->session->userdata('username'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-black small"><?php echo $this->session->userdata('username'); ?></span>
                                 <span id="user_id" style="display:none"><?php echo $this->session->userdata('user_id'); ?></span>
                                 <img class="img-profile rounded-circle" src="<?php echo base_url(); ?>assets/img/undraw_profile.svg">
                             </a>
