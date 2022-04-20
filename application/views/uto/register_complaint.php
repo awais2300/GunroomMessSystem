@@ -12,7 +12,7 @@ $this->load->view('uto/common/header');
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border: 1px dashed #BBB;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         background-color: #DDD;
         cursor: pointer;
@@ -56,10 +56,14 @@ $this->load->view('uto/common/header');
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo $this->session->userdata('username');?>" name="name" placeholder="name*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?php if (!empty($this->session->userdata('full_name'))) {
+                                                                                                                    echo $this->session->userdata('full_name');
+                                                                                                                } else {
+                                                                                                                    echo $this->session->userdata('username');
+                                                                                                                } ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="P. No.">
                                 </div>
                             </div>
 
@@ -74,7 +78,7 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="allocated to*">
+                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="Allocated to">
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
@@ -93,11 +97,12 @@ $this->load->view('uto/common/header');
                             <div class="form-group row">
 
                                 <div class="col-sm-6 mb-1">
-                                    <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
+                                    <!-- <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
                                         <option value="">Account Type</option>
                                         <option value="gunroom">Gunroom</option>
                                         <option value="mess">Mess</option>
-                                    </select>
+                                    </select> -->
+                                    <input type="text" class="form-control form-control-user" id="type" name="type" placeholder="Enter Type">
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="location" name="location" placeholder="location*">
@@ -191,10 +196,11 @@ $this->load->view('uto/common/header');
             validate = 1;
             $('#location').addClass('red-border');
         }
-        if (document.getElementById('attachement').files.length == 0) {
-            validate = 1;
-            $('#attachement').addClass('red-border');
-        }
+
+        // if (document.getElementById('attachement').files.length == 0) {
+        //     validate = 1;
+        //     $('#attachement').addClass('red-border');
+        // }
 
         if (validate == 0) {
             $('#save_form')[0].submit();

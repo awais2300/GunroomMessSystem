@@ -49,29 +49,31 @@ $this->load->view('uto/common/header');
                             <?php if ($complaint_data != null) { ?>
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Complaints</th>
+                                        <th>S. No.</th>
+                                        <th>P. No.</th>
+                                        <th>Name</th>
+                                        <th>Location</th>
+                                        <th>Complaint Detail</th>
+                                        <th>Type</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <?php
-
                                     $count = 0;
                                     foreach ($complaint_data as $data) {
                                         $count++; ?>
                                         <tr>
                                             <td><?= $count; ?></td>
+                                            <td><?= $data['p_no']; ?></td>
+                                            <td><?= $data['name']; ?></td>
+                                            <td><?= $data['location']; ?></td>
                                             <td><?= $data['description']; ?></td>
+                                            <td><?= $data['type']; ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
-
                                         </tr>
-
                                     <?php } ?>
                                 <?php } else { ?>
                                     <tr><strong> No complaints available </strong> </tr>

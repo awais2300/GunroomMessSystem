@@ -291,7 +291,14 @@ class UTO extends CI_Controller
     public function complaint()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['complaint_data'] = $this->db->where('name', $this->session->userdata('username'))->where('type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
+    
+            if (!empty($this->session->userdata('full_name'))) {
+                $user_name =  $this->session->userdata('full_name');
+            } else {
+                $user_name =  $this->session->userdata('username');
+            }
+
+            $data['complaint_data'] = $this->db->where('name', $user_name)->order_by('date', 'desc')->get('complaints')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('type', $this->session->userdata('login_type'))->update('complaints');
             if ($query) {
                 $this->load->view('uto/complaint', $data);
@@ -336,8 +343,7 @@ class UTO extends CI_Controller
         $type = $postData['type'];
         $location = $postData['location'];
         $description = $postData['description'];
-        // echo $_FILES['attachement'];exit;
-        //$upload1 = $this->upload_attachement($_FILES['attachement']);
+        
         if ($_FILES['attachement']['name'][0] != NULL) {
             $upload1 = $this->upload_attachement($_FILES['attachement']);
             if (count($upload1) > 1) {

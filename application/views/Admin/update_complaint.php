@@ -93,11 +93,12 @@ $this->load->view('Admin/common/header');
                             <div class="form-group row">
 
                                 <div class="col-sm-6 mb-1">
-                                    <select class="form-control form-control-user" name="type" id="type"   style="height:50px;padding:10px" readonly>
+                                    <!-- <select class="form-control form-control-user" name="type" id="type"   style="height:50px;padding:10px" readonly>
                                         <option value="">Account Type</option>
                                         <option value="gunroom" <?= ($complaint_data['type']=="gunroom")?'selected':'' ?> >Gunroom</option>
                                         <option value="mess"  <?= ($complaint_data['type']=="mess")?'selected':'' ?> >Mess</option>
-                                    </select>
+                                    </select> -->
+                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['type']; ?>" id="type" name="type" placeholder="Enter Type" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" value="<?= $complaint_data['location']; ?>" id="location" name="location" placeholder="location*" readonly>

@@ -49,11 +49,15 @@ $this->load->view('Admin/common/header');
                             <?php if ($complaint_data != null) { ?>
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Complaints</th>
+                                        <th>S. No.</th>
+                                        <th>P. No.</th>
+                                        <th>Name</th>
+                                        <th>Location</th>
+                                        <th>Complaint Detail</th>
+                                        <th>Type</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
-                                        <th> Action </th>
+                                        <th>Action</th>
 
 
                                     </tr>
@@ -67,13 +71,16 @@ $this->load->view('Admin/common/header');
                                         $count++; ?>
                                         <tr>
                                             <td><?= $count; ?></td>
+                                            <td><?= $data['p_no']; ?></td>
+                                            <td><?= $data['name']; ?></td>
+                                            <td><?= $data['location']; ?></td>
                                             <td><?= $data['description']; ?></td>
+                                            <td><?= $data['type']; ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
-                                            <td><a href="<?= base_url(); ?>Admin/update_complaint/<?= $data['id'] ?>"><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="<?= base_url(); ?>Admin/update_complaint/<?= $data['id'] ?>"><i style="color:black;text-align:center" class="fa fa-edit"></i></a></td>
 
                                         </tr>
-
                                     <?php } ?>
                                 <?php } else { ?>
                                     <tr><strong> No complaints available </strong> </tr>
