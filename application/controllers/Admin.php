@@ -10,7 +10,6 @@ class Admin extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $id = $this->session->userdata('user_id');
-
             $this->load->view('Admin/admin');
         } else {
             $this->load->view('Admin/login');
@@ -19,7 +18,8 @@ class Admin extends CI_Controller
 
     public function add_users()
     {
-        $this->load->view('Admin/create_user');
+        $data['secret_questions']=$this->db->get('secret_questions')->result_array();
+        $this->load->view('Admin/create_user',$data);
     }
 
     public function multiselect()
@@ -198,7 +198,8 @@ class Admin extends CI_Controller
             $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('guest_reservation');
             $this->load->view('Admin/reservations',$data);
         }
-    } public function menu_requests()
+    } 
+    public function menu_requests()
     {
         if ($this->session->has_userdata('user_id')) {
             $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
@@ -217,7 +218,28 @@ class Admin extends CI_Controller
         $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
         $this->load->view('Admin/update_requesting_menu',$data);
     }
+    public function forgot_password()
+    {
+        
+            $this->load->view('Admin/forgot_password');
+        
+    } 
+    public function get_secret_question(){
+        $name = $_POST['username'];
+        $query = $this->db->where('username', $name)->where('username!=', 'admin')->get('security_info')->row_array();
+   // print_r($query);exit;
+        echo json_encode($query);
+    }
 
+    public function get_update_password_form(){
+        $name = $_POST['username'];
+        $ques = $_POST['ques'];
+        $ans = $_POST['ans'];
+
+        $query = $this->db->where('username', $name)->where('secret_question', $ques)->where('secret_question_ans',$ans)->get('security_info')->row_array();
+   // print_r($query);exit;
+        echo json_encode($query);
+    }
     public function logout()
     {
         $this->session->sess_destroy();
@@ -237,6 +259,8 @@ class Admin extends CI_Controller
             $address = $_POST['address'];
             $name = $_POST['name'];
             $acct_type=$_POST['acct_type'];
+            $secret_question=$_POST['secret_question'];
+            $secret_question_ans=$_POST['secret_question_ans'];
 
             $insert_array = array(
                 'username' => $username,
@@ -245,7 +269,9 @@ class Admin extends CI_Controller
                 'email' => $email,
                 'phone' => $phone,
                 'address' => $address,
-                'full_name' => $name
+                'full_name' => $name,
+                'secret_question'=>$secret_question,
+                'secret_question_ans'=>$secret_question_ans
             );
 
             $insert = $this->db->insert('security_info', $insert_array);
@@ -262,6 +288,40 @@ class Admin extends CI_Controller
             redirect('Admin/add_users');
         }
     }
+
+    public function change_password()
+    {
+        if ($this->input->post()) {
+            $postData = $this->security->xss_clean($this->input->post());
+
+           
+            $password = password_hash($postData['password'], PASSWORD_DEFAULT);
+            $username = $postData['username_need'];
+           
+
+            $insert_array = array(
+                'username' => $username,
+                'password' => $password,
+               
+               
+            );
+//print_r($insert_array);exit;
+            $this->db->where('username',$username);
+            $insert = $this->db->update('security_info', $insert_array);
+
+            if (!empty($insert)) {
+                $this->session->set_flashdata('success', 'Password Updated successfully');
+                redirect('User_Login');
+            } else {
+                $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+                redirect('Admin/forgot_password');
+            }
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, Try again.');
+            redirect('Admin/add_users');
+        }
+    }
+
     public function complaint(){
         if ($this->session->has_userdata('user_id')) {
             $data['complaint_data'] = $this->db->get('complaints')->result_array();

@@ -65,6 +65,22 @@
 
                                 </div>
 
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-1">
+                                        <select class="form-control rounded-pill" name="secret_question" id="secret_question" data-placeholder="Select Secret Question" style="font-size: 0.8rem; height:50px;">\
+                                        <option class="form-control form-control-user" value="">Select your secret question</option>
+                                        <?php foreach($secret_questions as $data) { ?>
+                                        <option class="form-control form-control-user" value="<?= $data['question'] ?>"><?= $data['question'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row" id="ans_div" style="display:none">
+                                    <div class="col-sm-12 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="secret_question_ans" name="secret_question_ans"  placeholder="Secret Question Answer*">
+                                    </div>
+                                </div>
+
                                 <div class="form-group row justify-content-center">
                                     <div class="col-sm-4">
                                         <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
@@ -87,6 +103,9 @@
 </div>
 <?php $this->load->view('common/footer'); ?>
 <script>
+    $(document).on('change', '#secret_question', function() {
+        document.getElementById("ans_div").style.display = "block";
+    });
     $('#status').on('focusout', function() {
         var status = $('#status').val();
 
@@ -104,8 +123,8 @@
 
         var username = $('#username').val();
         var password = $('#password').val();
-        var status = $('#status').val();
-        var region = $('#region').val();
+       var sec_q=$('#secret_question').val();
+       var sec_q_ans=$('#secret_question_ans').val();
         // var email = $('#email').val();
         // var phone = $('#phone').val();
         // var address = $('#address').val();
@@ -120,13 +139,13 @@
             validate = 1;
             $('#password').addClass('red-border');
         }
-        if (status == '') {
+        if (sec_q == '') {
             validate = 1;
-            $('#status').addClass('red-border');
+            $('#secret_question').addClass('red-border');
         }
-        if (region == '') {
+        if (sec_q_ans == '') {
             validate = 1;
-            $('#region').addClass('red-border');
+            $('#secret_question_ans').addClass('red-border');
         }
 
         // if (email == '') {

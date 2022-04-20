@@ -595,6 +595,30 @@ ALTER TABLE `requesting_menu`
 
 COMMIT;
 
+CREATE TABLE `secret_questions` (
+  `id` bigint(20) NOT NULL,
+  `question` varchar(255) NOT NULL
+ 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `secret_questions` (`id`, `question`) VALUES
+('1','What is your favorite color ?'),
+('2','What is your mother name ?'),
+('3','What is your best friend name ?'),
+('4','What is your pet name ?')
+
+ALTER TABLE `secret_questions` 
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `secret_questions` 
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+ALTER TABLE `security_info` 
+  ADD column `secret_question` varchar(255)  NOT NULL;
+
+ALTER TABLE `security_info` 
+  ADD column `secret_question_ans` varchar(255) NOT NULL;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

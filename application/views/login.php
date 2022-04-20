@@ -93,7 +93,7 @@
                     Login
                   </button>
                   <!-- <label href="#">Forgot your password?</label> -->
-                  <a href="#" style="margin-left:5px">Forgot your password?</a>
+                  <a href="<?= base_url(); ?>Admin/forgot_password" style="margin-left:5px">Forgot your password?</a>
 
                 </form>
                 <!-- <hr> -->
