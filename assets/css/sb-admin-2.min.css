@@ -11234,11 +11234,11 @@ a:focus {
     background: url(../img/navy_logo2.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 360px;
+    height: 225px;
     width: 300px;
     /* position: absolute; */
-    top: 0;
-    left: 14px;
+    top: 20px;
+    left: 85px;
     right: 0;
     bottom: 0;
     /* background-image: url("path/to/img"); */

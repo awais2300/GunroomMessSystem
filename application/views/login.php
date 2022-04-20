@@ -31,11 +31,11 @@
   .region {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
     /* background: transparent !important; */
-    background-color:  #DEDEF9 !important;
+    background-color: #DEDEF9 !important;
     /* text-align: center !important; */
     font-weight: 700 !important;
-    border-radius: 15px !important;
-    height: 358px;
+    /* border-radius: 15px !important; */
+    /* height: 358px; */
     border-color: #000154 !important;
   }
 
@@ -50,33 +50,33 @@
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
-      <h1 class="h1 text-grey-900 " style="margin-top:50px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline"><strong> Gunroom & Mess Management System </strong></h1>
+      <h1 class="h1 text-grey-900 " style="margin-top:40px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline;font-family:'Brush Script MT';color:navy;font-size:70px"><strong> Gunroom & Mess Management System </strong></h1>
       <div class="col-xl-7">
         <div class="card o-hidden border-0 shadow-lg my-5 region">
           <!-- <div class="card-body p-0" style=""> -->
           <!-- Nested Row within Card Body -->
           <div class="row">
-            <div class="col-lg-6 d-none d-lg-block bg-login-image "></div>
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
 
             <div class="col-lg-6">
-              <div class="p-5">
+              <div class="p-5" style="padding:1rem !important">
                 <form class="user" role="form" id="login_form" method="post" action="<?php echo base_url(); ?>User_Login/login_process">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Enter Username...">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username...">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                   </div>
 
                   <div class="form-group" style="margin-bottom:5px !important;">
-                    <select class="form-control form-control-user" name="optradio" id="optradio" style="height:50px;padding:10px">
+                    <select class="form-control" name="optradio" id="optradio">
                       <option value="">Account Type</option>
                       <option value="gunroom">Gunroom</option>
                       <option value="mess">Mess</option>
                     </select>
                   </div>
 
-                  <div class="form-check form-group" style="margin-left:5px">
+                  <div class="form-check form-group">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                       Remember Me
@@ -88,13 +88,16 @@
                   </span>
 
                   <!-- <hr> -->
-                  <button type="button" class="btn btn-primary btn-user btn-block" id="login_btn" style="background-color:#0d6efd; border: solid 1px #0d6efd">
+                  <button type="button" class="btn btn-primary" id="login_btn" style="background-color:#0d6efd; border: solid 1px #0d6efd">
                     <i class="fas fa-key"></i>
                     Login
                   </button>
-                  <!-- <label href="#">Forgot your password?</label> -->
-                  <a href="<?= base_url(); ?>Admin/forgot_password" style="margin-left:5px">Forgot your password?</a>
-
+                  <a href="<?= base_url(); ?>Admin/forgot_password" style="margin-left:0px">Forgot your password?</a>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <a href="<?= base_url(); ?>Admin/add_users" style="margin-left:0px">Create New User!</a>
+                    </div>
+                  </div>
                 </form>
                 <!-- <hr> -->
                 <!-- <br><br> -->
