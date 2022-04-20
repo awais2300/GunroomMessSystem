@@ -1,5 +1,5 @@
 <?php
-$this->load->view('operator/common/header');
+$this->load->view('assistantgunroom/common/header');
 ?>
 
 <style>
@@ -35,7 +35,7 @@ $this->load->view('operator/common/header');
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>Operator/room_allocation_process">
+                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>AssistantGunroom/room_allocation_process">
 
                             <div class="form-group row">
                                 <div class="col-sm-4">
@@ -131,7 +131,7 @@ $this->load->view('operator/common/header');
         var value=  $('#gunroom').val();
     //alert(value);
     $.ajax({
-                url: '<?= base_url(); ?>Operator/get_floors_of_gunroom',
+                url: '<?= base_url(); ?>AssistantGunroom/get_floors_of_gunroom',
                 method: 'POST',
                 data: {
                     'gunroom_id': value
@@ -162,7 +162,7 @@ $(document).on('change', '#floor', function() {
         var value2=$('#floor').val();
     //alert(value);
     $.ajax({
-                url: '<?= base_url(); ?>Operator/get_rooms_of_floor',
+                url: '<?= base_url(); ?>AssistantGunroom/get_rooms_of_floor',
                 method: 'POST',
                 data: {
                     'gunroom_id': value,
@@ -288,7 +288,7 @@ $(document).on('change', '#floor', function() {
 
         if (validate == 0) {
             $.ajax({
-                url: '<?= base_url(); ?>Operator/get_rooms_status',
+                url: '<?= base_url(); ?>AssistantGunroom/get_rooms_status',
                 method: 'POST',
                 data: {
                     'gunroom': gunroom,

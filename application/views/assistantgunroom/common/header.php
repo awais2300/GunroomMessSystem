@@ -23,19 +23,20 @@
 
 <style>
     .numberCircle {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 8px;
-    margin-left:25px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        padding: 8px;
+        margin-left: 25px;
 
-    background: red;
-    border: 2px solid #666;
-    color: white;
-    text-align: center;
+        background: red;
+        border: 2px solid #666;
+        color: white;
+        text-align: center;
 
-    font: 20px Arial, sans-serif;
-}
+        font: 20px Arial, sans-serif;
+    }
+
     .img-logo {
         background: url('<?= base_url() ?>assets/img/logo-inverted.png');
         /* background-position: center; */
@@ -56,7 +57,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?><?php echo 'Project_Officer';?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?><?php echo 'Project_Officer'; ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
@@ -68,7 +69,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?>Operator">
+                <a class="nav-link" href="<?php echo base_url(); ?>AssistantGunroom">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -76,33 +77,34 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Features
-            </div> -->
-            <!-- Nav Item - Pages Collapse Menu -->
-            
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/allocate_rooms" aria-expanded="true">
+                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Create New User</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/allocate_rooms" aria-expanded="true">
                     <i class="fas fa-hotel"></i>
                     <span> Room Allocations </span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/update_menu" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/update_menu" aria-expanded="true">
                     <i class="fas fa-hotel"></i>
                     <span> Update Mess Menu </span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/add_new_gunroom" aria-expanded="true">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/add_new_gunroom" aria-expanded="true">
                     <i class="fas fa-folder-plus"></i>
                     <span> Add New Gunroom </span>
                 </a>
             </li>
-           
-            
+
+
             <br>
 
 

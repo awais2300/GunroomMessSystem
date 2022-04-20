@@ -56,55 +56,56 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
+            <?php if ($this->session->userdata('acct_type') == 'admin') { ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url(); ?><?php echo 'Admin'; ?>">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?><?php echo 'Admin'; ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                <!-- Nav Item - Pages Collapse Menu -->
 
-            <!-- Nav Item - Pages Collapse Menu -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>Admin/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Create New User</span>
+                    </a>
+                </li> -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>Admin/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Create New User</span>
-                </a>
-            </li>
-            <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->from('complaints')->count_all_results(); ?>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>Admin/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Complaints</span>
-                    <?php if ($unseen_complaints != '0') { ?>
-                        <span class="numberCircle"><?= $unseen_complaints; ?></span>
-                    <?php } ?>
-                </a>
-            </li>
-            <?php $unseen_reservations = $this->db->where('admin_seen', 'no')->from('guest_reservation')->count_all_results(); ?>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/reservation" aria-expanded="true">
-                    <i class="fas fa-user-edit"></i>
-                    <span> Guest Reservations</span>
-                    <?php if ($unseen_reservations != '0') { ?>
-                        <span class="numberCircle"><?= $unseen_reservations; ?></span>
-                    <?php } ?>
-                </a>
-            </li>
-            <?php $unseen_menu_requests = $this->db->where('admin_seen', 'no')->from('requesting_menu')->count_all_results(); ?>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/menu_requests" aria-expanded="true">
-                    <i class="fas fa-unlock-alt"></i>
-                    <span> Menu Requests </span>
-                    <?php if ($unseen_menu_requests != '0') { ?>
-                        <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
-                    <?php } ?>
-                </a>
-            </li>
-            
+                <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->from('complaints')->count_all_results(); ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>Admin/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Complaints</span>
+                        <?php if ($unseen_complaints != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_complaints; ?></span>
+                        <?php } ?>
+                    </a>
+                </li>
+                <?php $unseen_reservations = $this->db->where('admin_seen', 'no')->from('guest_reservation')->count_all_results(); ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/reservation" aria-expanded="true">
+                        <i class="fas fa-user-edit"></i>
+                        <span> Guest Reservations</span>
+                        <?php if ($unseen_reservations != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                        <?php } ?>
+                    </a>
+                </li>
+                <?php $unseen_menu_requests = $this->db->where('admin_seen', 'no')->from('requesting_menu')->count_all_results(); ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/menu_requests" aria-expanded="true">
+                        <i class="fas fa-unlock-alt"></i>
+                        <span> Menu Requests </span>
+                        <?php if ($unseen_menu_requests != '0') { ?>
+                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                        <?php } ?>
+                    </a>
+                </li>
+            <?php } ?>
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>Admin/view_activity_log" aria-expanded="true">
                     <i style="font-size:20px" class="far fa-list-alt"></i>

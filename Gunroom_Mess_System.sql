@@ -383,7 +383,7 @@ CREATE TABLE `security_info` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `acct_type` enum('admin','UTO','Operator') NOT NULL,
+  `acct_type` enum('admin','UTO','AssistantGunroom','ChiefMess') NOT NULL,
   `status` enum('offline','online') NOT NULL,
   `email` varchar(200) NOT NULL,
   `phone` varchar(200) NOT NULL,
@@ -396,8 +396,10 @@ CREATE TABLE `security_info` (
 --
 
 INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_type`, `status`, `email`, `phone`, `address`, `full_name`) VALUES
-(1, 'awais', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'UTO', 'offline', '', '', '', 'Awais Ahmad'),
-(2, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', '');
+(1, 'uto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'UTO', 'offline', '', '', '', 'Awais Ahmad'),
+(2, 'cheifmess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'ChiefMess', 'offline', '', '', '', 'Awais Ahmad'),
+(3, 'assistant', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'AssistantGunroom', 'offline', '', '', '', 'Awais Ahmad'),
+(4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', '');
 
 
 CREATE TABLE `mess_menu` (

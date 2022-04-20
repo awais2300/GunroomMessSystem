@@ -20,6 +20,10 @@ class User_Login extends CI_Controller
 
 			if ($acct_type == "UTO") {
 				redirect('UTO');
+			} else if ($acct_type == "AssistantGunroom") {
+				redirect('AssistantGunroom');
+			} else if ($acct_type == "ChiefMess") {
+				redirect('ChiefMess');
 			} else if ($acct_type == "admin") {
 				redirect('Admin');
 			} else if ($acct_type == "Operator") {

@@ -1,5 +1,5 @@
 <?php
-$this->load->view('operator/common/header');
+$this->load->view('assistantgunroom/common/header');
 ?>
 
 <style>
@@ -8,19 +8,18 @@ $this->load->view('operator/common/header');
     }
 </style>
 
-<div class="container-fluid my-2">
-    <div class="form-group row justify-content-center">
-        <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Add New Room</strong></h1>
-        </div>
-    </div>
+<div class="container">
+    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+        <h1 class="h3 mb-0 text-black-800"></h1>
+        <a onclick="location.href='<?php echo base_url(); ?>Project_Officer/report_contractor'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+    </div> -->
 
     <div class="card o-hidden my-4 border-0 shadow-lg">
         <div class="modal fade" id="new_contractor">
             <!-- <div class="row"> -->
             <div class="modal-dialog modal-dialog-centered " style="margin-left: 370px;" role="document">
                 <div class="modal-content bg-custom3" style="width:1000px;">
-                    <div class="modal-header" style="width:1000px;">
+                    <div class="modal-header" style="width:400px;">
 
                     </div>
                     <div class="card-body bg-custom3">
@@ -30,26 +29,20 @@ $this->load->view('operator/common/header');
 
                                 <div class="card">
                                     <div class="card-header bg-custom1">
-                                        <h1 class="h4">Add New Room</h1>
+                                        <h1 class="h4">Add New Menu Item</h1>
                                     </div>
 
                                     <div class="card-body bg-custom3">
-                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_new_room/<?= $gunroom_id; ?>/<?= $floor_id; ?>">
+                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_menu_item">
                                             <div class="form-group row">
-                                                <div class="col-sm-6">
-                                                    <h6>&nbsp;Room No:</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <h6>&nbsp;No. of Beds</h6>
+                                                <div class="col-sm-12">
+                                                    <h6>&nbsp;Menu Name:</h6>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <div class="col-sm-6 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="room_no" id="room_no" placeholder="Room No.">
-                                                </div>
-                                                <div class="col-sm-6 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="total_beds" id="total_beds" placeholder="No. of Beds">
+                                                <div class="col-sm-12 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="menu_name" id="menu_name" placeholder="Name">
                                                 </div>
                                             </div>
                                             <br>
@@ -58,7 +51,7 @@ $this->load->view('operator/common/header');
                                                 <div class="col-sm-4">
                                                     <button type="button" class="btn btn-primary btn-user btn-block" id="add_btn">
                                                         <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                                        Add New Gunroom
+                                                        Add Menu
                                                     </button>
                                                     <span id="show_error_new" style="font-size:10px; color:red; display:none">&nbsp;&nbsp;Please check errors*</span>
                                                 </div>
@@ -78,9 +71,204 @@ $this->load->view('operator/common/header');
             </div>
         </div>
 
+        <div class="modal fade" id="edit_material">
+            <!-- <div class="row"> -->
+            <div class="modal-dialog modal-dialog-centered " style="margin-left: 370px;" role="document">
+                <div class="modal-content bg-custom3" style="width:1000px;">
+                    <div class="modal-header" style="width:1000px;">
+
+                    </div>
+                    <div class="card-body bg-custom3">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="card">
+                                    <div class="card-header bg-custom1">
+                                        <h1 class="h4">Edit Officer</h1>
+                                    </div>
+
+                                    <div class="card-body bg-custom3">
+                                        <form class="user" role="form" method="post" id="edit_form" action="<?= base_url(); ?>Project_Officer/edit_officer">
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <h3 id="weapon_name_heading"></h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;Personal Name:</h6>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;P_no:</h6>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;Rank</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-sm-4 mb-1" style="display:none">
+                                                    <input type="text" class="form-control form-control-user" name="id_edit" id="id_edit" placeholder="id" readonly="readonly" style="color:black; font-size:medium; background-color:lightgray; border:1px solid black;">
+                                                </div>
+
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="officer_name_edit" id="officer_name_edit" placeholder="Officer Name">
+                                                </div>
+
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="p_no_edit" id="p_no_edit" placeholder="P Number">
+                                                </div>
+
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="rank_edit" id="rank_edit" placeholder="Rank">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;Branch:</h6>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;Phone:</h6>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h6>&nbsp;Email</h6>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="branch_edit" id="branch_edit" placeholder="branch">
+                                                </div>
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="phone_edit" id="phone_edit" placeholder="Phone">
+                                                </div>
+                                                <div class="col-sm-4 mb-1">
+                                                    <input type="text" class="form-control form-control-user" name="email_edit" id="email_edit" placeholder="Email">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row justify-content-center">
+                                                <div class="col-sm-4">
+                                                    <button type="button" class="btn btn-primary btn-user btn-block" id="edit_btn">
+                                                        <!-- <i class="fab fa-google fa-fw"></i>  -->
+                                                        Update
+                                                    </button>
+                                                    <span id="show_error_update" style="font-size:10px; color:red; display:none">&nbsp;&nbsp;Please check errors*</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-primary rounded-pill" data-dismiss="modal">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+        <div class="modal fade" id="assigned_projects">
+            <!-- <div class="row"> -->
+            <div class="modal-dialog modal-dialog-centered " style="margin-left: 370px;" role="document">
+                <div class="modal-content bg-custom3" style="width:1000px;">
+                    <div class="modal-header" style="width:1000px;">
 
+                    </div>
+                    <div class="card-body bg-custom3">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="card">
+                                    <div class="card-header bg-custom1">
+                                        <h1 id="contractor_head" class="h4">Assigned Projects of </h1>
+                                    </div>
+
+                                    <div class="card-body bg-custom3">
+                                        <form class="user" role="form" method="post" id="edit_form" action="<?= base_url(); ?>Project_Officer/edit_contractor">
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <h3 id="contractor_heading"></h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <h4>List of Projects:</h4>
+                                                    <br>
+                                                </div>
+                                                <div id="show_list" class="col-sm-12">
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-primary rounded-pill" data-dismiss="modal">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="completed_projects">
+            <!-- <div class="row"> -->
+            <div class="modal-dialog modal-dialog-centered " style="margin-left: 370px;" role="document">
+                <div class="modal-content bg-custom3" style="width:1000px;">
+                    <div class="modal-header" style="width:1000px;">
+
+                    </div>
+                    <div class="card-body bg-custom3">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="card">
+                                    <div class="card-header bg-custom1">
+                                        <h1 id="contractor_head_completed" class="h4">Completed Projects of </h1>
+                                    </div>
+
+                                    <div class="card-body bg-custom3">
+                                        <form class="user" role="form" method="post" id="edit_form" action="">
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <h3 id="contractor_heading"></h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <h4>List of Projects:</h4>
+                                                    <br>
+                                                </div>
+                                                <div id="show_list_completed" class="col-sm-12">
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-primary rounded-pill" data-dismiss="modal">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="card-body bg-custom3">
             <!-- Nested Row within Card Body -->
@@ -89,36 +277,30 @@ $this->load->view('operator/common/header');
 
                     <div class="card bg-custom3">
                         <div class="card-header bg-custom1">
-                            <h1 class="h4">Rooms</h1>
+                            <h1 class="h4">Mess Menu</h1>
                         </div>
 
                         <div class="card-body">
                             <div id="table_div">
-                                <?php if (count($gunrooms_rooms) > 0) { ?>
+                                <?php if (count($mess_menu) > 0) { ?>
                                     <table id="datatable" class="table table-striped" style="color:black">
                                         <thead>
                                             <tr>
                                                 <th scope="col">S.No</th>
-                                                <th scope="col">Gunroom Name</th>
-                                                <th scope="col">Floor Name</th>
-                                                <th scope="col">Room No.</th>
-                                                <th scope="col">Total Beds</th>
-                                                <!-- <th scope="col">Edit Record</th> -->
+                                                <th scope="col">Menu Item</th>
+                                                <th scope="col">Edit Record</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table_rows_cont">
                                             <?php $count = 0;
-                                            foreach ($gunrooms_rooms as $data) { ?>
+                                            foreach ($mess_menu as $data) { ?>
                                                 <tr>
-                                                    <td scope="row" id="cont<?= $count; ?>"><?= ++$count; ?></td>
-                                                    <td scope="row"><?= $data['gunroom_name']; ?></td>
-                                                    <td scope="row"><?= $data['gunroom_floor_name']; ?></td>
-                                                    <td scope="row"><?= $data['Room_no']; ?></td>
-                                                    <td scope="row"><?= $data['total_beds']; ?></td>
-                                                    <!-- <td type="button" scope="row"><a type="button" class="btn btn-primary btn-user rounded-pill" href="<?= base_url(); ?>Admin/Delete_user/<?= $data['id']; ?>"> Add Floors</a></td> -->
-                                                    <!-- <td type="button" id="edit<?= $data['id']; ?>" class="edit" scope="row" data-toggle="modal" data-target="#edit_material"><i style="margin-left: 40px;" class="fas fa-edit"></i></td> -->
+                                                    <td scope="row" id="cont<?= $count; ?>"><?= $data['id']; ?></td>
+                                                    <td scope="row"><?= $data['menu_name']; ?></td>
+                                                    <td type="button" id="edit<?= $data['id']; ?>" class="edit" scope="row" data-toggle="modal" data-target="#edit_material"><i style="margin-left: 40px;" class="fas fa-edit"></i></td>
                                                 </tr>
                                             <?php
+                                                $count++;
                                             } ?>
                                         </tbody>
                                     </table>
@@ -134,18 +316,7 @@ $this->load->view('operator/common/header');
                             <div class="col-sm-4">
                                 <button type="button" class="btn btn-primary btn-user btn-block" id="add_btn" data-toggle="modal" data-target="#new_contractor">
                                     <i class="fas fa-plus"></i>
-                                    Add new Room
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
-                    <form class="user" role="form" method="post" id="add_form" action="">
-                        <div class="form-group row my-2 justify-content-center">
-                            <div class="col-sm-4">
-                                <button type="button" class="btn btn-primary btn-user btn-block" onclick="location.href='<?php echo base_url(); ?>Operator/add_new_floor/<?= $gunroom_id;?>'">
-                                    <i class="fas fa-backward"></i>
-                                    Back
+                                    Add new Menu
                                 </button>
                             </div>
                         </div>
@@ -218,16 +389,11 @@ $this->load->view('operator/common/header');
         $('#add_btn').attr('disabled', true);
         var validate = 0;
 
-        var room_no = $('#room_no').val();
-        var total_beds = $('#total_beds').val();
-
-        if (room_no == '') {
+        var name = $('#menu_name').val();
+        
+        if (name == '') {
             validate = 1;
-            $('#room_no').addClass('red-border');
-        }
-        if (total_beds == '') {
-            validate = 1;
-            $('#total_beds').addClass('red-border');
+            $('#menu_name').addClass('red-border');
         }
 
         if (validate == 0) {

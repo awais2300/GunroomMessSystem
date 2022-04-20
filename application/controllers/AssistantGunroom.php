@@ -3,7 +3,7 @@
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-class Operator extends CI_Controller
+class AssistantGunroom extends CI_Controller
 {
     public function __construct()
     {
@@ -16,10 +16,16 @@ class Operator extends CI_Controller
 
             $id = $this->session->userdata('user_id');
             $acct_type = $this->session->userdata('acct_type');
-            $this->load->view('operator/dashboard');
+            $this->load->view('assistantgunroom/dashboard');
         } else {
             $this->load->view('login');
         }
+    }
+
+    public function add_users()
+    {
+        $data['secret_questions'] = $this->db->get('secret_questions')->result_array();
+        $this->load->view('assistantgunroom/create_user', $data);
     }
 
     public function allocate_rooms()
@@ -27,7 +33,7 @@ class Operator extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['gunrooms'] = $this->db->get('gunrooms')->result_array();
             //$data['floors'] = $this->db->get('gunrooms_floor')->result_array();
-            $this->load->view('operator/allocate_rooms',$data);
+            $this->load->view('assistantgunroom/allocate_rooms',$data);
         }
     }
     public function get_floors_of_gunroom(){
@@ -58,7 +64,7 @@ class Operator extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['gunrooms'] = $this->db->get('gunrooms')->result_array();
-            $this->load->view('operator/add_new_gunroom',$data);
+            $this->load->view('assistantgunroom/add_new_gunroom',$data);
         }
     }
     public function add_new_floor($gunroom_id = NULL)
@@ -75,7 +81,7 @@ class Operator extends CI_Controller
             $data['gunrooms_floors'] = $this->db->get()->result_array();
             $data['gunroom_id'] = $gunroom_id;
 
-            $this->load->view('operator/add_new_floor',$data);
+            $this->load->view('assistantgunroom/add_new_floor',$data);
         }
     }
 
@@ -97,7 +103,7 @@ class Operator extends CI_Controller
             $data['gunroom_id'] = $gunroom_id;
             $data['floor_id'] = $floor_id;
 
-            $this->load->view('operator/add_new_room',$data);
+            $this->load->view('assistantgunroom/add_new_room',$data);
         }
     }
 
@@ -105,7 +111,7 @@ class Operator extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['mess_menu'] = $this->db->get('mess_menu')->result_array();
-            $this->load->view('operator/update_menu', $data);
+            $this->load->view('assistantgunroom/update_menu', $data);
         }
     }
 
@@ -125,10 +131,10 @@ class Operator extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Menu Item Added Successfully');
-            redirect('operator/update_menu');
+            redirect('assistantgunroom/update_menu');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('operator/update_menu');
+            redirect('assistantgunroom/update_menu');
         }
     }
 
@@ -147,10 +153,10 @@ class Operator extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'New Gunroom Added Successfully');
-            redirect('operator/add_new_gunroom');
+            redirect('assistantgunroom/add_new_gunroom');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('operator/add_new_gunroom');
+            redirect('assistantgunroom/add_new_gunroom');
         }
     }
 
@@ -182,10 +188,10 @@ class Operator extends CI_Controller
             $insert =  $this->db->update('gunrooms', $data_update);
 
             $this->session->set_flashdata('success', 'New Floor Added Successfully');
-            redirect('operator/add_new_floor/'.$gunroom_id);
+            redirect('assistantgunroom/add_new_floor/'.$gunroom_id);
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('operator/add_new_floor/'.$gunroom_id);
+            redirect('assistantgunroom/add_new_floor/'.$gunroom_id);
         }
     }
 
@@ -220,10 +226,10 @@ class Operator extends CI_Controller
             $insert =  $this->db->update('gunrooms_floors', $data_update);
 
             $this->session->set_flashdata('success', 'New Room Added Successfully');
-            redirect('operator/add_new_room/'.$floor_id.'/'.$gunroom_id);
+            redirect('assistantgunroom/add_new_room/'.$floor_id.'/'.$gunroom_id);
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('operator/add_new_room/'.$floor_id.'/'.$gunroom_id);
+            redirect('assistantgunroom/add_new_room/'.$floor_id.'/'.$gunroom_id);
         }
     }
 
@@ -258,10 +264,10 @@ class Operator extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Room Allocated Successfully');
-            redirect('operator/allocate_rooms');
+            redirect('assistantgunroom/allocate_rooms');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('operator/allocate_rooms');
+            redirect('assistantgunroom/allocate_rooms');
         }
     }
 

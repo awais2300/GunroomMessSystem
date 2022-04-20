@@ -1,5 +1,5 @@
 <?php
-$this->load->view('operator/common/header');
+$this->load->view('assistantgunroom/common/header');
 ?>
 
 <style>
@@ -11,7 +11,7 @@ $this->load->view('operator/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Add New Gunroom</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Add New Floor</strong></h1>
         </div>
     </div>
 
@@ -30,26 +30,26 @@ $this->load->view('operator/common/header');
 
                                 <div class="card">
                                     <div class="card-header bg-custom1">
-                                        <h1 class="h4">Add New Gunroom</h1>
+                                        <h1 class="h4">Add New Floor</h1>
                                     </div>
 
                                     <div class="card-body bg-custom3">
-                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_new_gunroom">
+                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_new_floor/<?= $gunroom_id; ?>">
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
-                                                    <h6>&nbsp;Gunroom Name:</h6>
+                                                    <h6>&nbsp;Floor Name:</h6>
                                                 </div>
                                                 <!-- <div class="col-sm-6">
-                                                    <h6>&nbsp;No. of Floors:</h6>
+                                                    <h6>&nbsp;No. of Rooms:</h6>
                                                 </div> -->
                                             </div>
 
                                             <div class="form-group row">
                                                 <div class="col-sm-12 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="gunroom_name" id="gunroom_name" placeholder="Gunroom Name">
+                                                    <input type="text" class="form-control form-control-user" name="floor_name" id="floor_name" placeholder="Floor Name">
                                                 </div>
                                                 <!-- <div class="col-sm-6 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="total_floors" id="total_floors" placeholder="No. of Floors">
+                                                    <input type="text" class="form-control form-control-user" name="total_rooms" id="total_rooms" placeholder="No. of Floors">
                                                 </div> -->
                                             </div>
                                             <br>
@@ -89,29 +89,31 @@ $this->load->view('operator/common/header');
 
                     <div class="card bg-custom3">
                         <div class="card-header bg-custom1">
-                            <h1 class="h4">Gun Rooms</h1>
+                            <h1 class="h4">Floors</h1>
                         </div>
 
                         <div class="card-body">
                             <div id="table_div">
-                                <?php if (count($gunrooms) > 0) { ?>
+                                <?php if (count($gunrooms_floors) > 0) { ?>
                                     <table id="datatable" class="table table-striped" style="color:black">
                                         <thead>
                                             <tr>
                                                 <th scope="col">S.No</th>
                                                 <th scope="col">Gunroom Name</th>
-                                                <th scope="col">Total Floors</th>
-                                                <th scope="col">Edit Record</th>
+                                                <th scope="col">Floor Name</th>
+                                                <th scope="col">Total Rooms</th>
+                                                <th scope="col">Add Rooms</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table_rows_cont">
                                             <?php $count = 0;
-                                            foreach ($gunrooms as $data) { ?>
+                                            foreach ($gunrooms_floors as $data) { ?>
                                                 <tr>
                                                     <td scope="row" id="cont<?= $count; ?>"><?= ++$count; ?></td>
                                                     <td scope="row"><?= $data['gunroom_name']; ?></td>
-                                                    <td scope="row"><?= $data['total_floors']; ?></td>
-                                                    <td type="button" scope="row"><a type="button" class="btn btn-primary btn-user rounded-pill" href="<?= base_url(); ?>Operator/add_new_floor/<?= $data['id'];?>"> Add Floors</a></td>
+                                                    <td scope="row"><?= $data['gunroom_floor_name']; ?></td>
+                                                    <td scope="row"><?= $data['total_rooms']; ?></td>
+                                                    <td type="button" scope="row"><a type="button" class="btn btn-primary btn-user rounded-pill" href="<?= base_url(); ?>AssistantGunroom/add_new_room/<?= $data['id']; ?>/<?= $data['gunroom_id']; ?>"> Add Rooms</a></td>
                                                     <!-- <td type="button" id="edit<?= $data['id']; ?>" class="edit" scope="row" data-toggle="modal" data-target="#edit_material"><i style="margin-left: 40px;" class="fas fa-edit"></i></td> -->
                                                 </tr>
                                             <?php
@@ -130,7 +132,18 @@ $this->load->view('operator/common/header');
                             <div class="col-sm-4">
                                 <button type="button" class="btn btn-primary btn-user btn-block" id="add_btn" data-toggle="modal" data-target="#new_contractor">
                                     <i class="fas fa-plus"></i>
-                                    Add new Gunroom
+                                    Add new Floor
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <form class="user" role="form" method="post" id="add_form" action="">
+                        <div class="form-group row my-2 justify-content-center">
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-primary btn-user btn-block" onclick="location.href='<?php echo base_url(); ?>AssistantGunroom/add_new_gunroom'">
+                                    <i class="fas fa-backward"></i>
+                                    Back
                                 </button>
                             </div>
                         </div>
@@ -203,11 +216,11 @@ $this->load->view('operator/common/header');
         $('#add_btn').attr('disabled', true);
         var validate = 0;
 
-        var name = $('#gunroom_name').val();
+        var name = $('#floor_name').val();
 
         if (name == '') {
             validate = 1;
-            $('#gunroom_name').addClass('red-border');
+            $('#floor_name').addClass('red-border');
         }
 
         if (validate == 0) {
