@@ -249,7 +249,7 @@ class AssistantGunroom extends CI_Controller
         $cond  = [
             'gunroom_id' => $gunroom,
             'gunroom_floor_id' => $floor,
-            'Room_no' => $room
+            'id' => $room
 
         ];
         $data_update = [
@@ -258,6 +258,10 @@ class AssistantGunroom extends CI_Controller
             'allocated_to_3' => $name_3,
             'allocated_to_4' => $name_4
         ];
+
+        // print_r($cond);
+        // print_r($data_update);
+        // exit;
 
         $this->db->where($cond);
         $insert =  $this->db->update('gunrooms_rooms', $data_update);

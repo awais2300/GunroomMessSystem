@@ -30,7 +30,7 @@ $this->load->view('uto/common/header');
     <form class="user" role="form" method="post" id="add_form">
         <?php if ($this->session->userdata('login_type') == 'gunroom') { ?>
             <div class="form-group row justify-content-center" style="margin-top:50px;">
-                <div class="col-sm-3">
+                <!-- <div class="col-sm-3">
                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1'">
                         <h5 style="font-weight: bold;">Gunroom 1</h5>
                     </button>
@@ -50,7 +50,7 @@ $this->load->view('uto/common/header');
                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/complaint'">
                         <h5 style="font-weight: bold;">Complaint</h5>
                     </button>
-                </div>
+                </div> -->
 
             </div>
         <?php } else if ($this->session->userdata('login_type') == 'mess') { ?>
