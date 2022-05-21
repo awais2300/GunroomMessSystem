@@ -3,16 +3,38 @@ $this->load->view('uto/common/header');
 ?>
 
 <style>
-    .img-occupied {
-        background: url('<?= base_url() ?>assets/img/room-occupied.png');
+    .0-occupied {
+        background: url('<?= base_url() ?>assets/img/0-occupied.jpg');
         background-position: center;
         background-size: cover;
         height: 10% !important;
         width: 10% !important;
     }
 
-    .img-vacant {
-        background: url('<?= base_url() ?>assets/img/room-vacant.png');
+    .1-occupied {
+        background: url('<?= base_url() ?>assets/img/1-occupied.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 10% !important;
+        width: 10% !important;
+    }
+    .2-occupied {
+        background: url('<?= base_url() ?>assets/img/2-occupied.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 10% !important;
+        width: 10% !important;
+    }
+
+    .3-occupied {
+        background: url('<?= base_url() ?>assets/img/3-occupied.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 10% !important;
+        width: 10% !important;
+    }
+    .4-occupied {
+        background: url('<?= base_url() ?>assets/img/4-occupied.jpg');
         background-position: center;
         background-size: cover;
         height: 10% !important;
@@ -37,64 +59,39 @@ $this->load->view('uto/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:10px"><strong>Gunroom 1 - Floor 1</strong></h1>
+            <h1 style="text-align:center; padding:10px"><strong><?= $gunroom_name ." - ". $gunroom_floor_name?></strong></h1>
         </div>
     </div>
     <table class="">
 
         <tbody>
+          
                  <tr>
-                    <td>Room No. 1</td>
-                    <td>Room No. 2</td>
-                    <td>Room No. 3</td>
-                    <td>Room No. 4</td>
-                    <td>Room No. 5</td>
-                    <td></td>
-                    <td>Room No. 6</td>
-                    <td>Room No. 7</td>
-                    <td>Room No. 8</td>
-                    <td>Room No. 9</td>
-                    <td>Room No. 10</td>
+                 <?php
+                 foreach($rooms_data as $data){?>
+                    <td>Room No. <?= $data['Room_no']; ?></td>
+                    <?php  }  ?>
                 </tr>
                 <tr>
-                    <td <?php if($rooms_data_g1f1r1['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r2['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r3['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r4['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r5['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td></td>
-                    <td <?php if($rooms_data_g1f1r6['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r7['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r8['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r9['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r10['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
+                <?php  $count=0;
+                 foreach($rooms_data as $data){
+                    if($data['allocated_to_1'] != null){
+                        $count++;}
+                    if($data['allocated_to_2'] != null){
+                            $count++;}
+                    if($data['allocated_to_3'] != null){
+                                $count++;}
+                    if($data['allocated_to_4'] != null){
+                                    $count++;}
+                                   // print_r($count);exit;
+                     ?>
+                    <td <?php if($count== "0") { echo "class='0-occupied'"; } if($count == '1') { echo "class='1-occupied'";} if($count == '2') { echo "class='2-occupied'";}
+                    if($count == '3') { echo "class='3-occupied'";} if($count == '4') { echo "class='4-occupied'";} ?>></td>
+                <?php $count=0;
+                } 
+                 ?>
                 </tr>
-                <tr>
-                    <td>Room No. 11</td>
-                    <td>Room No. 12</td>
-                    <td>Room No. 13</td>
-                    <td>Room No. 14</td>
-                    <td>Room No. 15</td>
-                    <td></td>
-                    <td>Room No. 16</td>
-                    <td>Room No. 17</td>
-                    <td>Room No. 18</td>
-                    <td>Room No. 19</td>
-                    <td>Room No. 20</td>
-                </tr>
-                <tr>
-                    <td <?php if($rooms_data_g1f1r11['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r12['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r13['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r14['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r15['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td></td>
-                    <td <?php if($rooms_data_g1f1r16['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r17['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r18['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r19['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                    <td <?php if($rooms_data_g1f1r20['status']=='Vacant') { echo "class='img-vacant'"; } else { echo "class='img-occupied'";} ?>></td>
-                </tr>
+              
             
         </tbody>
     </table>

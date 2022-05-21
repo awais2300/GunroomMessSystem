@@ -98,14 +98,17 @@
                 Features
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
-            <?php if ($this->session->userdata('login_type') == 'gunroom') { ?>
+            <?php if ($this->session->userdata('login_type') == 'gunroom') {
+                $total_gunrooms = $this->db->from('gunrooms')->count_all_results(); 
+                for($i=1; $i<=$total_gunrooms;$i++){?>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom1" aria-expanded="true">
+                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom/<?= $i?>" aria-expanded="true">
                         <i style="font-size:20px" class="fas fa-hotel"></i>
-                        <span> Gunroom 1 </span>
+                        <span> Gunroom<?= " " .$i?> </span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <?php } ?>
+                <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom2" aria-expanded="true">
                         <i style="font-size:20px" class="fas fa-hotel"></i>
                         <span> Gunroom 2 </span>
@@ -116,7 +119,7 @@
                         <i style="font-size:20px" class="fas fa-hotel"></i>
                         <span> Gunroom 3 </span>
                     </a>
-                </li>
+                </li> -->
                 <?php $unseen_complaints = $this->db->where('name', $this->session->userdata('username'))->where('seen', 'no')->where('type', $this->session->userdata('login_type'))->from('complaints')->count_all_results();
 
                 ?>
