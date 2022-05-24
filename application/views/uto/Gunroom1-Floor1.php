@@ -2,13 +2,47 @@
 $this->load->view('uto/common/header');
 ?>
 
-<style>
+<style>  
+.hide {
+  display: block;
+}
+
     .occupied0 {
         background: url('<?= base_url() ?>assets/img/0-occupied.jpg');
         background-position: center;
         background-size: cover;
         height: 10% !important;
         width: 10% !important;
+        position: relative;
+    }
+    
+    .occupied0 .hide{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: black;
+    color: white;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear; 
+    transition: visibility 0s, opacity 0.5s linear;
+    }
+
+  
+    
+   .occupied0:hover .hide {
+  display: block;
+  color: black;
+  border:2px solid blue;
+}
+    .occupied0:hover {
+        cursor: pointer;
+        width: 150px;
+       padding: 8px 15px;
+       visibility: visible;
+       opacity: 0.3; 
     }
 
     .occupied1 {
@@ -17,6 +51,18 @@ $this->load->view('uto/common/header');
         background-size: cover;
         height: 10% !important;
         width: 10% !important;
+    }
+    .occupied1:hover {
+        cursor: pointer;
+        width: 150px;
+       padding: 8px 15px;
+       visibility: visible;
+       opacity: 0.3; 
+    }
+   .occupied1:hover + .hide {
+    display: block;
+    color: black;
+    background-color:red;
     }
 
     .occupied2 {
@@ -68,6 +114,7 @@ $this->load->view('uto/common/header');
             <h1 style="text-align:center; padding:10px"><strong><?= $gunroom_name . " - " . $gunroom_floor_name ?></strong></h1>
         </div>
     </div>
+    
     <table class="">
         <?php  $total_rows = count($rooms_data);
         $loop_break = $total_rows / 2; ?>
@@ -81,6 +128,7 @@ $this->load->view('uto/common/header');
                 <?php } ?>
             </tr>
             <tr>
+            
                 <?php 
                 for ($x = 0; $x < $loop_break; $x++) { 
                 $count = 0;
@@ -97,10 +145,12 @@ $this->load->view('uto/common/header');
                         $count++;
                     }
                 ?>
-                    <td <?php if ($count == "0") {
-                            echo "class='occupied0'";
-                        }
-                        if ($count == '1') {
+                    <td 
+                   
+                    <?php if ($count == "0") {?>
+                           <div class="occupied0" ></div>
+                           <div class="hide"><p>ANum </p></div> 
+                        <?php } if ($count == '1') {
                             echo "class='occupied1'";
                         }
                         if ($count == '2') {
@@ -112,6 +162,7 @@ $this->load->view('uto/common/header');
                         if ($count == '4') {
                             echo "class='occupied4'";
                         } ?>></td>
+                        
                 <?php $count = 0;
                 }
                 ?>
