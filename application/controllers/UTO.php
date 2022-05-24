@@ -72,6 +72,8 @@ class UTO extends CI_Controller
 
             $floor_name=$this->db->where('id',$gunroom_floor_id)->get('gunrooms_floors')->row_array();
             $data['gunroom_floor_name']=$floor_name['gunroom_floor_name'];
+            $data['gunroom_id']= $gunroom_id;
+            $data['gunroom_floor_id']= $gunroom_floor_id;
 
             //print_r($data['rooms_data']); exit;
             $this->load->view('uto/Gunroom1-Floor1', $data);
@@ -657,6 +659,22 @@ class UTO extends CI_Controller
             $p_no = $_POST['p_no'];
             $query['officer'] = $this->db->where('p_no', $p_no)->get('officers')->row_array();
             $query['exist'] = $this->db->where('officer_id',  $query['officer']['id'])->where('status', 'open')->get('weapon_allocation_records')->row_array();
+            //print_r($query['exist']);exit;
+            echo json_encode($query);
+        }
+    }
+
+    public function get_allocated_officers_name()
+    {
+        if ($this->input->post()) {
+            $gunroom_id = $_POST['gunroom_id'];
+            $gunroom_floor_id = $_POST['gunroom_floor_id'];
+            $room_no = $_POST['room_no'];
+
+            $query['officer1'] = $this->db->select('allocated_to_1')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer2'] = $this->db->select('allocated_to_2')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer3'] = $this->db->select('allocated_to_3')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer4'] = $this->db->select('allocated_to_4')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
             //print_r($query['exist']);exit;
             echo json_encode($query);
         }

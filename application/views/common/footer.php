@@ -87,21 +87,21 @@
         <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="<?php echo base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script> -->
 
         <!-- Page level custom scripts -->
-        <script src="<?php echo base_url(); ?>assets/js/demo/chart-area-demo.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/demo/chart-pie-demo.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/js/demo/chart-area-demo.js"></script> -->
+        <!-- <script src="<?php echo base_url(); ?>assets/js/demo/chart-pie-demo.js"></script> -->
 
         <!-- Links for Canlender -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fullcalendar/fullcalendar.min.css" />
 
-        <script src="<?php echo base_url(); ?>assets/fullcalendar/lib/moment.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/fullcalendar/lib/moment.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/fullcalendar/fullcalendar.min.js"></script>
 
         <script src='<?php echo base_url(); ?>assets/fullcalendar/packages/core/main.js'></script>
         <script src='<?php echo base_url(); ?>assets/fullcalendar/packages/interaction/main.js'></script>
-        <script src='<?php echo base_url(); ?>assets/fullcalendar/packages/daygrid/main.js'></script>
+        <script src='<?php echo base_url(); ?>assets/fullcalendar/packages/daygrid/main.js'></script> -->
         <script src="<?= base_url('assets/js/chat/chat.js'); ?>"></script>
 
         <script src="<?php echo base_url(); ?>assets/swal/swal.all.min.js"></script>
