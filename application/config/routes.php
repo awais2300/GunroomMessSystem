@@ -60,15 +60,20 @@ $route['update-activity'] = 'ChatController/update_activity';
 $route['check-notification'] = 'ChatController/check_notification';
 $route['check-activity'] = 'ChatController/check_activity';
 
-$route['Project_Officer/update-notification'] = 'ChatController/update_notification';
-$route['Project_Officer/update-activity'] = 'ChatController/update_activity';
-$route['Project_Officer/check-notification'] = 'ChatController/check_notification';
-$route['Project_Officer/check-activity'] = 'ChatController/check_activity';
+$route['AssistantGunroom/update-notification'] = 'ChatController/update_notification';
+$route['AssistantGunroom/update-activity'] = 'ChatController/update_activity';
+$route['AssistantGunroom/check-notification'] = 'ChatController/check_notification';
+$route['AssistantGunroom/check-activity'] = 'ChatController/check_activity';
 
-$route['Project_Officer/add_weapons/update-activity'] = 'ChatController/update_activity';
-$route['Project_Officer/add_weapons/update-notification'] = 'ChatController/update_notification';
-$route['Project_Officer/add_weapons/check-activity'] = 'ChatController/check_activity';
-$route['Project_Officer/add_weapons/check-notification'] = 'ChatController/check_notification';
+$route['ChiefMess/update-notification'] = 'ChatController/update_notification';
+$route['ChiefMess/update-activity'] = 'ChatController/update_activity';
+$route['ChiefMess/check-notification'] = 'ChatController/check_notification';
+$route['ChiefMess/check-activity'] = 'ChatController/check_activity';
+
+$route['UTO/update-notification'] = 'ChatController/update_notification';
+$route['UTO/update-activity'] = 'ChatController/update_activity';
+$route['UTO/check-notification'] = 'ChatController/check_notification';
+$route['UTO/check-activity'] = 'ChatController/check_activity';
 
 $route['Admin/update_complaint/update-activity'] = 'ChatController/update_activity';
 $route['Admin/update_complaint/update-notification'] = 'ChatController/update_notification';

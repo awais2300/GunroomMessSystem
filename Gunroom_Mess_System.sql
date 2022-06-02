@@ -409,6 +409,49 @@ CREATE TABLE `mess_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `attachment_name` text NOT NULL,
+  `file_ext` text NOT NULL,
+  `mime_type` text NOT NULL,
+  `message_date_time` text NOT NULL,
+  `ip_address` text NOT NULL,
+  `seen` enum('yes','no') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+--
+-- Table structure for table `activity_log`
+--
+
+CREATE TABLE `activity_log` (
+ `id` int(11) NOT NULL,
+ `activity_module` enum('UTO','ChiefMess','AssistantGunroom','admin') NOT NULL,
+ `activity_action` enum('add','update','delete') ,
+ `activity_detail` text NULL,
+ `activity_by` varchar(250) NULL,
+ `activity_date` datetime
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `activity_log_seen`
+--
+
+CREATE TABLE `activity_log_seen` (
+ `activity_id` int(11) NOT NULL,
+ `user_id` int(11) NOT NULL,
+ `seen` enum('yes','no') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
 -- Indexes for dumped tables
 --
 
@@ -446,6 +489,19 @@ ALTER TABLE `mess_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `activity_log`
+--  
+ALTER TABLE `activity_log`
+ ADD PRIMARY KEY (`id`);
+
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -479,6 +535,21 @@ ALTER TABLE `security_info`
 ALTER TABLE `mess_menu`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `activity_log`
+--
+ALTER TABLE `activity_log`
+ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+
 --
 -- Constraints for dumped tables
 --
@@ -495,7 +566,6 @@ ALTER TABLE `gunrooms_floors`
 ALTER TABLE `gunrooms_rooms`
   ADD CONSTRAINT `gunrooms_rooms_ibfk_1` FOREIGN KEY (`gunroom_id`) REFERENCES `gunrooms` (`id`),
   ADD CONSTRAINT `gunrooms_rooms_ibfk_2` FOREIGN KEY (`gunroom_floor_id`) REFERENCES `gunrooms_floors` (`id`);
-COMMIT;
 
 
 CREATE TABLE `complaints` (
