@@ -383,7 +383,7 @@ CREATE TABLE `security_info` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `acct_type` enum('admin','UTO','AssistantGunroom','ChiefMess') NOT NULL,
+  `acct_type` enum('admin','UTO','AssistantGunroom','ChiefMess','AssistantMess','ChiefMaintenance') NOT NULL,
   `status` enum('offline','online') NOT NULL,
   `email` varchar(200) NOT NULL,
   `phone` varchar(200) NOT NULL,
@@ -397,9 +397,11 @@ CREATE TABLE `security_info` (
 
 INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_type`, `status`, `email`, `phone`, `address`, `full_name`) VALUES
 (1, 'uto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'UTO', 'offline', '', '', '', 'Awais Ahmad'),
-(2, 'cheifmess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'ChiefMess', 'offline', '', '', '', 'Awais Ahmad'),
-(3, 'assistant', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'AssistantGunroom', 'offline', '', '', '', 'Awais Ahmad'),
-(4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', '');
+(2, 'cheif-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'ChiefMess', 'offline', '', '', '', 'Awais Ahmad'),
+(3, 'assistant-gunroom', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'AssistantGunroom', 'offline', '', '', '', 'Awais Ahmad'),
+(4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', ''),
+(5, 'assistant-mess', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'AssistantMess', 'offline', '', '', '', ''),
+(6, 'cheif-maintenance', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', '');
 
 
 CREATE TABLE `mess_menu` (
@@ -547,8 +549,6 @@ ALTER TABLE `chat`
 --
 ALTER TABLE `activity_log`
  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
-
 
 --
 -- Constraints for dumped tables

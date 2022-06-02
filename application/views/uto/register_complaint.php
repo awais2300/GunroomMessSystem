@@ -41,7 +41,7 @@ $this->load->view('uto/common/header');
 
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Enter Data</h1>
+                        <h1 class="h4">Enter Complaint</h1>
                     </div>
 
                     <div class="card-body bg-custom3">

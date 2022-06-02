@@ -89,9 +89,6 @@ class AssistantGunroom extends CI_Controller
     {
         
         if ($this->session->has_userdata('user_id')) {
-
-            // $data['gunrooms_floors'] = $this->db->where('gunroom_id',$gunroom_id)->get('gunrooms_floors')->result_array();
-
             $this->db->select('g.gunroom_name, gf.gunroom_floor_name, gr.*');
             $this->db->from('gunrooms_rooms gr');
             $this->db->join('gunrooms_floors gf', 'gr.gunroom_floor_id = gf.id');
@@ -256,7 +253,8 @@ class AssistantGunroom extends CI_Controller
             'allocated_to_1' => $name_1,
             'allocated_to_2' => $name_2,
             'allocated_to_3' => $name_3,
-            'allocated_to_4' => $name_4
+            'allocated_to_4' => $name_4,
+            'status' => 'Occupied'
         ];
 
         // print_r($cond);
