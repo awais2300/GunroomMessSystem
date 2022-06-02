@@ -22,8 +22,12 @@ class User_Login extends CI_Controller
 				redirect('UTO');
 			} else if ($acct_type == "AssistantGunroom") {
 				redirect('AssistantGunroom');
+			} else if ($acct_type == "AssistantMess") {
+				redirect('AssistantMess');
 			} else if ($acct_type == "ChiefMess") {
 				redirect('ChiefMess');
+			} else if ($acct_type == "ChiefMaintenance") {
+				redirect('ChiefMaintenance');
 			} else if ($acct_type == "admin") {
 				redirect('Admin');
 			} else if ($acct_type == "Operator") {

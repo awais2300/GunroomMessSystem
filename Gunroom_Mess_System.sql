@@ -400,8 +400,8 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_typ
 (2, 'cheif-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'ChiefMess', 'offline', '', '', '', 'Awais Ahmad'),
 (3, 'assistant-gunroom', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-07-13 15:14:39', 'AssistantGunroom', 'offline', '', '', '', 'Awais Ahmad'),
 (4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', ''),
-(5, 'assistant-mess', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'AssistantMess', 'offline', '', '', '', ''),
-(6, 'cheif-maintenance', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', '');
+(5, 'assistant-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'AssistantMess', 'offline', '', '', '', ''),
+(6, 'cheif-maintenance', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', '');
 
 
 CREATE TABLE `mess_menu` (
@@ -588,7 +588,8 @@ ALTER TABLE `complaints`
   ADD column `seen` enum('no','yes');
 ALTER TABLE `complaints` 
   ADD column `admin_seen` enum('no','yes');
-
+ALTER TABLE `complaints` 
+  ADD column `account_type` varchar(255) NULL;
 
 
 --

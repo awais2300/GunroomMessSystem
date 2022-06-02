@@ -48,17 +48,17 @@
     }
 
     span {
-        color: black;
-        font-size: 18px !important;
+        color:black;
+        font-size:18px !important;
     }
 
     .fas {
-        color: black !important;
-        font-size: 18px !important
+        color:black !important;
+        font-size:18px !important
     }
 
     .sidebar-brand-text {
-        color: black !important;
+        color:black !important;
     }
 </style>
 
@@ -83,7 +83,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?>AssistantGunroom">
+                <a class="nav-link" href="<?php echo base_url(); ?>ChiefMaintenance">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -91,41 +91,32 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Create New User</span>
-                </a>
-            </li>
-
-            <?php $unseen_complaints = $this->db->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->from('complaints')->count_all_results(); ?>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-comments"></i>
-                    <span>Complaints</span>
-                    <?php if ($unseen_complaints != '0') { ?>
-                        <span class="numberCircle"><?= $unseen_complaints; ?></span>
-                    <?php } ?>
-                </a>
-            </li>
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
+                Features
+            </div> -->
+            <!-- Nav Item - Pages Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/allocate_rooms" aria-expanded="true">
+                <!-- <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/allocate_rooms" aria-expanded="true"> -->
+                <a class="nav-link collapsed" href="#" aria-expanded="true">
                     <i class="fas fa-hotel"></i>
-                    <span> Room Allocations </span>
+                    <span> Complaints </span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/update_menu" aria-expanded="true">
-                    <i class="fas fa-hotel"></i>
-                    <span> Update Mess Menu </span>
+                <!-- <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/update_menu" aria-expanded="true"> -->
+                <a class="nav-link collapsed" href="#" aria-expanded="true">
+                    <!-- <i class="fas fa-bars"></i> -->
+                    <!-- <span> Special Request Menu </span> -->
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/add_new_gunroom" aria-expanded="true">
-                    <i class="fas fa-folder-plus"></i>
-                    <span> Add New Gunroom </span>
+                <!-- <a class="nav-link collapsed" href="<?php echo base_url(); ?>Operator/add_new_gunroom" aria-expanded="true"> -->
+                <a class="nav-link collapsed" href="#" aria-expanded="true">
+                    <!-- <i class="fas fa-bars"></i> -->
+                    <!-- <span> Current Mess Menu </span> -->
                 </a>
             </li>
 
