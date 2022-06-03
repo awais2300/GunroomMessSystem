@@ -26,7 +26,7 @@ $this->load->view('assistantmess/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Gunroom Complaint Records</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Mess Complaint Records</strong></h1>
         </div>
     </div>
 

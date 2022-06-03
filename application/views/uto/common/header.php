@@ -20,23 +20,27 @@
     <!-- <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
-    
+
 
 </head>
 
 <style>
-    .numberCircle {
+    .dot {
+        height: 25px;
+        width: 25px;
+        background-color: red;
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        padding: 8px;
-        
-        background: red;
-        border: 2px solid #666;
-        color: white;
-        text-align: center;
+        display: inline-block !important;
+    }
 
-        font: 20px Arial, sans-serif;
+    span {
+        color: black;
+        font-size: 15px !important;
+    }
+
+    .fas {
+        color: black !important;
+        font-size: 15px !important
     }
 
     .img-logo {
@@ -49,18 +53,8 @@
         /* border-radius: 25px; */
     }
 
-    span {
-        color:black;
-        font-size:18px !important;
-    }
-
-    .fas {
-        color:black !important;
-        font-size:18px !important
-    }
-
     .sidebar-brand-text {
-        color:black !important;
+        color: black !important;
     }
 </style>
 
@@ -99,28 +93,17 @@
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
             <?php if ($this->session->userdata('login_type') == 'gunroom') {
-                $total_gunrooms = $this->db->from('gunrooms')->count_all_results(); 
-                for($i=1; $i<=$total_gunrooms;$i++){?>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom/<?= $i?>" aria-expanded="true">
-                        <i style="font-size:20px" class="fas fa-hotel"></i>
-                        <span> Gunroom<?= " " .$i?> </span>
-                    </a>
-                </li>
+                $total_gunrooms = $this->db->from('gunrooms')->count_all_results();
+                for ($i = 1; $i <= $total_gunrooms; $i++) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom/<?= $i ?>" aria-expanded="true">
+                            <i style="font-size:20px" class="fas fa-hotel"></i>
+                            <span> Gunroom<?= " " . $i ?> </span>
+                        </a>
+                    </li>
                 <?php } ?>
-                <!-- <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom2" aria-expanded="true">
-                        <i style="font-size:20px" class="fas fa-hotel"></i>
-                        <span> Gunroom 2 </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/gunroom3" aria-expanded="true">
-                        <i style="font-size:20px" class="fas fa-hotel"></i>
-                        <span> Gunroom 3 </span>
-                    </a>
-                </li> -->
-                <?php $unseen_complaints = $this->db->where('name', $this->session->userdata('username'))->where('seen', 'no')->where('type', $this->session->userdata('login_type'))->from('complaints')->count_all_results();
+
+                <?php $unseen_complaints = $this->db->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->from('complaints')->count_all_results();
 
                 ?>
 
@@ -129,32 +112,32 @@
                         <i style="font-size:20px" class="fas fa-tasks"></i>
                         <span> Complaints </span>
                         <?php if ($unseen_complaints != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_complaints; ?></span>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_complaints; ?></span>
                         <?php } ?>
                     </a>
                 </li>
             <?php } else if ($this->session->userdata('login_type') == 'mess') { ?>
-                <?php $unseen_reservations= $this->db->where('seen','no')->from('guest_reservation')->count_all_results(); ?>
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/reservation" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-user-edit"></i>
-                    <span> Guest Reservations</span>
-                    <?php if ($unseen_reservations != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                <?php $unseen_reservations = $this->db->where('seen', 'no')->from('guest_reservation')->count_all_results(); ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/reservation" aria-expanded="true">
+                        <i style="font-size:20px" class="fas fa-user-edit"></i>
+                        <span> Guest Reservations</span>
+                        <?php if ($unseen_reservations != '0') { ?>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_reservations; ?></span>
                         <?php } ?>
-                </a>
-            </li>
+                    </a>
+                </li>
 
-            <?php $unseen_menu_requests= $this->db->where('seen','no')->from('requesting_menu')->count_all_results(); ?>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/menu_requests" aria-expanded="true">
-                    <i style="font-size:20px" class="fas fa-unlock-alt"></i>
-                    <span> Menu Requests </span>
-                    <?php if ($unseen_menu_requests != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                <?php $unseen_menu_requests = $this->db->where('seen', 'no')->from('requesting_menu')->count_all_results(); ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/menu_requests" aria-expanded="true">
+                        <i style="font-size:20px" class="fas fa-unlock-alt"></i>
+                        <span> Menu Requests </span>
+                        <?php if ($unseen_menu_requests != '0') { ?>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_menu_requests; ?></span>
                         <?php } ?>
-                </a>
-            </li>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="<?php echo base_url(); ?>UTO/complaint" aria-expanded="true">
@@ -254,7 +237,7 @@
                         </li> -->
 
                         <!-- Nav Item - Messages -->
-                        <!-- <li class="nav-item dropdown no-arrow mx-1" id="notification">
+                        <li class="nav-item dropdown no-arrow mx-1" id="notification">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 
@@ -274,7 +257,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li> -->
+                        </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

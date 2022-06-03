@@ -21,52 +21,53 @@ class UTO extends CI_Controller
             $this->load->view('login');
         }
     }
-    public function gunroom($gunroom_id=null)
+    
+    public function gunroom($gunroom_id = null)
     {
         if ($this->session->has_userdata('user_id')) {
-            $count=0;
-            $name=$this->db->where('id',$gunroom_id)->get('gunrooms')->row_array();
-            $data['gunroom_name']=$name['gunroom_name'];
-            $data['gunroom']=$gunroom_id;
-            $data['total_floors'] = $this->db->where('gunroom_id',$gunroom_id )->from("gunrooms_floors")->count_all_results();
-            $data['total_rooms'] = $this->db->where('gunroom_id',$gunroom_id )->from("gunrooms_rooms")->count_all_results();
-            $data['room_occupied'] = $this->db->where('gunroom_id',$gunroom_id )->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $count = 0;
+            $name = $this->db->where('id', $gunroom_id)->get('gunrooms')->row_array();
+            $data['gunroom_name'] = $name['gunroom_name'];
+            $data['gunroom'] = $gunroom_id;
+            $data['total_floors'] = $this->db->where('gunroom_id', $gunroom_id)->from("gunrooms_floors")->count_all_results();
+            $data['total_rooms'] = $this->db->where('gunroom_id', $gunroom_id)->from("gunrooms_rooms")->count_all_results();
+            $data['room_occupied'] = $this->db->where('gunroom_id', $gunroom_id)->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
             $data['room_vacant'] = $this->db->where('gunroom_id', $gunroom_id)->where('status', 'Vacant')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_1'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_1!=','')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_2!=','')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_3!=','')->from("gunrooms_rooms")->count_all_results();
-            $data['accomodated_officers_4'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_4!=','')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_1'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_1!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_2!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_3!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_4'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_4!=', '')->from("gunrooms_rooms")->count_all_results();
             //print_r($data['accomodated_officers'][0]['allocated_to_1'] );exit;
-       
-            $data['counter']=$data['accomodated_officers_1']+$data['accomodated_officers_2']+$data['accomodated_officers_3']+$data['accomodated_officers_4'];
+
+            $data['counter'] = $data['accomodated_officers_1'] + $data['accomodated_officers_2'] + $data['accomodated_officers_3'] + $data['accomodated_officers_4'];
             //  echo  $data['accomodated_officers'];exit;
             $this->load->view('uto/Gunroom1', $data);
         }
     }
-    
-    public function gunroom_floor($gunroom_id=null,$gunroom_floor_id=null)
+
+    public function gunroom_floor($gunroom_id = null, $gunroom_floor_id = null)
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['rooms_data'] = $this->db->where('gunroom_id',$gunroom_id )->where('gunroom_floor_id', $gunroom_floor_id)->get('gunrooms_rooms')->result_array();
+            $data['rooms_data'] = $this->db->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->get('gunrooms_rooms')->result_array();
 
-            $name=$this->db->where('id',$gunroom_id)->get('gunrooms')->row_array();
-            $data['gunroom_name']=$name['gunroom_name'];
+            $name = $this->db->where('id', $gunroom_id)->get('gunrooms')->row_array();
+            $data['gunroom_name'] = $name['gunroom_name'];
 
-            $floor_name=$this->db->where('id',$gunroom_floor_id)->get('gunrooms_floors')->row_array();
-            $data['gunroom_floor_name']=$floor_name['gunroom_floor_name'];
-            $data['gunroom_id']= $gunroom_id;
-            $data['gunroom_floor_id']= $gunroom_floor_id;
+            $floor_name = $this->db->where('id', $gunroom_floor_id)->get('gunrooms_floors')->row_array();
+            $data['gunroom_floor_name'] = $floor_name['gunroom_floor_name'];
+            $data['gunroom_id'] = $gunroom_id;
+            $data['gunroom_floor_id'] = $gunroom_floor_id;
 
             //print_r($data['rooms_data']); exit;
             $this->load->view('uto/Gunroom1-Floor1', $data);
         }
     }
 
-    
+
     public function complaint()
     {
         if ($this->session->has_userdata('user_id')) {
-    
+
             if (!empty($this->session->userdata('full_name'))) {
                 $user_name =  $this->session->userdata('full_name');
             } else {
@@ -91,22 +92,22 @@ class UTO extends CI_Controller
     public function guest_reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            
-            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
-            $this->load->view('uto/guest_reservation',$data);
+
+            $data['menu_data'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
+            $this->load->view('uto/guest_reservation', $data);
         }
     }
- 
+
 
     public function requesting_menu()
     {
         if ($this->session->has_userdata('user_id')) {
             //$data['complaint_data'] = $this->db->where('name',$this->session->userdata('username'))->get('complaints')->result_array();
-            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
-            $this->load->view('uto/requesting_menu',$data);
+            $data['menu_data'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
+            $this->load->view('uto/requesting_menu', $data);
         }
     }
-    
+
     public function add_complaint_process()
     {
         $postData = $this->security->xss_clean($this->input->post());
@@ -118,7 +119,7 @@ class UTO extends CI_Controller
         $type = $postData['type'];
         $location = $postData['location'];
         $description = $postData['description'];
-        
+
         if ($_FILES['attachement']['name'][0] != NULL) {
             $upload1 = $this->upload_attachement($_FILES['attachement']);
             if (count($upload1) > 1) {
@@ -155,19 +156,33 @@ class UTO extends CI_Controller
             redirect('uto/register_complaint');
         }
     }
+
     public function reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['reservation_data'] = $this->db->where('name',$this->session->userdata('username'))->get('guest_reservation')->result_array();
+            $data['reservation_data'] = $this->db->where('name', $this->session->userdata('username'))->get('guest_reservation')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('guest_reservation');
-            $this->load->view('uto/reservations',$data);
+            $this->load->view('uto/reservations', $data);
         }
-    } public function menu_requests()
+    }
+
+    
+    public function menu_requests()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['menu_request_data'] = $this->db->where('name',$this->session->userdata('username'))->get('requesting_menu')->result_array();
+            $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
-            $this->load->view('uto/menu_requests',$data);
+            $this->load->view('uto/menu_requests', $data);
+        }
+    }
+
+
+    public function show_request_menu()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['menu_data'] = $this->db->get('mess_menu')->result_array();
+            // $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
+            $this->load->view('uto/requesting_menu',$data);
         }
     }
 
@@ -180,13 +195,13 @@ class UTO extends CI_Controller
         $date = $postData['date'];
         $total_guests = $postData['total_guests'];
         $menu = $postData['menu'];
-       //print_r($menu);
-       $muenu_items=implode(',',$menu);
-      // print_r($muenu_items);exit;
+        //print_r($menu);
+        $muenu_items = implode(',', $menu);
+        // print_r($muenu_items);exit;
         $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
-       
+
 
         $insert_array = array(
             'name' => $name,
@@ -195,8 +210,8 @@ class UTO extends CI_Controller
             'date' => $date,
             'total_guests' => $total_guests,
             'menu' => $muenu_items,
-            'seen'=>'no',
-            'admin_seen'=>'no'
+            'seen' => 'no',
+            'admin_seen' => 'no'
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('guest_reservation', $insert_array);
@@ -221,7 +236,7 @@ class UTO extends CI_Controller
         $menu = $postData['menu'];
         $description = $postData['description'];
 
-        $muenu_items=implode(',',$menu);
+        $muenu_items = implode(',', $menu);
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
 
@@ -232,8 +247,8 @@ class UTO extends CI_Controller
             'date' => $date,
             'total_persons' => $no_of_persons,
             'menu' => $muenu_items,
-            'seen'=>'no',
-            'admin_seen'=>'no'
+            'seen' => 'no',
+            'admin_seen' => 'no'
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('requesting_menu', $insert_array);
@@ -241,10 +256,10 @@ class UTO extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Submitted successfully');
-            redirect('uto/requesting_menu');
+            redirect('uto/menu_requests');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('uto/register_complaint');
+            redirect('uto/menu_requests');
         }
     }
 

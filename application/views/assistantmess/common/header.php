@@ -22,19 +22,22 @@
 </head>
 
 <style>
-    .numberCircle {
+     .dot {
+        height: 25px;
+        width: 25px;
+        background-color: red;
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        padding: 8px;
-        margin-left: 25px;
+        display: inline-block !important;
+    }
 
-        background: red;
-        border: 2px solid #666;
-        color: white;
-        text-align: center;
+    span {
+        color: black;
+        font-size: 15px !important;
+    }
 
-        font: 20px Arial, sans-serif;
+    .fas {
+        color: black !important;
+        font-size: 15px !important
     }
 
     .img-logo {
@@ -45,16 +48,6 @@
         width: 39px;
         /* filter: blur(1px); */
         /* border-radius: 25px; */
-    }
-
-    span {
-        color: black;
-        font-size: 18px !important;
-    }
-
-    .fas {
-        color: black !important;
-        font-size: 18px !important
     }
 
     .sidebar-brand-text {
@@ -71,7 +64,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?><?php echo 'Project_Officer'; ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
@@ -83,7 +76,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?>AssistantGunroom">
+                <a class="nav-link" href="<?php echo base_url(); ?>AssistantMess">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -91,43 +84,55 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>AssistantMess/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Create New User</span>
                 </a>
-            </li>
+            </li> -->
 
-            <?php $unseen_complaints = $this->db->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->from('complaints')->count_all_results(); ?>
+            <?php $unseen_complaints = $this->db->where('seen', 'no')->where('account_type', 'mess')->from('complaints')->count_all_results(); ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="<?= base_url(); ?>AssistantMess/complaint" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-comments"></i>
                     <span>Complaints</span>
                     <?php if ($unseen_complaints != '0') { ?>
-                        <span class="numberCircle"><?= $unseen_complaints; ?></span>
+                        <span class="dot">&nbsp;&nbsp;<?= $unseen_complaints; ?></span>
                     <?php } ?>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/allocate_rooms" aria-expanded="true">
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantMess/allocate_rooms" aria-expanded="true">
                     <i class="fas fa-hotel"></i>
                     <span> Room Allocations </span>
                 </a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantMess/reservation" aria-expanded="true">
+                    <i class="fas fa-hotel"></i>
+                    <span> Guest Reservation </span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/update_menu" aria-expanded="true">
-                    <i class="fas fa-hotel"></i>
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantMess/show_request_menu_list" aria-expanded="true">
+                    <i class="fas fa-coffee"></i>
+                    <span> Requested Menu </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantMess/update_menu" aria-expanded="true">
+                    <i class="fas fa-concierge-bell"></i>
                     <span> Update Mess Menu </span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantGunroom/add_new_gunroom" aria-expanded="true">
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>AssistantMess/add_new_gunroom" aria-expanded="true">
                     <i class="fas fa-folder-plus"></i>
                     <span> Add New Gunroom </span>
                 </a>
-            </li>
+            </li> -->
 
 
             <br>
@@ -201,7 +206,7 @@
                         </li> -->
 
                         <!-- Nav Item - Messages -->
-                        <!-- <li class="nav-item dropdown no-arrow mx-1" id="notification">
+                        <li class="nav-item dropdown no-arrow mx-1" id="notification">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 
@@ -221,7 +226,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li> -->
+                        </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

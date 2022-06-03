@@ -57,7 +57,16 @@ class User_Login extends CI_Controller
 
 			$status = $this->db->select('acct_type, full_name')->where('username', $username)->get('security_info')->row_array();
 
-			if (!empty($status)) {
+			$allow_login = true;
+
+			if ($status['acct_type'] == "UTO") {
+
+				if (is_null($login_type) || $login_type == '') {
+					$allow_login = false;
+				}
+			}
+
+			if (!empty($status) && $allow_login) {
 				$query = $this->db->where('username', $username)->where('acct_type', $status['acct_type'])->get('security_info')->row_array();
 				$hash = $query['password'];
 
@@ -77,16 +86,16 @@ class User_Login extends CI_Controller
 						redirect('User_Login/show_login_page');
 					} else {
 						$this->session->set_flashdata('failure', 'Invalid Password');
-						redirect('User_Login/show_login_page');
+						redirect('User_Login/index');
 					}
 					//print_r($query); exit; 
 				} else {
 					$this->session->set_flashdata('failure', 'Invalid Username');
-					redirect('User_Login/show_login_page');
+					redirect('User_Login/index');
 				}
 			}
 			$this->session->set_flashdata('failure', 'Invalid Username');
-			redirect('User_Login/show_login_page');
+			redirect('User_Login/index');
 		}
 	}
 

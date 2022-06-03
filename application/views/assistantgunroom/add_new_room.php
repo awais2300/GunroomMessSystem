@@ -34,7 +34,7 @@ $this->load->view('assistantgunroom/common/header');
                                     </div>
 
                                     <div class="card-body bg-custom3">
-                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_new_room/<?= $gunroom_id; ?>/<?= $floor_id; ?>">
+                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>AssistantGunroom/insert_new_room/<?= $gunroom_id; ?>/<?= $floor_id; ?>">
                                             <div class="form-group row">
                                                 <div class="col-sm-6">
                                                     <h6>&nbsp;Room No:</h6>

@@ -295,11 +295,83 @@ class AssistantGunroom extends CI_Controller
                 $user_name =  $this->session->userdata('username');
             }
 
-            $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
-            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->update('complaints');
+            $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', 'gunroom')->order_by('date', 'desc')->get('complaints')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', 'gunroom')->update('complaints');
             if ($query) {
                 $this->load->view('assistantgunroom/complaint', $data);
             }
+        }
+    }
+
+    public function show_gunrooms_list()
+    {
+        if ($this->session->has_userdata('user_id')) {
+
+            if (!empty($this->session->userdata('full_name'))) {
+                $user_name =  $this->session->userdata('full_name');
+            } else {
+                $user_name =  $this->session->userdata('username');
+            }
+
+            $this->load->view('assistantgunroom/gunrooms_list'); 
+        
+        }
+    }
+
+    public function gunroom($gunroom_id = null)
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $count = 0;
+            $name = $this->db->where('id', $gunroom_id)->get('gunrooms')->row_array();
+            $data['gunroom_name'] = $name['gunroom_name'];
+            $data['gunroom'] = $gunroom_id;
+            $data['total_floors'] = $this->db->where('gunroom_id', $gunroom_id)->from("gunrooms_floors")->count_all_results();
+            $data['total_rooms'] = $this->db->where('gunroom_id', $gunroom_id)->from("gunrooms_rooms")->count_all_results();
+            $data['room_occupied'] = $this->db->where('gunroom_id', $gunroom_id)->where('status!=', 'vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['room_vacant'] = $this->db->where('gunroom_id', $gunroom_id)->where('status', 'Vacant')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_1'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_1!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_2'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_2!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_3'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_3!=', '')->from("gunrooms_rooms")->count_all_results();
+            $data['accomodated_officers_4'] = $this->db->where('gunroom_id', $gunroom_id)->where('allocated_to_4!=', '')->from("gunrooms_rooms")->count_all_results();
+            //print_r($data['accomodated_officers'][0]['allocated_to_1'] );exit;
+
+            $data['counter'] = $data['accomodated_officers_1'] + $data['accomodated_officers_2'] + $data['accomodated_officers_3'] + $data['accomodated_officers_4'];
+            //  echo  $data['accomodated_officers'];exit;
+            $this->load->view('assistantgunroom/Gunroom1', $data);
+        }
+    }
+
+    public function gunroom_floor($gunroom_id = null, $gunroom_floor_id = null)
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['rooms_data'] = $this->db->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->get('gunrooms_rooms')->result_array();
+
+            $name = $this->db->where('id', $gunroom_id)->get('gunrooms')->row_array();
+            $data['gunroom_name'] = $name['gunroom_name'];
+
+            $floor_name = $this->db->where('id', $gunroom_floor_id)->get('gunrooms_floors')->row_array();
+            $data['gunroom_floor_name'] = $floor_name['gunroom_floor_name'];
+            $data['gunroom_id'] = $gunroom_id;
+            $data['gunroom_floor_id'] = $gunroom_floor_id;
+
+            //print_r($data['rooms_data']); exit;
+            $this->load->view('assistantgunroom/Gunroom1-Floor1', $data);
+        }
+    }
+
+    public function get_allocated_officers_name()
+    {
+        if ($this->input->post()) {
+            $gunroom_id = $_POST['gunroom_id'];
+            $gunroom_floor_id = $_POST['gunroom_floor_id'];
+            $room_no = $_POST['room_no'];
+
+            $query['officer1'] = $this->db->select('allocated_to_1')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer2'] = $this->db->select('allocated_to_2')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer3'] = $this->db->select('allocated_to_3')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            $query['officer4'] = $this->db->select('allocated_to_4')->where('gunroom_id', $gunroom_id)->where('gunroom_floor_id', $gunroom_floor_id)->where('Room_no', $room_no)->get('gunrooms_rooms')->row();
+            //print_r($query['exist']);exit;
+            echo json_encode($query);
         }
     }
 }

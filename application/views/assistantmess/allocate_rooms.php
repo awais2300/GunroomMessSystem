@@ -1,5 +1,5 @@
 <?php
-$this->load->view('assistantgunroom/common/header');
+$this->load->view('assistantmess/common/header');
 ?>
 
 <style>

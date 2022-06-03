@@ -34,7 +34,7 @@ $this->load->view('uto/common/header');
         <!-- Nested Row within Card Body -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
             <h1 class="h3 mb-0 text-black-800"></h1>
-            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/guest_reservation" style="margin-block-end: 10px; ">+ Guest Reservation</a>
+            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/show_request_menu" style="margin-block-end: 10px; ">+ New Menu Request</a>
         </div>
 
         <div class="row">
@@ -50,12 +50,13 @@ $this->load->view('uto/common/header');
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Menu</th>
-                                        <th>Total Persons</th>
+                                        <th>Request By</th>
+                                        <th>P No.</th>
+                                        <th>Total guests</th>
+                                        <th>Description</th>
+                                        <th>Menu Requested</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,16 +66,19 @@ $this->load->view('uto/common/header');
                                     $count = 0;
                                     foreach ($menu_request_data as $data) {
                                         $count++;
-                                        $item_string=''; ?>
+                                        $item_string = ''; ?>
                                         <tr>
                                             <td><?= $count; ?></td>
-                                            <?php $arr= explode(',',$data['menu']);?>
-                                            <?php for($i=0;$i<count($arr);$i++){
-                                            $menu_items=$this->db->where('id',$arr[$i])->get('mess_menu')->row_array();
-                                            $item_string .= $menu_items['menu_name']." , ";
-                                            }?>
-                                            <td><?= $item_string ?></td>
+                                            <?php $arr = explode(',', $data['menu']); ?>
+                                            <?php for ($i = 0; $i < count($arr); $i++) {
+                                                $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
+                                                $item_string .= $menu_items['menu_name'] . " , ";
+                                            } ?>
+                                            <td><?= $data['name']; ?></td>
+                                            <td><?= $data['p_no']; ?></td>
                                             <td><?= $data['total_persons']; ?></td>
+                                            <td><?= $data['description']; ?></td>
+                                            <td><?= $item_string ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
                                         </tr>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NHS PMS</title>
+    <title>Gunroom & Mess System</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,6 +33,16 @@
         height: 50px;
         width: 39px;
     }
+
+    .fas {
+        color: black !important;
+        font-size: 15px !important
+    }
+
+    span {
+        color: black;
+        font-size: 15px !important;
+    }
 </style>
 
 <body id="page-top">
@@ -48,7 +58,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
-                <div class="sidebar-brand-text mx-3">Management System</div>
+                <div class="sidebar-brand-text" style="color:black">GUNROOM & MESS SYSTEM</div>
             </a>
 
             <!-- Divider -->
@@ -56,16 +66,18 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url(); ?><?php if ($this->session->userdata('acct_type') == 'admin_super' || $this->session->userdata('acct_type') == 'admin_south' || $this->session->userdata('acct_type') == 'admin_north') {
+                <a class="nav-link" href="<?php echo base_url(); ?><?php if ($this->session->userdata('acct_type') == 'Admin' ) {
                                                                         echo 'Admin';
-                                                                    } else if ($this->session->userdata('acct_type') == 'PO') {
-                                                                        echo 'Project_Officer';
-                                                                    } else if ($this->session->userdata('acct_type') == 'SO_RECORD') {
-                                                                        echo 'SO_RECORD';
-                                                                    } else if ($this->session->userdata('acct_type') == 'SO_CW') {
-                                                                        echo 'SO_CW';
-                                                                    } else if ($this->session->userdata('acct_type') == 'SO_STORE') {
-                                                                        echo 'SO_STORE';
+                                                                    } else if ($this->session->userdata('acct_type') == 'AssistantMess') {
+                                                                        echo 'AssistantMess';
+                                                                    } else if ($this->session->userdata('acct_type') == 'AssistantGunroom') {
+                                                                        echo 'AssistantGunroom';
+                                                                    } else if ($this->session->userdata('acct_type') == 'ChiefMess') {
+                                                                        echo 'ChiefMess';
+                                                                    } else if ($this->session->userdata('acct_type') == 'UTO') {
+                                                                        echo 'UTO';
+                                                                    } else if ($this->session->userdata('acct_type') == 'ChiefMaintenance') {
+                                                                        echo 'ChiefMaintenance';
                                                                     } ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -80,12 +92,11 @@
             </div> -->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true">
+                <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true">
                     <i class="fas fa-fw fa-cog"></i>
                     <span> Menu Items </span>
-                    <!-- <span>Components</span> -->
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                </a> -->
+                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Features:</h6>
                         <a class="collapse-item" href="<?php echo base_url(); ?>Project_Officer/add_projects">Projects</a>
@@ -93,7 +104,7 @@
                         <a class="collapse-item" href="<?php echo base_url(); ?>User_Login/edit_profile">Edit Profile</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>User_Login/change_password">Change Password</a>
                     </div>
-                </div>
+                </div> -->
             </li>
             <br><br><br>
 
@@ -190,15 +201,15 @@
                             <div class="col-sm-2">
                                 <div class="img-logo"></div>
                             </div>
-                            <div class="col-sm-6">
-                                <h1 style="color:white"> <strong> NHS PMS </strong></h1>
+                            <div class="col-sm-10">
+                                <h5 style="color:black;"> <strong>GUNROOM & MESS SYSTEM</strong></h5>
                             </div>
                         </div>
                     </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle text-dark-500" href="#"> Home </a>
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -206,15 +217,15 @@
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#">About </a>
-                        </li>
+                        </li> -->
 
-                        <li class="nav-item dropdown no-arrow mx-1" id="notifications">
+                        <!-- <li class="nav-item dropdown no-arrow mx-1" id="notifications">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
+                             
                                 <span class="badge badge-danger badge-counter"></span>
                             </a>
-                            <!-- Dropdown - Alerts -->
+                            
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Notifications
@@ -228,7 +239,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notifications </a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1" id="notification">

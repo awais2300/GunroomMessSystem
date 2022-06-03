@@ -1,5 +1,5 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('assistantmess/common/header');
 ?>
 
 <style>
@@ -26,27 +26,27 @@ $this->load->view('uto/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Reservation Records</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Menu Requests Records</strong></h1>
         </div>
     </div>
 
     <div class="card-body bg-custom3">
         <!-- Nested Row within Card Body -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+        <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
             <h1 class="h3 mb-0 text-black-800"></h1>
-            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/guest_reservation" style="margin-block-end: 10px; ">+ Guest Reservation</a>
-        </div>
+            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/show_request_menu" style="margin-block-end: 10px; ">+ New Menu Request</a>
+        </div> -->
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Guest Reservation</h1>
+                        <h1 class="h4">Menu Requests</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
                         <table id="example" class="table table-striped table-bordered" style="width:100%;color:black">
-                            <?php if ($reservation_data != null) { ?>
+                            <?php if ($menu_request_data != null) { ?>
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -57,8 +57,6 @@ $this->load->view('uto/common/header');
                                         <th>Menu Requested</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,7 +64,7 @@ $this->load->view('uto/common/header');
                                     <?php
 
                                     $count = 0;
-                                    foreach ($reservation_data as $data) {
+                                    foreach ($menu_request_data as $data) {
                                         $count++;
                                         $item_string = ''; ?>
                                         <tr>
@@ -74,17 +72,15 @@ $this->load->view('uto/common/header');
                                             <?php $arr = explode(',', $data['menu']); ?>
                                             <?php for ($i = 0; $i < count($arr); $i++) {
                                                 $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
-
                                                 $item_string .= $menu_items['menu_name'] . " , ";
                                             } ?>
                                             <td><?= $data['name']; ?></td>
                                             <td><?= $data['p_no']; ?></td>
-                                            <td><?= $data['total_guests']; ?></td>
+                                            <td><?= $data['total_persons']; ?></td>
                                             <td><?= $data['description']; ?></td>
                                             <td><?= $item_string ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
-
                                         </tr>
 
                                     <?php } ?>

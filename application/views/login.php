@@ -59,7 +59,15 @@
             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
 
             <div class="col-lg-6">
+
               <div class="p-5" style="padding:1rem !important">
+
+                <div class="form-check my-1">
+                  <input class="form-check-input" type="checkbox" value="" id="cb_login_type">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    UTO Login
+                  </label>
+                </div>
                 <form class="user" role="form" id="login_form" method="post" action="<?php echo base_url(); ?>User_Login/login_process">
                   <div class="form-group">
                     <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username...">
@@ -69,7 +77,7 @@
                   </div>
 
                   <div class="form-group" style="margin-bottom:5px !important;">
-                    <select class="form-control" name="optradio" id="optradio">
+                    <select class="form-control" name="optradio" id="optradio" style="display:none">
                       <option value="">Account Type</option>
                       <option value="gunroom">Gunroom</option>
                       <option value="mess">Mess</option>
@@ -162,6 +170,18 @@
         $('#login_btn').removeAttr('disabled');
       }
     });
+
+    $("#cb_login_type").change(function() {
+
+      var ischecked = $(this).is(':checked');
+      if (ischecked) {
+        $('#optradio').show();
+      } else {
+        $('#optradio').hide();
+      }
+    });
+
+    
   </script>
 
   <script src="<?php echo base_url(); ?>assets/swal/swal.all.min.js"></script>

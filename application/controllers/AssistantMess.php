@@ -295,11 +295,31 @@ class AssistantMess extends CI_Controller
                 $user_name =  $this->session->userdata('username');
             }
 
-            $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
-            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->update('complaints');
+            $data['complaint_data'] = $this->db->where('account_type', 'mess')->order_by('date', 'desc')->get('complaints')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', 'mess')->update('complaints');
             if ($query) {
                 $this->load->view('assistantmess/complaint', $data);
             }
         }
     }
+
+    public function reservation()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['reservation_data'] = $this->db->get('guest_reservation')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('guest_reservation');
+            $this->load->view('assistantmess/reservations', $data);
+        }
+    }
+
+    public function show_request_menu_list()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
+            $this->load->view('assistantmess/menu_requests', $data);
+        }
+    }
+    
+   
 }

@@ -30,11 +30,11 @@ $this->load->view('assistantmess/common/header');
     <form class="user" role="form" method="post" id="add_form">
 
         <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>AssistantMess/allocate_rooms'">
                     <h5 style="font-weight: bold;">Room Allocation</h5>
                 </button>
-            </div>
+            </div> -->
 
             <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>AssistantMess/complaint'">
@@ -43,16 +43,26 @@ $this->load->view('assistantmess/common/header');
             </div>
 
             <div class="col-sm-3">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>AssistantMess/reservation'">
+                    <h5 style="font-weight: bold;">Guest Reservation</h5>
+                </button>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>AssistantMess/show_request_menu_list'">
+                    <h5 style="font-weight: bold;">Requested Menu</h5>
+                </button>
+            </div>
+            <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>AssistantMess/update_menu'">
                     <h5 style="font-weight: bold;">Update Mess Menu</h5>
                 </button>
             </div>
 
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>AssistantMess/add_new_gunroom'">
                     <h5 style="font-weight: bold;">Add New Gunroom</h5>
                 </button>
-            </div>
+            </div> -->
 
         </div>
 

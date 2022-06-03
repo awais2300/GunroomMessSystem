@@ -1,5 +1,5 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('assistantgunroom/common/header');
 ?>
 
 <style>
@@ -20,70 +20,58 @@ $this->load->view('uto/common/header');
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Gunroom 3</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong><?= $gunroom_name;  ?></strong></h1>
         </div>
     </div>
 
     <table class="table table-bordered" style="background-color:white;color:black">
-    <!-- <thead class="thead-dark">
-      <tr  class="table-primary">
-       <th>dfsdfd</th>
-      </tr>
-    </thead> -->
-    <tbody>
-      
-      <tr class="table-active">
-        <td><b>Total rooms</b></td>
-        <td>10</td>
-       
-      </tr>
-      <tr>
-        <td><b> Total floors</td>
-        <td>3</td>
-      
-      </tr>
-      <tr class="table-active">
-        <td><b>Occupied</b></td>
-        <td><?=  $room_occupied_3; ?></td>
-       
-      </tr>
-      <tr>
-        <td><b>Empty rooms</b></td>
-        <td><?=  $room_vacant_3; ?></td>
-       
-      </tr>
-      <tr class="table-active">
-        <td><b>Total accomodation officers</b></td>
-        <td><?=  $accomodated_officers_3; ?></td>
-       
-      </tr>
-    </tbody>
-  </table>
+
+        <tbody>
+
+            <tr class="table-active">
+                <td><b>Total Rooms</b></td>
+                <td><?= $total_rooms; ?></td>
+
+            </tr>
+            <tr>
+                <td><b> Total Floors</td>
+                <td><?= $total_floors; ?></td>
+
+            </tr>
+            <tr class="table-active">
+                <td><b>Occupied Rooms</b></td>
+                <td><?= $room_occupied; ?></td>
+
+            </tr>
+            <tr>
+                <td><b>Empty Rooms</b></td>
+                <td><?= $room_vacant; ?></td>
+
+            </tr>
+            <tr class="table-active">
+                <td><b>Total accomodated officers</b></td>
+                <td><?= $counter; ?></td>
+
+            </tr>
+        </tbody>
+    </table>
     <!-- <div class="col-md-12 img">
     </div> -->
+
 
     <form class="user" role="form" method="post" id="add_form">
 
         <div class="form-group row justify-content-center" style="margin-top:50px;">
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom3_floor1'">
-                    <h5 style="font-weight: bold;">Floor 1</h5>
-                </button>
-            </div>
-
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom3_floor2'">
-                    <h5 style="font-weight: bold;">Floor 2</h5>
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom3_floor3'">
-                    <h5 style="font-weight: bold;">Floor 3</h5>
-                </button>
-            </div>
-
+            <?php $floors = $this->db->where('gunroom_id', $gunroom)->get('gunrooms_floors')->result_array() ?>
+            <?php for ($i = 0; $i < count($floors); $i++) { ?>
+                <div class="col-sm-4" style="margin-top:30px">
+                    <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>AssistantGunroom/gunroom_floor/<?= $gunroom; ?>/<?= $floors[$i]['id'] ?>'">
+                        <h5 style="font-weight: bold;"><?= $floors[$i]['gunroom_floor_name']; ?></h5>
+                    </button>
+                </div>
+            <?php } ?>
         </div>
-    </form> 
+    </form>
 
 
 </div>

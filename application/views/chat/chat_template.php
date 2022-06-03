@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php $this->load->view('chat/common/header'); ?>
+
+
 <?php !isset($selectedSender) ? $selectedSender = 0 : $selectedSender; ?>
 <?php !isset($user_name) ? $user_name = 0 : $user_name; ?>
 <style>
@@ -81,7 +83,7 @@
           <div class="col-md-8" id="chatSection">
             <!-- DIRECT CHAT -->
             <div class="box direct-chat direct-chat-primary">
-              <div class="box-header with-border" style="background-color:#000154; color:white; border-top-left-radius:5px; border-top-right-radius:5px">
+              <div class="box-header with-border" style="background-color:#89ADFE; color:black; border-top-left-radius:5px; border-top-right-radius:5px">
                 <h3 class="box-title" id="ReciverName_txt">Lets Chat</h3>
 
                 <!--   <div class="box-tools pull-right">
@@ -141,7 +143,7 @@
           <div class="col-md-4">
             <!-- USERS LIST -->
             <div class="box">
-              <div class="box-header with-border" style="background-color:#000154; color:white; border-top-left-radius:5px; border-top-right-radius:5px">
+              <div class="box-header with-border" style="background-color:#89ADFE; color:black; border-top-left-radius:5px; border-top-right-radius:5px">
                 <h3 class="box-title">Chat</h3>
 
                 <div class="box-tools pull-right">

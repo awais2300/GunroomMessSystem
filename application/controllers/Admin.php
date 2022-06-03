@@ -328,8 +328,19 @@ class Admin extends CI_Controller
     public function complaint()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['complaint_data'] = $this->db->get('complaints')->result_array();
-            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('complaints');
+            // $data['complaint_data'] = $this->db->get('complaints')->result_array();
+            // $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('complaints');
+            // if ($query) {
+            $this->load->view('Admin/select_complaints');
+            // }
+        }
+    }
+
+    public function show_complaint($type = NULL)
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['complaint_data'] = $this->db->where('account_type',$type)->get('complaints')->result_array();
+            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->where('account_type',$type)->update('complaints');
             if ($query) {
                 $this->load->view('Admin/complaint', $data);
             }

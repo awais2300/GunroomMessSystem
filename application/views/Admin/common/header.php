@@ -20,33 +20,28 @@
 
 </head>
 <style>
-    .numberCircle {
+ 
+
+    .dot {
+        height: 25px;
+        width: 25px;
+        background-color: red;
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        padding: 8px;
-
-
-        background: red;
-        border: 2px solid #666;
-        color: white;
-        text-align: center;
-
-        font: 20px Arial, sans-serif;
+        display: inline-block !important;
     }
 
     span {
-        color:black;
-        font-size:18px !important;
+        color: black;
+        font-size: 15px !important;
     }
 
     .fas {
-        color:black !important;
-        font-size:18px !important
+        color: black !important;
+        font-size: 15px !important
     }
 
     .sidebar-brand-text {
-        color:black !important;
+        color: black !important;
     }
 </style>
 
@@ -95,7 +90,7 @@
                         <i class="fas fa-fw fa-user"></i>
                         <span>Complaints</span>
                         <?php if ($unseen_complaints != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_complaints; ?></span>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_complaints; ?></span>
                         <?php } ?>
                     </a>
                 </li>
@@ -105,7 +100,7 @@
                         <i class="fas fa-user-edit"></i>
                         <span> Guest Reservations</span>
                         <?php if ($unseen_reservations != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_reservations; ?></span>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_reservations; ?></span>
                         <?php } ?>
                     </a>
                 </li>
@@ -115,7 +110,7 @@
                         <i class="fas fa-unlock-alt"></i>
                         <span> Menu Requests </span>
                         <?php if ($unseen_menu_requests != '0') { ?>
-                            <span class="numberCircle"><?= $unseen_menu_requests; ?></span>
+                            <span class="dot">&nbsp;&nbsp;<?= $unseen_menu_requests; ?></span>
                         <?php } ?>
                     </a>
                 </li>
@@ -229,13 +224,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown no-arrow mx-1" id="notifications">
+                        <!-- <li class="nav-item dropdown no-arrow mx-1" id="notifications">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter"></span>
                             </a>
-                            <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Alerts Center
@@ -247,7 +240,7 @@
 
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1" id="notification">

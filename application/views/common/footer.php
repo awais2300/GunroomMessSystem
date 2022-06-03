@@ -18,8 +18,9 @@
             }
 
             .my-float {
-                margin-top: 18px;
-                font-size: 25px;
+                margin-top: 17px !important;
+                font-size: 25px !important;
+                color:white !important;
             }
         </style>
         <footer class="sticky-footer bg-custom1 text-white">
@@ -43,9 +44,9 @@
         </a>
         <!-- Code begins here -->
         <?php if ($this->session->has_userdata('user_id')) { ?>
-            <!-- <a href="<?= base_url(); ?>ChatController?sender_id=" class="float">
+            <a href="<?= base_url(); ?>ChatController?sender_id=" class="float">
             <i class="fas fa-comment-dots my-float"></i>
-        </a> -->
+        </a>
         <?php } ?>
 
 

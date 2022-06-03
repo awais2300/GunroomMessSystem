@@ -1,5 +1,5 @@
 <?php
-$this->load->view('chiefmaintenance/common/header');
+$this->load->view('assistantgunroom/common/header');
 ?>
 
 <style>
@@ -18,33 +18,15 @@ $this->load->view('chiefmaintenance/common/header');
 </style>
 
 <div class="container">
-    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
-                                    echo $this->session->userdata('full_name');
-                                } else {
-                                    echo $this->session->userdata('username');
-                                } ?>!</h2>
-
-    <div class="col-md-12 img">
-    </div>
-
+    <h2 class="my-4">Select Gunroom</h2>
     <form class="user" role="form" method="post" id="add_form">
-
-        <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
-            <div class="col-sm-4">
-               
+        <?php
+        $total_gunrooms = $this->db->from('gunrooms')->count_all_results();
+        for ($i = 1; $i <= $total_gunrooms; $i++) { ?>
+            <div class="list-group">
+                <a href="<?php echo base_url(); ?>AssistantGunroom/gunroom/<?= $i ?>" class="list-group-item list-group-item-action">Gunroom<?= " " . $i ?> </a>
             </div>
-
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>ChiefMaintenance/complaint'">
-                    <h5 style="font-weight: bold;">Complaints</h5>
-                </button>
-            </div>
-            <div class="col-sm-4">
-               
-            </div>
-
-        </div>
-
+        <?php } ?>
     </form>
 
 

@@ -21,6 +21,16 @@ $this->load->view('Admin/common/header');
     .red-border {
         border: 1px solid red !important;
     }
+
+    th {
+        white-space: nowrap;
+        font-size:smaller;
+    }
+
+    td{
+        white-space: nowrap;
+        font-size:smaller;
+    }
 </style>
 
 <div class="container-fluid my-2">

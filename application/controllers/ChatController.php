@@ -72,7 +72,8 @@ class ChatController extends CI_Controller
 			'file_ext' => $file_ext,
 			'mime_type' => $mime_type,
 			'message_date_time' => date('Y-m-d H:i:s'), //23 Jan 2:05 pm
-			'ip_address' => $this->input->ip_address()
+			'ip_address' => $this->input->ip_address(),
+			'seen' => 'no'
 		];
 
 		$query = $this->db->insert('chat', $data);
@@ -201,9 +202,6 @@ class ChatController extends CI_Controller
 			$this->db->select('id,username');
 			$this->db->from('security_info');
 			$this->db->where("id", $chat['sender_id']);
-			if ($this->session->userdata('acct_type') != 'admin_super') {
-				$this->db->where('region', $this->session->userdata('region'));
-			}
 			$this->db->limit(1);
 			$query = $this->db->get();
 			$userName  = $query->row_array();
@@ -306,9 +304,6 @@ class ChatController extends CI_Controller
 		$this->db->select('*');
 		$this->db->from('security_info');
 		$this->db->where("status", "online");
-		if ($this->session->userdata('acct_type') != 'admin_super') {
-			$this->db->where('region', $this->session->userdata('region'));
-		}
 		$this->db->where_not_in('id', $this->session->userdata('user_id'));
 		$query = $this->db->get();
 		$r = $query->result_array();
@@ -320,12 +315,6 @@ class ChatController extends CI_Controller
 		$this->db->select('*');
 		$this->db->from('security_info');
 		$this->db->where_not_in('id', $this->session->userdata('user_id'));
-
-		if ($this->session->userdata('acct_type') != 'admin_super') {
-			$this->db->where('region', $this->session->userdata('region'));
-			$this->db->or_where('region', 'both'); //added by awais dated: 11 Dec 2021
-		}
-
 		$query = $this->db->get();
 		$r = $query->result_array();
 		return $r;

@@ -1,13 +1,6 @@
 <?php
-$this->load->view('uto/common/header');
+$this->load->view('assistantmess/common/header');
 ?>
-<link rel="stylesheet" type="text/css" href="http://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css+demos,_assets,_style.css+demos,_assets,_prettify.css.pagespeed.cc.8klr74YZ6Y.css">
-
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://raw.github.com/ehynds/jquery-ui-multiselect-widget/1.10/src/jquery.multiselect.js"></script>
-
 
 <style>
     #attachement {
@@ -36,7 +29,7 @@ $this->load->view('uto/common/header');
 
         </div>
         <div class="col-lg-11">
-            <h1 style="text-align:center; padding:40px"><strong>Requesting Menu</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Guest Reservation </strong></h1>
         </div>
 
     </div>
@@ -52,7 +45,7 @@ $this->load->view('uto/common/header');
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/requesting_menu_process">
+                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>AssistantMess/guest_reservation_process">
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Name:</h6>
@@ -72,7 +65,7 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <h6>&nbsp;No of persons:</h6>
+                                    <h6>&nbsp;No of Guests:</h6>
                                 </div>
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Date:</h6>
@@ -81,7 +74,7 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="number" class="form-control form-control-user" id="no_of_persons" name="no_of_persons" placeholder="no of persons*">
+                                    <input type="number" class="form-control form-control-user" id="total_guests" name="total_guests" placeholder="total_guests*">
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
@@ -92,25 +85,23 @@ $this->load->view('uto/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Menu:</h6>
                                 </div>
-                              
+                               
                             </div>
-                            <!-- <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script> -->
-                            <!-- <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" /> -->
-
-                          
 
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" >
-                                        <option value="">Select Menu</option>
+                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple">
+                               
+                                        <option value="">Select Menu Items</option>
                                         <?php foreach($menu_data as $data){?>
-                                            <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
-                                        <?php } ?>
+                                        <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
+                                         <?php } ?>
                                     </select>
                                 </div>
-                               
+                              
                             </div>
+
 
                             <div class="form-group row">
                                 <div class="col-sm-12">
@@ -128,7 +119,7 @@ $this->load->view('uto/common/header');
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
                                         <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                        Submit
+                                     Submit
                                     </button>
                                 </div>
                             </div>
@@ -146,7 +137,7 @@ $this->load->view('uto/common/header');
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
 
-$(document).ready(function() {
+    $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
 });
 
@@ -157,7 +148,7 @@ $(document).ready(function() {
         var name = $('#name').val();
         var p_no = $('#p_no').val();
         var date = $('#date').val();
-        var no_of_persons = $('#no_of_persons').val();
+        var total_guests = $('#total_guests').val();
         var menu = $('#menu').val();
         var description = $('#description').val();
 
@@ -175,14 +166,15 @@ $(document).ready(function() {
             validate = 1;
             $('#date').addClass('red-border');
         }
-        if (no_of_persons == '') {
+        if (total_guests == '') {
             validate = 1;
-            $('#no_of_persons').addClass('red-border');
+            $('#total_guests').addClass('red-border');
         }
         if (menu == '') {
             validate = 1;
             $('#menu').addClass('red-border');
         }
+    
 
         if (validate == 0) {
             $('#save_form')[0].submit();

@@ -33,7 +33,7 @@ $this->load->view('assistantmess/common/header');
                                     </div>
 
                                     <div class="card-body bg-custom3">
-                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>operator/insert_menu_item">
+                                        <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>AssistantMess/insert_menu_item">
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <h6>&nbsp;Menu Name:</h6>
@@ -85,7 +85,7 @@ $this->load->view('assistantmess/common/header');
 
                                 <div class="card">
                                     <div class="card-header bg-custom1">
-                                        <h1 class="h4">Edit Officer</h1>
+                                        <h1 class="h4">Edit Menu</h1>
                                     </div>
 
                                     <div class="card-body bg-custom3">
@@ -97,16 +97,16 @@ $this->load->view('assistantmess/common/header');
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-4">
-                                                    <h6>&nbsp;Personal Name:</h6>
+                                                    <h6>&nbsp;Menu Name:</h6>
                                                 </div>
 
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <h6>&nbsp;P_no:</h6>
                                                 </div>
 
                                                 <div class="col-sm-4">
                                                     <h6>&nbsp;Rank</h6>
-                                                </div>
+                                                </div> -->
 
                                             </div>
 
@@ -116,40 +116,13 @@ $this->load->view('assistantmess/common/header');
                                                 </div>
 
                                                 <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="officer_name_edit" id="officer_name_edit" placeholder="Officer Name">
+                                                    <input type="text" class="form-control form-control-user" name="menu_name" id="menu_name" placeholder="Menu">
                                                 </div>
 
-                                                <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="p_no_edit" id="p_no_edit" placeholder="P Number">
-                                                </div>
-
-                                                <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="rank_edit" id="rank_edit" placeholder="Rank">
-                                                </div>
+                                           
                                             </div>
 
-                                            <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                    <h6>&nbsp;Branch:</h6>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <h6>&nbsp;Phone:</h6>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <h6>&nbsp;Email</h6>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="branch_edit" id="branch_edit" placeholder="branch">
-                                                </div>
-                                                <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="phone_edit" id="phone_edit" placeholder="Phone">
-                                                </div>
-                                                <div class="col-sm-4 mb-1">
-                                                    <input type="text" class="form-control form-control-user" name="email_edit" id="email_edit" placeholder="Email">
-                                                </div>
-                                            </div>
+                                        
 
                                             <div class="form-group row justify-content-center">
                                                 <div class="col-sm-4">
@@ -416,38 +389,16 @@ $this->load->view('assistantmess/common/header');
         var validate = 0;
 
         //  var material_name = $('#material_name_edit').val();
-        var officer_name_edit = $('#officer_name_edit').val();
-        var p_no_edit = $('#p_no_edit').val();
-        var rank_edit = $('#rank_edit').val();
-        var branch_edit = $('#branch_edit').val();
-        var phone_edit = $('#phone_edit').val();
-        var email_edit = $('#email_edit').val();
+        // var officer_name_edit = $('#officer_name_edit').val();
+        // var p_no_edit = $('#p_no_edit').val();
+        var menu_name = $('#menu_name').val();
+        
 
-        if (officer_name_edit == '') {
+        if (menu_name == '') {
             validate = 1;
-            $('#officer_name_edit').addClass('red-border');
+            $('#menu_name').addClass('red-border');
         }
-        if (p_no_edit == '') {
-            validate = 1;
-            $('#p_no_edit').addClass('red-border');
-        }
-        if (rank_edit == '') {
-            validate = 1;
-            $('#rank_edit').addClass('red-border');
-        }
-        if (branch_edit == '') {
-            validate = 1;
-            $('#branch_edit').addClass('red-border');
-        }
-        if (phone_edit == '') {
-            validate = 1;
-            $('#phone_edit').addClass('red-border');
-        }
-        if (email_edit == '') {
-            validate = 1;
-            $('#email_edit').addClass('red-border');
-        }
-
+ 
         if (validate == 0) {
             $('#edit_form')[0].submit();
             $('#show_error_update').hide();

@@ -10587,8 +10587,8 @@ a:focus {
 }
 
 .topbar .dropdown-list .dropdown-header {
-    background-color: #000154;
-    border: 1px solid #000154;
+    background-color: #89ADFE;
+    border: 1px solid #89ADFE;
     padding-top: .75rem;
     padding-bottom: .75rem;
     color: #fff
@@ -11266,7 +11266,7 @@ form.user .custom-checkbox.small label {
 
 form.user .form-control-user {
     font-size: .8rem;
-    border-radius: 10rem;
+    /* border-radius: 2rem; */
     padding: 1.5rem 1rem
 }
 
