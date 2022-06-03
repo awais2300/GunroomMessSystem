@@ -95,6 +95,11 @@ $route['Admin/show_complaint/update-notification'] = 'ChatController/update_noti
 $route['Admin/show_complaint/check-activity'] = 'ChatController/check_activity';
 $route['Admin/show_complaint/add_weapons/check-notification'] = 'ChatController/check_notification';
 
+$route['UTO/gunroom/update-activity'] = 'ChatController/update_activity';
+$route['UTO/gunroom/update-notification'] = 'ChatController/update_notification';
+$route['UTO/gunroom/check-activity'] = 'ChatController/check_activity';
+$route['UTO/gunroom/add_weapons/check-notification'] = 'ChatController/check_notification';
+
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 
 $route['mission/(:any)']='Mission/mission/$1';

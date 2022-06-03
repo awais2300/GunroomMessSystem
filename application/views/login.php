@@ -22,7 +22,8 @@
 
 <style>
   .img-bg {
-    background-image: url('<?= base_url() ?>assets/img/bg-image.jpg');
+    /* background-image: url('<?= base_url() ?>assets/img/bg-image.jpg'); */
+    background-image: url('<?= base_url() ?>assets/img/login-main1.jpeg');
     background-color: #303030 !important;
     background-size: cover;
     width: 100%;
@@ -30,13 +31,14 @@
 
   .region {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
-    background: transparent !important;
+    /* background: transparent !important; */
     /* background-color: #DEDEF9 !important; */
     /* text-align: center !important; */
     font-weight: 700 !important;
     /* border-radius: 15px !important; */
     /* height: 358px; */
     border-color: #000154 !important;
+    /* filter: blur(1px); */
   }
 
   .red-border {
@@ -51,14 +53,16 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
+      <h2 class="h2 text-grey-900 " style="margin-top:10px; padding:10px; margin-bottom:0px;color:black; text-align:center;text-decoration:underline;font-family:'Apple Chancery';color:black;font-size:45px"><strong> Gunroom & Mess Management System </strong></h2>
+
       <div class="col-xl-7">
         <div class="card o-hidden border-0 shadow-lg my-5 region">
           <!-- <div class="card-body p-0" style=""> -->
           <!-- Nested Row within Card Body -->
           <div class="row">
-            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-4 d-none d-lg-block bg-login-image"></div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-8">
 
               <div class="p-5" style="padding:1rem !important">
 
@@ -100,11 +104,13 @@
                     <i class="fas fa-key"></i>
                     Login
                   </button>
-                  <a href="<?= base_url(); ?>Admin/forgot_password" style="margin-left:0px">Forgot your password?</a>
+                  <a href="<?= base_url(); ?>Admin/forgot_password" style="margin-left:0px;">Forgot your password?</a>
                   <div class="row">
                     <div class="col-lg-12">
-                      <a href="<?= base_url(); ?>Admin/add_users" style="margin-left:0px">Create New User!</a>
+                      <a href="<?= base_url(); ?>Admin/add_users" style="margin-left:0px;">Create New User!</a>
+
                     </div>
+
                   </div>
                 </form>
                 <!-- <hr> -->
@@ -117,7 +123,7 @@
         </div>
 
       </div>
-      <h1 class="h1 text-grey-900 " style="margin-top:0px; padding:0%; margin-bottom:0px;color:black; text-align:center;text-decoration:underline;font-family:'Apple Chancery';color:navy;font-size:50px"><strong> Gunroom & Mess Management System </strong></h1>
+
     </div>
 
   </div>
@@ -180,8 +186,6 @@
         $('#optradio').hide();
       }
     });
-
-    
   </script>
 
   <script src="<?php echo base_url(); ?>assets/swal/swal.all.min.js"></script>

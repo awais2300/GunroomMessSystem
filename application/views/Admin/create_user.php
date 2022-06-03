@@ -36,7 +36,6 @@
                                         <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
                                             <option class="form-control form-control-user" value="">Select Account Type</option>
                                             <option class="form-control form-control-user" value="UTO">UTO</option>
-                                            <option class="form-control form-control-user" value="Operator">Operator</option>
                                         </select>
                                     </div>
                                 </div>

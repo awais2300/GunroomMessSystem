@@ -117,7 +117,8 @@ class Admin extends CI_Controller
         $menu = $postData['menu'];
         $remarks = $postData['remarks'];
         //print_r($menu);
-        $muenu_items = implode(',', $menu);
+        // $muenu_items = implode(',', $menu);
+        $muenu_items = $menu;
         // print_r($muenu_items);exit;
         $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
@@ -208,7 +209,7 @@ class Admin extends CI_Controller
     public function update_guest_reservation($id = null)
     {
         $data['update_guest_reservation_data'] = $this->db->where('id', $id)->get('guest_reservation')->row_array();
-        $data['menu_data'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
+        $data['menu_data'] = $this->db->where('status', 'Available')->where('id',$data['update_guest_reservation_data']['menu'])->get('mess_menu')->row_array();
         $this->load->view('Admin/update_guest_reservation', $data);
     }
 

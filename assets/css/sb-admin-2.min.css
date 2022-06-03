@@ -11232,13 +11232,14 @@ a:focus {
 
 .bg-login-image {
     background: url(../img/navy_logo2.png);
+    /* background: url(../img/login-pic.jpeg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 225px;
     width: 300px;
     /* position: absolute; */
     top: 20px;
-    left: 85px;
+    left: 40px;
     right: 0;
     bottom: 0;
     /* background-image: url("path/to/img"); */

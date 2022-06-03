@@ -21,6 +21,17 @@ $this->load->view('Admin/common/header');
     .red-border {
         border: 1px solid red !important;
     }
+
+    th {
+        white-space: nowrap;
+        font-size:smaller;
+    }
+
+    td{
+        white-space: nowrap;
+        font-size:smaller;
+    }
+    
 </style>
 
 <div class="container-fluid my-2">
@@ -50,14 +61,14 @@ $this->load->view('Admin/common/header');
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Menu</th>
+                                        <th>Request By</th>
+                                        <th>P No.</th>
                                         <th>Total guests</th>
+                                        <th>Description</th>
+                                        <th>Menu Requested</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
-                                        <th> Action </th>
-
-
-
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,19 +78,20 @@ $this->load->view('Admin/common/header');
                                     $count = 0;
                                     foreach ($reservation_data as $data) {
                                         $count++;
-                                        $item_string=''; ?>
+                                        $item_string = ''; ?>
                                         <tr>
                                             <td><?= $count; ?></td>
-                                            <?php $arr= explode(',',$data['menu']);?>
-                                            <?php for($i=0;$i<count($arr);$i++){
-                                            $menu_items=$this->db->where('id',$arr[$i])->get('mess_menu')->row_array();
-                                          
-                                            $item_string .= $menu_items['menu_name']." , ";
-                                           
-                                            }?>
-                                          
-                                            <td><?= $item_string ?></td>
+                                            <?php $arr = explode(',', $data['menu']); ?>
+                                            <?php for ($i = 0; $i < count($arr); $i++) {
+                                                $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
+
+                                                $item_string .= $menu_items['menu_name'] . " , ";
+                                            } ?>
+                                            <td><?= $data['name']; ?></td>
+                                            <td><?= $data['p_no']; ?></td>
                                             <td><?= $data['total_guests']; ?></td>
+                                            <td><?= $data['description']; ?></td>
+                                            <td><?= $item_string ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
                                             <td><a href="<?= base_url(); ?>Admin/update_guest_reservation/<?= $data['id'] ?>"><i class="fa fa-edit"></i></a></td>

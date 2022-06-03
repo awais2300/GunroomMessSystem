@@ -12,7 +12,7 @@ $this->load->view('Admin/common/header');
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border: 1px dashed #BBB;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         background-color: #DDD;
         cursor: pointer;
@@ -59,7 +59,7 @@ $this->load->view('Admin/common/header');
                                     <input type="text" class="form-control form-control-user" id="name" value="<?php echo $update_guest_reservation_data['name']; ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" value="<?= $update_guest_reservation_data['p_no'];?>" placeholder="p_no*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" value="<?= $update_guest_reservation_data['p_no']; ?>" placeholder="p_no*" readonly>
                                 </div>
                             </div>
 
@@ -74,10 +74,10 @@ $this->load->view('Admin/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="number" class="form-control form-control-user" id="total_guests" value="<?= $update_guest_reservation_data['total_guests'];?>" name="total_guests" placeholder="total_guests*" readonly>
+                                    <input type="number" class="form-control form-control-user" id="total_guests" value="<?= $update_guest_reservation_data['total_guests']; ?>" name="total_guests" placeholder="total_guests*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" name="date" value="<?= date('Y-m-d',strtotime($update_guest_reservation_data['date']));?>" placeholder="date*" readonly>
+                                    <input type="date" class="form-control form-control-user" id="date" name="date" value="<?= date('Y-m-d', strtotime($update_guest_reservation_data['date'])); ?>" placeholder="date*" readonly>
                                 </div>
                             </div>
 
@@ -85,21 +85,17 @@ $this->load->view('Admin/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Menu:</h6>
                                 </div>
-                               
+
                             </div>
 
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" readonly>
-                               
-                                        <option value="">Select Menu Items</option>
-                                        <?php foreach($menu_data as $data){?>
-                                        <option value="<?= $data['id']?>" ><?= $data['menu_name'] ?></option>
-                                         <?php } ?>
+                                    <select class="form-control form-control-user" name="menu" id="menu" style="height:50px;padding:10px" readonly>
+                                        <option value="<?= $menu_data['id'] ?>"><?= $menu_data['menu_name'] ?></option>
                                     </select>
                                 </div>
-                              
+
                             </div>
 
 
@@ -111,7 +107,7 @@ $this->load->view('Admin/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4" readonly><?= $update_guest_reservation_data['description']?></textarea>
+                                    <textarea id="description" style="border-radius:20px" name="description" class="form-control " rows="4" readonly><?= $update_guest_reservation_data['description'] ?></textarea>
                                 </div>
                             </div>
 
@@ -123,7 +119,7 @@ $this->load->view('Admin/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <textarea id="remarks" style="border-radius:20px" name="remarks" class="form-control " rows="4" ></textarea>
+                                    <textarea id="remarks" style="border-radius:20px" name="remarks" class="form-control " rows="4"></textarea>
                                 </div>
                             </div>
 
@@ -131,7 +127,7 @@ $this->load->view('Admin/common/header');
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary btn-user btn-block" id="add_btni">
                                         <!-- <i class="fab fa-google fa-fw"></i>  -->
-                                     Submit
+                                        Submit
                                     </button>
                                 </div>
                             </div>
@@ -148,10 +144,9 @@ $this->load->view('Admin/common/header');
 
 <?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
-
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+    // $(document).ready(function() {
+    // $('.js-example-basic-multiple').select2();
+    // });
 
 
     $('#add_btni').on('click', function() {
@@ -163,8 +158,6 @@ $this->load->view('Admin/common/header');
         var total_guests = $('#total_guests').val();
         var menu = $('#menu').val();
         var description = $('#description').val();
-
-
 
         if (name == '') {
             validate = 1;
@@ -186,7 +179,7 @@ $this->load->view('Admin/common/header');
             validate = 1;
             $('#menu').addClass('red-border');
         }
-    
+
 
         if (validate == 0) {
             $('#save_form')[0].submit();
