@@ -73,7 +73,7 @@ class UTO extends CI_Controller
             } else {
                 $user_name =  $this->session->userdata('username');
             }
-
+            
             $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->update('complaints');
             if ($query) {
@@ -115,7 +115,8 @@ class UTO extends CI_Controller
         $name = $postData['name'];
         $p_no = $postData['p_no'];
         $date = $postData['date'];
-        $allocated_to = $postData['allocated_to'];
+        // $allocated_to = $postData['allocated_to'];
+        $allocated_to = '';
         $type = $postData['type'];
         $location = $postData['location'];
         $description = $postData['description'];

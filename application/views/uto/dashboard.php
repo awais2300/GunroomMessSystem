@@ -30,6 +30,19 @@ $this->load->view('uto/common/header');
     <form class="user" role="form" method="post" id="add_form">
         <?php if ($this->session->userdata('login_type') == 'gunroom') { ?>
             <div class="form-group row justify-content-center" style="margin-top:50px;">
+
+                <?php
+                $total_gunrooms = $this->db->from('gunrooms')->count_all_results();
+                for ($i = 1; $i <= $total_gunrooms; $i++) { ?>
+                    <!-- <div class="list-group">
+                        <a href="<?php //echo base_url(); ?>AssistantGunroom/gunroom/<?= $i ?>" class="list-group-item list-group-item-action">Gunroom<?= " " . $i ?> </a>
+                    </div> -->
+                    <div class="col-sm-3 my-2">
+                        <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom/<?= $i ?>'">
+                            <h5 style="font-weight: bold;">Gunroom <?= $i; ?></h5>
+                        </button>
+                    </div>
+                <?php } ?>
                 <!-- <div class="col-sm-3">
                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>UTO/gunroom1'">
                         <h5 style="font-weight: bold;">Gunroom 1</h5>

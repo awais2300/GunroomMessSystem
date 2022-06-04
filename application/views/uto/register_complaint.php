@@ -47,56 +47,55 @@ $this->load->view('uto/common/header');
                     <div class="card-body bg-custom3">
                         <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/add_complaint_process">
                             <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Name:</h6>
-                                </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-2">
                                     <h6>&nbsp;P_no:</h6>
                                 </div>
+                                <div class="col-sm-10">
+                                    <h6>&nbsp;Name:</h6>
+                                </div>
+
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
+                                <div class="col-sm-2 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="P. No.">
+                                </div>
+                                <div class="col-sm-10 mb-1">
                                     <input type="text" class="form-control form-control-user" id="name" value="<?php if (!empty($this->session->userdata('full_name'))) {
                                                                                                                     echo $this->session->userdata('full_name');
                                                                                                                 } else {
                                                                                                                     echo $this->session->userdata('username');
                                                                                                                 } ?>" name="name" placeholder="name*" readonly>
                                 </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="P. No.">
-                                </div>
+
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                     <h6>&nbsp;Allocated To:</h6>
-                                </div>
-                                <div class="col-sm-6">
+                                </div> -->
+                                <div class="col-sm-12">
                                     <h6>&nbsp;Date:</h6>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
+                                <!-- <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="Allocated to">
-                                </div>
-                                <div class="col-sm-6 mb-1">
+                                </div> -->
+                                <div class="col-sm-12 mb-1">
                                     <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <h6>&nbsp;Type:</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Location:</h6>
                                 </div>
                             </div>
 
                             <div class="form-group row">
 
-                                <div class="col-sm-6 mb-1">
+                                <div class="col-sm-12 mb-1">
                                     <!-- <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
                                         <option value="">Account Type</option>
                                         <option value="gunroom">Gunroom</option>
@@ -104,7 +103,16 @@ $this->load->view('uto/common/header');
                                     </select> -->
                                     <input type="text" class="form-control form-control-user" id="type" name="type" placeholder="Enter Type">
                                 </div>
-                                <div class="col-sm-6 mb-1">
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Location:</h6>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-1">
                                     <input type="text" class="form-control form-control-user" id="location" name="location" placeholder="location*">
                                 </div>
                             </div>
@@ -165,7 +173,7 @@ $this->load->view('uto/common/header');
         var name = $('#name').val();
         var p_no = $('#p_no').val();
         var date = $('#date').val();
-        var allocated_to = $('#allocated_to').val();
+        // var allocated_to = $('#allocated_to').val();
         var type = $('#type').val();
         var location = $('#location').val();
         var description = $('#description').val();
@@ -184,10 +192,10 @@ $this->load->view('uto/common/header');
             validate = 1;
             $('#date').addClass('red-border');
         }
-        if (allocated_to == '') {
-            validate = 1;
-            $('#allocated_to').addClass('red-border');
-        }
+        // if (allocated_to == '') {
+        //     validate = 1;
+        //     $('#allocated_to').addClass('red-border');
+        // }
         if (type == '') {
             validate = 1;
             $('#type').addClass('red-border');

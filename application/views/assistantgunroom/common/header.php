@@ -92,6 +92,12 @@
                     <span>Create New User</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/show_gunrooms_list" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Gun Room Data</span>
+                </a>
+            </li>
 
             <?php $unseen_complaints = $this->db->where('seen', 'no')->where('account_type', 'gunroom')->from('complaints')->count_all_results(); ?>
             <li class="nav-item">

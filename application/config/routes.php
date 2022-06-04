@@ -78,27 +78,34 @@ $route['UTO/check-activity'] = 'ChatController/check_activity';
 $route['Admin/update_complaint/update-activity'] = 'ChatController/update_activity';
 $route['Admin/update_complaint/update-notification'] = 'ChatController/update_notification';
 $route['Admin/update_complaint/check-activity'] = 'ChatController/check_activity';
-$route['Admin/update_complaint/add_weapons/check-notification'] = 'ChatController/check_notification';
 
 $route['Admin/update_guest_reservation/update-activity'] = 'ChatController/update_activity';
 $route['Admin/update_guest_reservation/update-notification'] = 'ChatController/update_notification';
 $route['Admin/update_guest_reservation/check-activity'] = 'ChatController/check_activity';
-$route['Admin/update_guest_reservation/add_weapons/check-notification'] = 'ChatController/check_notification';
 
 $route['Admin/update_menu_requests/update-activity'] = 'ChatController/update_activity';
 $route['Admin/update_menu_requests/update-notification'] = 'ChatController/update_notification';
 $route['Admin/update_menu_requests/check-activity'] = 'ChatController/check_activity';
-$route['Admin/update_menu_requests/add_weapons/check-notification'] = 'ChatController/check_notification';
 
 $route['Admin/show_complaint/update-activity'] = 'ChatController/update_activity';
 $route['Admin/show_complaint/update-notification'] = 'ChatController/update_notification';
 $route['Admin/show_complaint/check-activity'] = 'ChatController/check_activity';
-$route['Admin/show_complaint/add_weapons/check-notification'] = 'ChatController/check_notification';
 
 $route['UTO/gunroom/update-activity'] = 'ChatController/update_activity';
 $route['UTO/gunroom/update-notification'] = 'ChatController/update_notification';
 $route['UTO/gunroom/check-activity'] = 'ChatController/check_activity';
-$route['UTO/gunroom/add_weapons/check-notification'] = 'ChatController/check_notification';
+
+$route['AssistantGunroom/gunroom/update-activity'] = 'ChatController/update_activity';
+$route['AssistantGunroom/gunroom/update-notification'] = 'ChatController/update_notification';
+$route['AssistantGunroom/gunroom/check-activity'] = 'ChatController/check_activity';
+
+$route['UTO/gunroom_floor/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['UTO/gunroom_floor/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['UTO/gunroom_floor/(:num)/check-activity'] = 'ChatController/check_activity';
+
+$route['AssistantGunroom/gunroom_floor/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['AssistantGunroom/gunroom_floor/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['AssistantGunroom/gunroom_floor/(:num)/check-activity'] = 'ChatController/check_activity';
 
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 
