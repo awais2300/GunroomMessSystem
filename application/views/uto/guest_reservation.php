@@ -56,7 +56,8 @@ $this->load->view('uto/common/header');
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo $this->session->userdata('username');?>" name="name" placeholder="name*" readonly>
+                                    <?php $name= $this->db->where('username',$this->session->userdata('username'))->get('security_info')->row_array(); ?>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo $name['full_name'];?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
