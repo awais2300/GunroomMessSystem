@@ -55,6 +55,7 @@ $this->load->view('uto/common/header');
                                         <th>Total guests</th>
                                         <th>Description</th>
                                         <th>Menu Requested</th>
+                                        <th>Location</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
 
@@ -74,14 +75,16 @@ $this->load->view('uto/common/header');
                                             <?php $arr = explode(',', $data['menu']); ?>
                                             <?php for ($i = 0; $i < count($arr); $i++) {
                                                 $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
-
+                                                if(!empty($menu_items['menu_name'])){
                                                 $item_string .= $menu_items['menu_name'] . " , ";
+                                                }
                                             } ?>
                                             <td><?= $data['name']; ?></td>
                                             <td><?= $data['p_no']; ?></td>
                                             <td><?= $data['total_guests']; ?></td>
                                             <td><?= $data['description']; ?></td>
                                             <td><?= $item_string ?></td>
+                                            <td><?= $data['location'] ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
 

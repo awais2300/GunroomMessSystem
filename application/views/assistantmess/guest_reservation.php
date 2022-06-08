@@ -57,7 +57,11 @@ $this->load->view('assistantmess/common/header');
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
                                     
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo $this->session->userdata('username');?>" name="name" placeholder="name*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?php if (!empty($this->session->userdata('full_name'))) {
+                                                                                                                    echo $this->session->userdata('full_name');
+                                                                                                                } else {
+                                                                                                                    echo $this->session->userdata('username');
+                                                                                                                } ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">

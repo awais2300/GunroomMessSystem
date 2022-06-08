@@ -1,5 +1,5 @@
 <?php
-$this->load->view('assistantmess/common/header');
+$this->load->view('joto/common/header');
 ?>
 
 <style>
@@ -21,43 +21,55 @@ $this->load->view('assistantmess/common/header');
     .red-border {
         border: 1px solid red !important;
     }
+
+    th {
+        white-space: nowrap;
+        font-size:smaller;
+    }
+
+    td{
+        white-space: nowrap;
+        font-size:smaller;
+    }
 </style>
 
 <div class="container-fluid my-2">
     <div class="form-group row justify-content-center">
         <div class="col-lg-12">
-            <h1 style="text-align:center; padding:40px"><strong>Reservation Records</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>Complaint Records</strong></h1>
         </div>
     </div>
 
     <div class="card-body bg-custom3">
         <!-- Nested Row within Card Body -->
-        <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
             <h1 class="h3 mb-0 text-black-800"></h1>
-            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/guest_reservation" style="margin-block-end: 10px; ">+ Guest Reservation</a>
-        </div> -->
+            <!-- <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= base_url(); ?>uto/register_complaint" style="margin-block-end: 10px; ">+ Register New Complaint</a> -->
+        </div>
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Guest Reservation</h1>
+                        <h1 class="h4">Complaints</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
                         <table id="example" class="table table-striped table-bordered" style="width:100%;color:black">
-                            <?php if ($reservation_data != null) { ?>
+                            <?php if ($complaint_data != null) { ?>
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Request By</th>
-                                        <th>P No.</th>
-                                        <th>Total guests</th>
-                                        <th>Description</th>
-                                        <th>Menu Requested</th>
+                                        <th>S. No.</th>
+                                        <th>P. No.</th>
+                                        <th>Name</th>
                                         <th>Location</th>
+                                        <th>Complaint Detail</th>
+                                        <th>Type</th>
                                         <th>Date Added</th>
                                         <th>Remarks</th>
+                                        <th>Action</th>
+
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,32 +77,23 @@ $this->load->view('assistantmess/common/header');
                                     <?php
 
                                     $count = 0;
-                                    foreach ($reservation_data as $data) {
-                                        $count++;
-                                        $item_string = ''; ?>
+                                    foreach ($complaint_data as $data) {
+                                        $count++; ?>
                                         <tr>
                                             <td><?= $count; ?></td>
-                                            <?php $arr = explode(',', $data['menu']); ?>
-                                            <?php for ($i = 0; $i < count($arr); $i++) {
-                                                $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
-                                                if(!empty($menu_items['menu_name'])){
-                                                $item_string .= $menu_items['menu_name'] . " , ";
-                                                }
-                                            } ?>
-                                            <td><?= $data['name']; ?></td>
                                             <td><?= $data['p_no']; ?></td>
-                                            <td><?= $data['total_guests']; ?></td>
+                                            <td><?= $data['name']; ?></td>
+                                            <td><?= $data['location']; ?></td>
                                             <td><?= $data['description']; ?></td>
-                                            <td><?= $item_string ?></td>
-                                            <td><?= $data['location'] ?></td>
+                                            <td><?= $data['type']; ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
+                                            <td><a href="<?= base_url(); ?>joto/update_complaint/<?= $data['id'] ?>"><i style="color:black;text-align:center" class="fa fa-edit"></i></a></td>
 
                                         </tr>
-
                                     <?php } ?>
                                 <?php } else { ?>
-                                    <tr><strong> No reservation available </strong> </tr>
+                                    <tr><strong> No complaints available </strong> </tr>
                                 <?php } ?>
                                 </tbody>
                         </table>

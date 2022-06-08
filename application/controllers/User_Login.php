@@ -32,6 +32,12 @@ class User_Login extends CI_Controller
 				redirect('Admin');
 			} else if ($acct_type == "Operator") {
 				redirect('Operator');
+			}else if ($acct_type == "Joto") {
+				redirect('Joto');
+			}else if ($acct_type == "OICMess") {
+				redirect('OICmess');
+			}else if ($acct_type == "Mainto") {
+				redirect('Mainto');
 			} else {
 				$this->load->view('login');
 			}

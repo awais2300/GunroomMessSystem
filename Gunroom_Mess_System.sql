@@ -383,7 +383,7 @@ CREATE TABLE `security_info` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `acct_type` enum('admin','UTO','AssistantGunroom','ChiefMess','AssistantMess','ChiefMaintenance') NOT NULL,
+  `acct_type` enum('admin','UTO','AssistantGunroom','ChiefMess','AssistantMess','ChiefMaintenance','Joto','OICMess','Mainto') NOT NULL,
   `status` enum('offline','online') NOT NULL,
   `email` varchar(200) NOT NULL,
   `phone` varchar(200) NOT NULL,
@@ -402,6 +402,9 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_typ
 (4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', ''),
 (5, 'assistant-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'AssistantMess', 'offline', '', '', '', ''),
 (6, 'cheif-maintenance', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', '');
+(7, 'Joto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Joto', 'offline', '', '', '', '');
+(8, 'OIC-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'OICMess', 'offline', '', '', '', '');
+(9, 'Mainto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Mainto', 'offline', '', '', '', '');
 
 
 CREATE TABLE `mess_menu` (
@@ -677,6 +680,8 @@ ALTER TABLE `security_info`
 ALTER TABLE `security_info` 
   ADD column `secret_question_ans` varchar(255) NOT NULL;
 
+ALTER TABLE `guest_reservation` 
+  ADD column `location` enum('TV Room','Ward Room','Guest Room');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

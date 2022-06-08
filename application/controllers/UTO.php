@@ -112,7 +112,7 @@ class UTO extends CI_Controller
     {
         $postData = $this->security->xss_clean($this->input->post());
 
-        $name = $postData['name'];
+        $name = $this->session->userdata('username');
         $p_no = $postData['p_no'];
         $date = $postData['date'];
         // $allocated_to = $postData['allocated_to'];
@@ -181,7 +181,7 @@ class UTO extends CI_Controller
     public function show_request_menu()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['menu_data'] = $this->db->get('mess_menu')->result_array();
+            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
             // $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
             $this->load->view('uto/requesting_menu',$data);
         }
@@ -191,13 +191,14 @@ class UTO extends CI_Controller
     {
         $postData = $this->security->xss_clean($this->input->post());
 
-        $name = $postData['name'];
+        $name = $this->session->userdata('username');;
         $p_no = $postData['p_no'];
         $date = $postData['date'];
         $total_guests = $postData['total_guests'];
         $menu = $postData['menu'];
-        //print_r($menu);
+      //  print_r($menu);exit;
         $muenu_items = implode(',', $menu);
+        $location=$postData['location'];
         // print_r($muenu_items);exit;
         $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
@@ -211,6 +212,7 @@ class UTO extends CI_Controller
             'date' => $date,
             'total_guests' => $total_guests,
             'menu' => $muenu_items,
+            'location'=>$location,                            
             'seen' => 'no',
             'admin_seen' => 'no'
         );
@@ -220,17 +222,17 @@ class UTO extends CI_Controller
 
         if (!empty($insert)) {
             $this->session->set_flashdata('success', 'Submitted successfully');
-            redirect('uto/guest_reservation');
+            redirect('uto/reservation');
         } else {
             $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('uto/register_complaint');
+            redirect('uto/guest_reservation');
         }
     }
     public function requesting_menu_process()
     {
         $postData = $this->security->xss_clean($this->input->post());
 
-        $name = $postData['name'];
+        $name = $this->session->userdata('username');;
         $p_no = $postData['p_no'];
         $date = $postData['date'];
         $no_of_persons = $postData['no_of_persons'];

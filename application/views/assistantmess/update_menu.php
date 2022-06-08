@@ -262,6 +262,7 @@ $this->load->view('assistantmess/common/header');
                                                 <th scope="col">S.No</th>
                                                 <th scope="col">Menu Item</th>
                                                 <th scope="col">Edit Record</th>
+                                                <th scope="col">Delete Record</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table_rows_cont">
@@ -271,6 +272,7 @@ $this->load->view('assistantmess/common/header');
                                                     <td scope="row" id="cont<?= $count; ?>"><?= $data['id']; ?></td>
                                                     <td scope="row"><?= $data['menu_name']; ?></td>
                                                     <td type="button" id="edit<?= $data['id']; ?>" class="edit" scope="row" data-toggle="modal" data-target="#edit_material"><i style="margin-left: 40px;" class="fas fa-edit"></i></td>
+                                                    <td scope="row"  class="delete" ><a href="<?= base_url();?>AssistantMess/delete_menu/<?= $data['id']; ?>"><i class="fas fa-trash"></i></a></td>
                                                 </tr>
                                             <?php
                                                 $count++;
