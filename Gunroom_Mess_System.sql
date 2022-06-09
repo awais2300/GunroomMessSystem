@@ -402,9 +402,9 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_typ
 (4, 'admin', '$2y$10$uVajLuVrXeV2S4TWWuH4a.CLTS4LW92nmGiitB94akkA6pAWMJyI2', '2021-05-21 14:00:00', 'admin', 'offline', '', '', '', ''),
 (5, 'assistant-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'AssistantMess', 'offline', '', '', '', ''),
 (6, 'cheif-maintenance', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', ''),
-(7, 'Joto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Joto', 'offline', '', '', '', ''),
-(8, 'OIC-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'OICMess', 'offline', '', '', '', ''),
-(9, 'Mainto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Mainto', 'offline', '', '', '', '');
+(7, 'Joto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Joto', 'offline', '', '', '', 'JOTO'),
+(8, 'OIC-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'OICMess', 'offline', '', '', '', 'OIC Mess'),
+(9, 'Mainto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Mainto', 'offline', '', '', '', 'Maintenanc Officer');
 
 
 CREATE TABLE `mess_menu` (
