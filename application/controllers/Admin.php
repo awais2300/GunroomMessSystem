@@ -91,7 +91,9 @@ class Admin extends CI_Controller
             'location' => $location,
             'remarks' => $remarks,
             'seen' => 'no',
-            'admin_seen' => 'no'
+            'admin_seen' => 'no',
+            'joto_seen' => 'no',
+            'oic_seen' => 'no'
         );
         //print_r($insert_array);exit;
         $this->db->where('id', $complaint_id);
@@ -134,6 +136,8 @@ class Admin extends CI_Controller
             'menu' => $muenu_items,
             'seen' => 'no',
             'admin_seen' => 'no',
+            'joto_seen' => 'no',
+            'oic_seen' => 'no',
             'remarks' => $remarks
         );
         //print_r($insert_array);exit;
@@ -175,6 +179,8 @@ class Admin extends CI_Controller
             'menu' => $muenu_items,
             'seen' => 'no',
             'admin_seen' => 'no',
+            'joto_seen' => 'no',
+            'oic_seen' => 'no',
             'remarks' => $remarks
         );
         //print_r($insert_array);exit;

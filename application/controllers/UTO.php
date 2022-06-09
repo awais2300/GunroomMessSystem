@@ -214,6 +214,8 @@ class UTO extends CI_Controller
             'menu' => $muenu_items,
             'location'=>$location,                            
             'seen' => 'no',
+            'joto_seen' => 'no',
+             'oic_seen' => 'no',
             'admin_seen' => 'no'
         );
         //print_r($insert_array);exit;
@@ -251,6 +253,8 @@ class UTO extends CI_Controller
             'total_persons' => $no_of_persons,
             'menu' => $muenu_items,
             'seen' => 'no',
+            'joto_seen' => 'no',
+            'oic_seen' => 'no',
             'admin_seen' => 'no'
         );
         //print_r($insert_array);exit;

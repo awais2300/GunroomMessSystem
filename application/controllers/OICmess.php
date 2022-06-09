@@ -91,7 +91,9 @@ class OICmess extends CI_Controller
             'location' => $location,
             'remarks' => $remarks,
             'seen' => 'no',
-            'admin_seen' => 'no'
+            'admin_seen' => 'no',
+            'oic_seen' => 'no',
+            'joto_seen' => 'no'
         );
         //print_r($insert_array);exit;
         $this->db->where('id', $complaint_id);
@@ -134,6 +136,8 @@ class OICmess extends CI_Controller
             'menu' => $muenu_items,
             'seen' => 'no',
             'admin_seen' => 'no',
+            'oic_seen' => 'no',
+            'joto_seen' => 'no',
             'remarks' => $remarks
         );
         //print_r($insert_array);exit;
@@ -175,6 +179,8 @@ class OICmess extends CI_Controller
             'menu' => $muenu_items,
             'seen' => 'no',
             'admin_seen' => 'no',
+            'oic_seen' => 'no',
+            'joto_seen' => 'no',
             'remarks' => $remarks
         );
         //print_r($insert_array);exit;
@@ -194,7 +200,7 @@ class OICmess extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['reservation_data'] = $this->db->get('guest_reservation')->result_array();
-            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('guest_reservation');
+            $query = $this->db->set('oic_seen', 'yes')->where('oic_seen', 'no')->update('guest_reservation');
             $this->load->view('OICmess/reservations', $data);
         }
     }
@@ -202,7 +208,7 @@ class OICmess extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
-            $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('requesting_menu');
+            $query = $this->db->set('oic_seen', 'yes')->where('oic_seen', 'no')->update('requesting_menu');
             $this->load->view('OICmess/menu_requests', $data);
         }
     }
