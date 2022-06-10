@@ -218,7 +218,7 @@ class OICmess extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
-            $this->load->view('chiefmess/menu_requests', $data);
+            $this->load->view('OICmess/menu_requests', $data);
         }
     }
     

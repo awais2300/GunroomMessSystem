@@ -111,25 +111,21 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <h6>&nbsp;Menu:</h6>
+                                    <h6>&nbsp;Select Menu(s):</h6>
                                 </div>
                                
                             </div>
 
                             <div class="form-group row">
-
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple">
-                               
-                                        <option value="">Select Menu Items</option>
+                                    <select class="form-control form-control-user" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple">
+                                        <!-- <option value="">Select Menu Items</option> -->
                                         <?php foreach($menu_data as $data){?>
                                         <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
                                          <?php } ?>
                                     </select>
                                 </div>
-                              
                             </div>
-
 
                             <div class="form-group row">
                                 <div class="col-sm-12">

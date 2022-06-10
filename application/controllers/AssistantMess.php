@@ -109,25 +109,26 @@ class AssistantMess extends CI_Controller
     public function update_menu()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['mess_menu'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+            $data['mess_menu'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
             $this->load->view('assistantmess/update_menu', $data);
         }
     }
-    public function delete_menu($menu_id=null){
+    public function delete_menu($menu_id = null)
+    {
 
         if ($this->session->has_userdata('user_id')) {
             $cond = [
-            'id'=>$menu_id
+                'id' => $menu_id
             ];
-            $data_update=[
-            'status'=>'Cancel'
+            $data_update = [
+                'status' => 'Cancel'
             ];
             $this->db->where($cond);
             $query =  $this->db->update('mess_menu', $data_update);
-            if($query){
+            if ($query) {
                 $this->session->set_flashdata('success', 'Menu Item Deleted Successfully');
                 redirect('assistantmess/update_menu');
-            }else{
+            } else {
                 $this->session->set_flashdata('failure', 'OOps, Something went wrong.');
                 redirect('assistantmess/update_menu');
             }
@@ -326,7 +327,7 @@ class AssistantMess extends CI_Controller
     public function reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['reservation_data'] = $this->db->where('status','Available')->get('guest_reservation')->result_array();
+            $data['reservation_data'] = $this->db->where('status', 'Available')->get('guest_reservation')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('guest_reservation');
             $this->load->view('assistantmess/reservations', $data);
         }
@@ -340,6 +341,4 @@ class AssistantMess extends CI_Controller
             $this->load->view('assistantmess/menu_requests', $data);
         }
     }
-    
-   
 }

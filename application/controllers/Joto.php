@@ -221,6 +221,7 @@ class joto extends CI_Controller
 
     public function update_menu_requests($id = null)
     {
+        // echo $id; exit;
         $data['update_menu_requests_data'] = $this->db->where('id', $id)->get('requesting_menu')->row_array();
         $data['menu_data'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
         $this->load->view('joto/update_requesting_menu', $data);

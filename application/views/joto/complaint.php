@@ -107,7 +107,7 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<?php $this->load->view('common/footer'); ?>
+<!-- <?php //$this->load->view('common/footer'); ?> -->
 <script type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable();

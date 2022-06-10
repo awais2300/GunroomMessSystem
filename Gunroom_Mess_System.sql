@@ -404,7 +404,7 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_date`, `acct_typ
 (6, 'cheif-maintenance', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'ChiefMaintenance', 'offline', '', '', '', ''),
 (7, 'Joto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Joto', 'offline', '', '', '', 'JOTO'),
 (8, 'OIC-mess', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'OICMess', 'offline', '', '', '', 'OIC Mess'),
-(9, 'Mainto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Mainto', 'offline', '', '', '', 'Maintenanc Officer');
+(9, 'Mainto', '$2y$10$/6ZG1xPTs92CYRNV3CjjnuG8MWZ1NwfWzrzK8GCC14BETqHCpWsGi', '2021-05-21 14:00:00', 'Mainto', 'offline', '', '', '', 'Maintenance Officer');
 
 
 CREATE TABLE `mess_menu` (
@@ -692,12 +692,6 @@ ALTER TABLE `requesting_menu`
 ALTER TABLE `requesting_menu` 
   ADD column `chiefmess_seen` enum('no','yes');
 
-ALTER TABLE `requesting_menu` 
-  ADD column `seen` enum('no','yes');
-ALTER TABLE `requesting_menu` 
-  ADD column `admin_seen` enum('no','yes');
-
-
 ALTER TABLE `guest_reservation` 
   ADD column `joto_seen` enum('no','yes');
 ALTER TABLE `guest_reservation` 
@@ -718,6 +712,10 @@ ALTER TABLE `complaints`
   ADD column `assistantgunroom_seen` enum('no','yes');
 ALTER TABLE `complaints` 
   ADD column `chiefmaintenance_seen` enum('no','yes');
+
+
+ALTER TABLE `guest_reservation` 
+  ADD column `status` varchar(225);  
 COMMIT;
 
 

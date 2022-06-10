@@ -107,22 +107,66 @@ $route['AssistantGunroom/gunroom_floor/(:num)/update-activity'] = 'ChatControlle
 $route['AssistantGunroom/gunroom_floor/(:num)/update-notification'] = 'ChatController/update_notification';
 $route['AssistantGunroom/gunroom_floor/(:num)/check-activity'] = 'ChatController/check_activity';
 
+$route['Joto/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update-notification'] = 'ChatController/update_notification';
+$route['Joto/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/check-notification'] = 'ChatController/check_activity';
 
 $route['Joto/update_complaint/(:num)/update-activity'] = 'ChatController/update_activity';
 $route['Joto/update_complaint/(:num)/update-notification'] = 'ChatController/update_notification';
 $route['Joto/update_complaint/(:num)/check-activity'] = 'ChatController/check_activity';
 
-$route['Joto/update_guest_reservation/(:num)/update-activity'] = 'ChatController/update_activity';
-$route['Joto/update_guest_reservation/(:num)/update-notification'] = 'ChatController/update_notification';
-$route['Joto/update_guest_reservation/(:num)/check-activity'] = 'ChatController/check_activity';
+$route['Joto/update_guest_reservation/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_guest_reservation/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_guest_reservation/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/update_guest_reservation/check-notification'] = 'ChatController/check_activity';
 
 $route['Joto/update_menu_requests/(:num)/update-activity'] = 'ChatController/update_activity';
 $route['Joto/update_menu_requests/(:num)/update-notification'] = 'ChatController/update_notification';
 $route['Joto/update_menu_requests/(:num)/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/update_menu_requests/(:num)/check-notification'] = 'ChatController/check_activity';
 
-$route['Joto/show_complaint/(:num)/update-activity'] = 'ChatController/update_activity';
-$route['Joto/show_complaint/(:num)/update-notification'] = 'ChatController/update_notification';
-$route['Joto/show_complaint/(:num)/check-activity'] = 'ChatController/check_activity';
+//joto/show_complaint/mess
+$route['Joto/show_complaint/mess/update-activity'] = 'ChatController/update_activity';
+$route['Joto/show_complaint/mess/update-notification'] = 'ChatController/update_notification';
+$route['Joto/show_complaint/mess/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/show_complaint/mess/check-notification'] = 'ChatController/check_activity';
+
+//joto/show_complaint/gunroom
+$route['Joto/show_complaint/gunroom/update-activity'] = 'ChatController/update_activity';
+$route['Joto/show_complaint/gunroom/update-notification'] = 'ChatController/update_notification';
+$route['Joto/show_complaint/gunroom/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/show_complaint/gunroom/check-notification'] = 'ChatController/check_activity';
+
+//joto/select_complaints
+// $route['Joto/select_complaints/update-activity'] = 'ChatController/update_activity';
+// $route['Joto/select_complaints/update-notification'] = 'ChatController/update_notification';
+// $route['Joto/select_complaints/check-activity'] = 'ChatController/check_activity';
+// $route['Joto/select_complaints/check-notification'] = 'ChatController/check_activity';
+
+//OICmess/complaint
+$route['OICmess/update-activity'] = 'ChatController/update_activity';
+$route['OICmess/update-notification'] = 'ChatController/update_notification';
+$route['OICmess/check-activity'] = 'ChatController/check_activity';
+// $route['OICmess/check-notification'] = 'ChatController/check_activity';
+
+//OICmess/show_complaint
+$route['OICmess/show_complaint/update-activity'] = 'ChatController/update_activity';
+$route['OICmess/show_complaint/update-notification'] = 'ChatController/update_notification';
+$route['OICmess/show_complaint/check-activity'] = 'ChatController/check_activity';
+// $route['OICmess/show_complaint/check-notification'] = 'ChatController/check_activity';
+
+//OICmess/update_guest_reservation
+$route['OICmess/update_guest_reservation/update-activity'] = 'ChatController/update_activity';
+$route['OICmess/update_guest_reservation/update-notification'] = 'ChatController/update_notification';
+$route['OICmess/update_guest_reservation/check-activity'] = 'ChatController/check_activity';
+// $route['OICmess/update_guest_reservation/check-notification'] = 'ChatController/check_activity';
+
+//OICmess/update_menu_requests
+$route['OICmess/update_menu_requests/update-activity'] = 'ChatController/update_activity';
+$route['OICmess/update_menu_requests/update-notification'] = 'ChatController/update_notification';
+$route['OICmess/update_menu_requests/check-activity'] = 'ChatController/check_activity';
+// $route['OICmess/update_menu_requests/check-notification'] = 'ChatController/check_activity';
 
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 

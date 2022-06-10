@@ -4,9 +4,12 @@ $this->load->view('assistantmess/common/header');
 
 <style>
     .img {
-        background: url('<?= base_url() ?>assets/img/project-banner.jpg');
+        background: url('<?= base_url() ?>assets/img/mess.jpeg');
         background-position: center;
-        background-size: cover;
+        /* position:absolute; */
+        /* background-size:auto; */
+        background-size: contain;
+        background-repeat:no-repeat;
         height: 250px;
         /* filter: blur(1px); */
         border-radius: 25px;

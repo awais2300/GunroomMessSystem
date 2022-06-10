@@ -1,13 +1,6 @@
 <?php
 $this->load->view('joto/common/header');
 ?>
-<link rel="stylesheet" type="text/css" href="http://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css+demos,_assets,_style.css+demos,_assets,_prettify.css.pagespeed.cc.8klr74YZ6Y.css">
-
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://raw.github.com/ehynds/jquery-ui-multiselect-widget/1.10/src/jquery.multiselect.js"></script>
-
 
 <style>
     #attachement {
@@ -61,9 +54,10 @@ $this->load->view('joto/common/header');
                                     <h6>&nbsp;P_no:</h6>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?php echo  $update_menu_requests_data['name'];?>" name="name" placeholder="name*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?=  $update_menu_requests_data['name'];?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*" value="<?= $update_menu_requests_data['p_no'] ?>" readonly>
@@ -94,10 +88,6 @@ $this->load->view('joto/common/header');
                                 </div>
                               
                             </div>
-                            <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script>
-                            <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" />
-
-                          
 
                             <div class="form-group row">
 
@@ -155,13 +145,8 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<?php $this->load->view('common/footer'); ?>
+<!-- <?php //$this->load->view('common/footer'); ?> -->
 <script type="text/javascript">
-
-$(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-
 
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);

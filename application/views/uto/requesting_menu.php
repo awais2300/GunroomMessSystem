@@ -52,7 +52,7 @@ $this->load->view('uto/common/header');
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>UTO/requesting_menu_process">
+                        <form class="user"  method="post" id="save_form" action="<?= base_url(); ?>UTO/requesting_menu_process">
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Name:</h6>
@@ -95,20 +95,14 @@ $this->load->view('uto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <h6>&nbsp;Menu:</h6>
+                                    <h6>&nbsp;Select Menu(s):</h6>
                                 </div>
-                              
                             </div>
-                            <!-- <script src="<?= base_url()?>assets/components/select2/dist/js/select2.min.js"></script> -->
-                            <!-- <link href="<?= base_url()?>assets/components/select2/dist/css/select2.min.css" rel="stylesheet" /> -->
-
-                          
 
                             <div class="form-group row">
 
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" >
-                                        <option value="">Select Menu</option>
+                                    <select class="form-control form-control-user" size="1" name="menu[]" id="menu"  multiple="multiple" >
                                         <?php foreach($menu_data as $data){?>
                                             <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
                                         <?php } ?>

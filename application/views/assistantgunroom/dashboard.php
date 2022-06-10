@@ -4,9 +4,12 @@ $this->load->view('assistantgunroom/common/header');
 
 <style>
     .img {
-        background: url('<?= base_url() ?>assets/img/project-banner.jpg');
+        background: url('<?= base_url() ?>assets/img/gunroom.jpeg');
         background-position: center;
-        background-size: cover;
+        /* background-size:auto; */
+        background-size: contain;
+        /* object-fit: cover; */
+        background-repeat:no-repeat;
         height: 250px;
         /* filter: blur(1px); */
         border-radius: 25px;

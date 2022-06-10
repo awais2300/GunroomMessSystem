@@ -238,8 +238,13 @@ class UTO extends CI_Controller
         $p_no = $postData['p_no'];
         $date = $postData['date'];
         $no_of_persons = $postData['no_of_persons'];
-        $menu = $postData['menu'];
+        $menu = $postData["menu"];
+        // $menu = $_GET["menu"];
         $description = $postData['description'];
+
+        // foreach($menu as $i){
+        //     echo ("$i<br/>"); exit;
+        // }
 
         $muenu_items = implode(',', $menu);
         // echo $_FILES['attachement'];exit;
@@ -257,7 +262,7 @@ class UTO extends CI_Controller
             'oic_seen' => 'no',
             'admin_seen' => 'no'
         );
-        //print_r($insert_array);exit;
+        // print_r($insert_array);exit;
         $insert = $this->db->insert('requesting_menu', $insert_array);
 
 
