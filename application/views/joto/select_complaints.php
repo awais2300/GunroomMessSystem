@@ -20,8 +20,17 @@
         font-size: 15px !important
     }
 
-    .img {
-        background: url('<?= base_url() ?>assets/img/project-banner.jpg');
+    .img-gunroom {
+        background: url('<?= base_url() ?>assets/img/gunroom.jpeg');
+        background-position: center;
+        background-size: cover;
+        height: 300px;
+        /* filter: blur(1px); */
+        border-radius: 25px;
+    }
+
+    .img-mess {
+        background: url('<?= base_url() ?>assets/img/mess.jpeg');
         background-position: center;
         background-size: cover;
         height: 300px;
@@ -45,24 +54,34 @@
     <!-- Content Row -->
 
     <form class="user" role="form" method="post" id="add_form">
+        <div class="form-group row justify-content-center" style="margin-top:10px;padding:15px">
+            <div class="col-sm-6 img-gunroom">
 
+            </div>
+            <div class="col-sm-6 img-mess">
+
+            </div>
+
+        </div>
         <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
-            <div class="col-sm-3">
-                <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type','gunroom')->from('complaints')->count_all_results(); ?>
+            <div class="col-sm-6">
+                <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type', 'gunroom')->from('complaints')->count_all_results(); ?>
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>joto/show_complaint/gunroom'">
-                <h5 style="font-weight: bold;"><span>Gunroom Complaints</span>
-                    <?php if ($unseen_complaints != '0') { ?>
-                        <span class="dot"><?= $unseen_complaints; ?></span>
-                    <?php } ?></h5>
+                    <h5 style="font-weight: bold;"><span>Gunroom Complaints</span>
+                        <?php if ($unseen_complaints != '0') { ?>
+                            <span class="dot"><?= $unseen_complaints; ?></span>
+                        <?php } ?>
+                    </h5>
                 </button>
             </div>
-            <div class="col-sm-3">
-                <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type','mess')->from('complaints')->count_all_results(); ?>
+            <div class="col-sm-6">
+                <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type', 'mess')->from('complaints')->count_all_results(); ?>
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>joto/show_complaint/mess'">
                     <h5 style="font-weight: bold;"><span>Mess Complaints</span>
-                    <?php if ($unseen_complaints != '0') { ?>
-                        <span class="dot"><?= $unseen_complaints; ?></span>
-                    <?php } ?></h5>
+                        <?php if ($unseen_complaints != '0') { ?>
+                            <span class="dot"><?= $unseen_complaints; ?></span>
+                        <?php } ?>
+                    </h5>
                 </button>
             </div>
 

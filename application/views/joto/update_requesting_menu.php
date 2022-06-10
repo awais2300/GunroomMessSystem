@@ -12,7 +12,7 @@ $this->load->view('joto/common/header');
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border: 1px dashed #BBB;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         background-color: #DDD;
         cursor: pointer;
@@ -57,7 +57,7 @@ $this->load->view('joto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?=  $update_menu_requests_data['name'];?>" name="name" placeholder="name*" readonly>
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?= $update_menu_requests_data['name']; ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*" value="<?= $update_menu_requests_data['p_no'] ?>" readonly>
@@ -78,7 +78,7 @@ $this->load->view('joto/common/header');
                                     <input type="number" class="form-control form-control-user" id="no_of_persons" name="no_of_persons" value="<?= $update_menu_requests_data['total_persons'] ?>" placeholder="no of persons*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*" value="<?= date('Y-m-d',strtotime($update_menu_requests_data['date'])) ?>" readonly>
+                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*" value="<?= date('Y-m-d', strtotime($update_menu_requests_data['date'])) ?>" readonly>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@ $this->load->view('joto/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Menu:</h6>
                                 </div>
-                              
+
                             </div>
 
                             <div class="form-group row">
@@ -94,12 +94,12 @@ $this->load->view('joto/common/header');
                                 <div class="col-sm-12 mb-1">
                                     <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" readonly>
                                         <option value="">Select Menu</option>
-                                        <?php foreach($menu_data as $data){?>
-                                            <option value="<?= $data['id']?>"><?= $data['menu_name'] ?></option>
+                                        <?php foreach ($menu_data as $data) { ?>
+                                            <option value="<?= $data['id'] ?>"><?= $data['menu_name'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
-                               
+
                             </div>
 
                             <div class="form-group row">
@@ -122,7 +122,7 @@ $this->load->view('joto/common/header');
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-1">
-                                    <textarea id="remarks" style="border-radius:20px" name="remarks" class="form-control " rows="4" ></textarea>
+                                    <textarea id="remarks" style="border-radius:20px" name="remarks" class="form-control " rows="4"></textarea>
                                 </div>
                             </div>
 
@@ -145,9 +145,8 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<!-- <?php //$this->load->view('common/footer'); ?> -->
+<!-- <?php //$this->load->view('common/footer');  ?> -->
 <script type="text/javascript">
-
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
         var validate = 0;
@@ -181,6 +180,7 @@ $this->load->view('joto/common/header');
             $('#menu').addClass('red-border');
         }
 
+        alert(validate);
         if (validate == 0) {
             $('#save_form')[0].submit();
             $('#show_error_save').hide();

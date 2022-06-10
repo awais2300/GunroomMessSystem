@@ -5,12 +5,12 @@ $this->load->view('assistantmess/common/header');
 <style>
     .img {
         background: url('<?= base_url() ?>assets/img/mess.jpeg');
-        background-position: center;
+        background-position: cover;
         /* position:absolute; */
         /* background-size:auto; */
-        background-size: contain;
+        /* background-size: contain; */
         background-repeat:no-repeat;
-        height: 250px;
+        height: 450px;
         /* filter: blur(1px); */
         border-radius: 25px;
     }
@@ -21,7 +21,7 @@ $this->load->view('assistantmess/common/header');
 </style>
 
 <div class="container">
-    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
+    <h2 class="my-2">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
                                     echo $this->session->userdata('full_name');
                                 } else {
                                     echo $this->session->userdata('username');
@@ -32,7 +32,7 @@ $this->load->view('assistantmess/common/header');
 
     <form class="user" role="form" method="post" id="add_form">
 
-        <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
+        <div class="form-group row justify-content-center" style="margin-top:8px;padding:15px">
             <!-- <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>AssistantMess/allocate_rooms'">
                     <h5 style="font-weight: bold;">Room Allocation</h5>

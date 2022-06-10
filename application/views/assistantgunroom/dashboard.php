@@ -5,12 +5,12 @@ $this->load->view('assistantgunroom/common/header');
 <style>
     .img {
         background: url('<?= base_url() ?>assets/img/gunroom.jpeg');
-        background-position: center;
+        background-position: cover;
         /* background-size:auto; */
-        background-size: contain;
+        /* background-size: contain; */
         /* object-fit: cover; */
         background-repeat:no-repeat;
-        height: 250px;
+        height: 500px;
         /* filter: blur(1px); */
         border-radius: 25px;
     }
@@ -21,7 +21,7 @@ $this->load->view('assistantgunroom/common/header');
 </style>
 
 <div class="container">
-    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
+    <h2 class="my-2">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
                                     echo $this->session->userdata('full_name');
                                 } else {
                                     echo $this->session->userdata('username');
@@ -33,7 +33,7 @@ $this->load->view('assistantgunroom/common/header');
     <form class="user" role="form" method="post" id="add_form">
 
 
-        <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
+        <div class="form-group row justify-content-center" style="margin-top:8px;padding:10px">
 
             <div class="col-sm-3">
                 <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>AssistantGunroom/show_gunrooms_list'">

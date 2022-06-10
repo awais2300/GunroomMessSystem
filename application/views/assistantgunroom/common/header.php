@@ -22,7 +22,7 @@
 </head>
 
 <style>
-     .dot {
+    .dot {
         height: 25px;
         width: 25px;
         background-color: red;
@@ -50,7 +50,7 @@
         /* border-radius: 25px; */
     }
 
-   
+
 
     .sidebar-brand-text {
         color: black !important;
@@ -86,16 +86,22 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/add_users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Create New User</span>
+                </a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/show_room_allocation_list" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-align-justify"></i>
+                    <span>Room Allocation List</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>AssistantGunroom/show_gunrooms_list" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Gun Room Data</span>
+                    <span>Gunroom Data</span>
                 </a>
             </li>
 
@@ -205,10 +211,10 @@
                         <li class="nav-item dropdown no-arrow mx-1" id="notification">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
-                                
+
                                 <span class=""></span>
                             </a>
-                            
+
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Chat Corner

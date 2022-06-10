@@ -327,7 +327,7 @@ class AssistantMess extends CI_Controller
     public function reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['reservation_data'] = $this->db->where('status', 'Available')->get('guest_reservation')->result_array();
+            $data['reservation_data'] = $this->db->get('guest_reservation')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('guest_reservation');
             $this->load->view('assistantmess/reservations', $data);
         }

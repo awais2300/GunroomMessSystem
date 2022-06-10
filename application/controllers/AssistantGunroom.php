@@ -295,7 +295,7 @@ class AssistantGunroom extends CI_Controller
                 $user_name =  $this->session->userdata('username');
             }
 
-            $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', 'gunroom')->order_by('date', 'desc')->get('complaints')->result_array();
+            $data['complaint_data'] = $this->db->where('account_type', 'gunroom')->order_by('date', 'desc')->get('complaints')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', 'gunroom')->update('complaints');
             if ($query) {
                 $this->load->view('assistantgunroom/complaint', $data);
@@ -313,8 +313,7 @@ class AssistantGunroom extends CI_Controller
                 $user_name =  $this->session->userdata('username');
             }
 
-            $this->load->view('assistantgunroom/gunrooms_list'); 
-        
+            $this->load->view('assistantgunroom/gunrooms_list');
         }
     }
 
@@ -373,5 +372,19 @@ class AssistantGunroom extends CI_Controller
             //print_r($query['exist']);exit;
             echo json_encode($query);
         }
+    }
+
+    public function show_room_allocation_list()
+    {
+        $this->db->select('*');
+        $this->db->from('gunrooms_rooms gr');
+        $this->db->where("allocated_to_1 <> ''");
+        $this->db->or_where("allocated_to_2 <>", NULL);
+        $this->db->or_where("allocated_to_3 <>", NULL);
+        $this->db->or_where("allocated_to_4 <>", NULL);
+        
+        $data['room_allocation_records'] = $this->db->get()->result_array();
+        $this->load->view('assistantgunroom/activity_log', $data);
+
     }
 }

@@ -70,40 +70,35 @@ $this->load->view('uto/common/header');
                             </div>
 
                             <div class="form-group row">
-                                <!-- <div class="col-sm-6">
-                                    <h6>&nbsp;Allocated To:</h6>
-                                </div> -->
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <h6>&nbsp;Date:</h6>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <!-- <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="allocated_to" name="allocated_to" placeholder="Allocated to">
-                                </div> -->
-                                <div class="col-sm-12 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <h6>&nbsp;Type:</h6>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-
-                                <div class="col-sm-12 mb-1">
-                                    <!-- <select class="form-control form-control-user" name="type" id="type" style="height:50px;padding:10px">
-                                        <option value="">Account Type</option>
-                                        <option value="gunroom">Gunroom</option>
-                                        <option value="mess">Mess</option>
-                                    </select> -->
+                                <div class="col-sm-6 mb-1">
+                                    <input type="date" class="form-control form-control-user" id="date" name="date" placeholder="date*">
+                                </div>
+                                <div class="col-sm-6 mb-1">
                                     <input type="text" class="form-control form-control-user" id="type" name="type" placeholder="Enter Type">
                                 </div>
                             </div>
+
+                            <!-- <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Type:</h6>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="form-group row">
+
+                                <div class="col-sm-12 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="type" name="type" placeholder="Enter Type">
+                                </div>
+                            </div> -->
 
                             <div class="form-group row">
                                 <div class="col-sm-12">

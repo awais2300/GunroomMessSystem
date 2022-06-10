@@ -95,7 +95,7 @@
         <!-- <script src="<?php echo base_url(); ?>assets/js/demo/chart-pie-demo.js"></script> -->
 
         <!-- Links for Canlender -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fullcalendar/fullcalendar.min.css" />
+        <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fullcalendar/fullcalendar.min.css" /> -->
 
         <!-- <script src="<?php echo base_url(); ?>assets/fullcalendar/lib/moment.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/fullcalendar/fullcalendar.min.js"></script>

@@ -402,4 +402,18 @@ class Admin extends CI_Controller
         //print_r($count);exit();
         return $count;
     }
+
+    public function show_room_allocation_list()
+    {
+        $this->db->select('*');
+        $this->db->from('gunrooms_rooms gr');
+        $this->db->where("allocated_to_1 <> ''");
+        $this->db->or_where("allocated_to_2 <>", NULL);
+        $this->db->or_where("allocated_to_3 <>", NULL);
+        $this->db->or_where("allocated_to_4 <>", NULL);
+        
+        $data['room_allocation_records'] = $this->db->get()->result_array();
+        $this->load->view('admin/activity_log', $data);
+
+    }
 }

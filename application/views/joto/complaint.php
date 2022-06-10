@@ -109,9 +109,9 @@ $this->load->view('joto/common/header');
 
 <!-- <?php //$this->load->view('common/footer'); ?> -->
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
+    // $(document).ready(function() {
+    //     $('#example').DataTable();
+    // });
 
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);

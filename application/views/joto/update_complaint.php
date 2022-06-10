@@ -233,29 +233,29 @@ $this->load->view('joto/common/header');
     //      });
     //  }
 
-    // function seen(data) {
-    //     // var receiver_id=$(this).attr('id');
-    //     $.ajax({
-    //         url: '<?= base_url(); ?>ChatController/seen',
-    //         method: 'POST',
-    //         data: {
-    //             'id': data
-    //         },
-    //         success: function(data) {
-    //             $('#notification').html(data);
-    //         },
-    //         async: true
-    //     });
-    // }
+    function seen(data) {
+        // var receiver_id=$(this).attr('id');
+        $.ajax({
+            url: '<?= base_url(); ?>ChatController/seen',
+            method: 'POST',
+            data: {
+                'id': data
+            },
+            success: function(data) {
+                $('#notification').html(data);
+            },
+            async: true
+        });
+    }
 
-    // $('#notifications').focusout(function() {
-    //     // alert('notification clicked');
-    //     $.ajax({
-    //         url: '<?= base_url(); ?>ChatController/activity_seen',
-    //         success: function(data) {
-    //             $('#notifications').html(data);
-    //         },
-    //         async: true
-    //     });
-    // });
+    $('#notifications').focusout(function() {
+        // alert('notification clicked');
+        $.ajax({
+            url: '<?= base_url(); ?>ChatController/activity_seen',
+            success: function(data) {
+                $('#notifications').html(data);
+            },
+            async: true
+        });
+    });
 </script>

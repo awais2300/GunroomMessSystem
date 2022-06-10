@@ -54,15 +54,19 @@ $this->load->view('uto/common/header');
                     <div class="card-body bg-custom3">
                         <form class="user"  method="post" id="save_form" action="<?= base_url(); ?>UTO/requesting_menu_process">
                             <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Name:</h6>
-                                </div>
-                                <div class="col-sm-6">
+                            <div class="col-sm-2">
                                     <h6>&nbsp;P_no:</h6>
                                 </div>
+                                <div class="col-sm-10">
+                                    <h6>&nbsp;Name:</h6>
+                                </div>
+                                
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
+                            <div class="col-sm-2 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
+                                </div>
+                                <div class="col-sm-10 mb-1">
                                
                                     <input type="text" class="form-control form-control-user" id="name" value="<?php if (!empty($this->session->userdata('full_name'))) {
                                                                                                                     echo $this->session->userdata('full_name');
@@ -70,9 +74,7 @@ $this->load->view('uto/common/header');
                                                                                                                     echo $this->session->userdata('username');
                                                                                                                 } ?>" name="name" placeholder="name*" readonly>
                                 </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*">
-                                </div>
+                                
                             </div>
 
                             <div class="form-group row">

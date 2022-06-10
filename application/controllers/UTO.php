@@ -21,7 +21,7 @@ class UTO extends CI_Controller
             $this->load->view('login');
         }
     }
-    
+
     public function gunroom($gunroom_id = null)
     {
         if ($this->session->has_userdata('user_id')) {
@@ -73,8 +73,8 @@ class UTO extends CI_Controller
             } else {
                 $user_name =  $this->session->userdata('username');
             }
-            
-            $data['complaint_data'] = $this->db->where('name', $user_name)->where('account_type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
+
+            $data['complaint_data'] = $this->db->where('name', $this->session->userdata('username'))->where('account_type', $this->session->userdata('login_type'))->order_by('date', 'desc')->get('complaints')->result_array();
             $query = $this->db->set('seen', 'yes')->where('seen', 'no')->where('account_type', $this->session->userdata('login_type'))->update('complaints');
             if ($query) {
                 $this->load->view('uto/complaint', $data);
@@ -143,6 +143,11 @@ class UTO extends CI_Controller
             'location' => $location,
             'seen' => 'no',
             'admin_seen' => 'no',
+            'oic_seen' => 'no',
+            'joto_seen' => 'no',
+            'mainto_seen' => 'no',
+            'assistantgunroom_seen' => 'no',
+            'chiefmaintenance_seen' => 'no',
             'account_type' => $this->session->userdata('login_type')
         );
         //print_r($insert_array);exit;
@@ -167,7 +172,7 @@ class UTO extends CI_Controller
         }
     }
 
-    
+
     public function menu_requests()
     {
         if ($this->session->has_userdata('user_id')) {
@@ -181,9 +186,9 @@ class UTO extends CI_Controller
     public function show_request_menu()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['menu_data'] = $this->db->where('status','Available')->get('mess_menu')->result_array();
+            $data['menu_data'] = $this->db->where('status', 'Available')->get('mess_menu')->result_array();
             // $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
-            $this->load->view('uto/requesting_menu',$data);
+            $this->load->view('uto/requesting_menu', $data);
         }
     }
 
@@ -196,9 +201,9 @@ class UTO extends CI_Controller
         $date = $postData['date'];
         $total_guests = $postData['total_guests'];
         $menu = $postData['menu'];
-      //  print_r($menu);exit;
+        //  print_r($menu);exit;
         $muenu_items = implode(',', $menu);
-        $location=$postData['location'];
+        $location = $postData['location'];
         // print_r($muenu_items);exit;
         $description = $postData['description'];
         // echo $_FILES['attachement'];exit;
@@ -212,11 +217,14 @@ class UTO extends CI_Controller
             'date' => $date,
             'total_guests' => $total_guests,
             'menu' => $muenu_items,
-            'location'=>$location,                            
+            'location' => $location,
             'seen' => 'no',
             'joto_seen' => 'no',
-             'oic_seen' => 'no',
-            'admin_seen' => 'no'
+            'oic_seen' => 'no',
+            'admin_seen' => 'no',
+            'assistantmess_seen' => 'no',
+            'chiefmess_seen' => 'no'
+
         );
         //print_r($insert_array);exit;
         $insert = $this->db->insert('guest_reservation', $insert_array);
@@ -260,7 +268,9 @@ class UTO extends CI_Controller
             'seen' => 'no',
             'joto_seen' => 'no',
             'oic_seen' => 'no',
-            'admin_seen' => 'no'
+            'admin_seen' => 'no',
+            'assistantmess_seen' => 'no',
+            'chiefmess_seen' => 'no'
         );
         // print_r($insert_array);exit;
         $insert = $this->db->insert('requesting_menu', $insert_array);

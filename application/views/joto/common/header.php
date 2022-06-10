@@ -20,8 +20,6 @@
 
 </head>
 <style>
- 
-
     .dot {
         height: 25px;
         width: 25px;
@@ -65,7 +63,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <?php if ( $this->session->userdata('acct_type') == 'Joto' ) { ?>
+            <?php if ($this->session->userdata('acct_type') == 'Joto') { ?>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -83,6 +81,12 @@
                         <span>Create New User</span>
                     </a>
                 </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>joto/show_room_allocation_list" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-align-justify"></i>
+                        <span>Room Allocation List</span>
+                    </a>
+                </li>
 
                 <?php $unseen_complaints = $this->db->where('joto_seen', 'no')->from('complaints')->count_all_results(); ?>
                 <li class="nav-item">
