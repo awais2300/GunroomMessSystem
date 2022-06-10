@@ -20,26 +20,7 @@
 
                         <div class="card-body bg-custom3">
                             <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>Admin/add_user">
-                                <h4 style="text-decoration:underline; margin-left:5px;padding:5px">Login Information</h4>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="username*">
-                                    </div>
-
-                                    <div class="col-sm-6 mb-1">
-                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password*">
-                                    </div>
-
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-1">
-                                        <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
-                                            <option class="form-control form-control-user" value="">Select Account Type</option>
-                                            <option class="form-control form-control-user" value="UTO">UTO</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <hr>
+                               
 
                                 <h4 style="text-decoration:underline; margin-left:5px;padding:5px">Personal Information (optional)</h4>
                                 <div class="form-group row">
@@ -79,6 +60,29 @@
                                     <input type="text" class="form-control form-control-user" id="secret_question_ans" name="secret_question_ans"  placeholder="Secret Question Answer*">
                                     </div>
                                 </div>
+
+                                <hr>
+
+                                <h4 style="text-decoration:underline; margin-left:5px;padding:5px">Login Information</h4>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="username*">
+                                    </div>
+
+                                    <div class="col-sm-6 mb-1">
+                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password*">
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-1">
+                                        <select class="form-control rounded-pill" name="acct_type" id="acct_type" data-placeholder="Select Account Type" style="font-size: 0.8rem; height:50px;">\
+                                            <option class="form-control form-control-user" value="">Select Account Type</option>
+                                            <option class="form-control form-control-user" value="UTO">UTO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
 
                                 <div class="form-group row justify-content-center">
                                     <div class="col-sm-4">
