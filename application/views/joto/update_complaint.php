@@ -166,7 +166,7 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<?php $this->load->view('common/footer'); ?>
+<!-- <?php //$this->load->view('common/footer'); ?> -->
 <script type="text/javascript">
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);

@@ -55,11 +55,14 @@
 
     <form class="user" role="form" method="post" id="add_form">
         <div class="form-group row justify-content-center" style="margin-top:10px;padding:15px">
-            <div class="col-sm-6 img-gunroom">
-              
+            <div class="col-sm-5 img-gunroom">
+
             </div>
-            <div class="col-sm-6 img-mess">
-              
+            <div class="col-sm-1">
+
+            </div>
+            <div class="col-sm-5 img-mess">
+
             </div>
 
         </div>
@@ -74,6 +77,9 @@
                         <?php } ?>
                     </h5>
                 </button>
+            </div>
+            <div class="col-sm-1">
+
             </div>
             <div class="col-sm-6">
                 <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type', 'mess')->from('complaints')->count_all_results(); ?>

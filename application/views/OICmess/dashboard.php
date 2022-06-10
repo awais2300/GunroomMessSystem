@@ -1,12 +1,14 @@
-<?php $this->load->view('OICmess/common/header'); ?>
+<?php
+$this->load->view('OICmess/common/header');
+?>
 
 <style>
     .img {
         background: url('<?= base_url() ?>assets/img/mess.jpeg');
-        background-position: center;
+        background-position: cover;
         /* position:absolute; */
         /* background-size:auto; */
-        background-size: contain;
+        /* background-size: contain; */
         background-repeat:no-repeat;
         height: 250px;
         /* filter: blur(1px); */
@@ -18,15 +20,12 @@
     }
 </style>
 
-<div class="container-fluid my-4">
-
-   
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-black-800"><strong>Welcome to OICmess Dashboard</strong></h1>
-        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#all_projects"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-    </div>
-    <!-- Content Row -->
+<div class="container">
+    <h2 class="my-4">Welcome, <?php if (!empty($this->session->userdata('full_name'))) {
+                                    echo $this->session->userdata('full_name');
+                                } else {
+                                    echo $this->session->userdata('username');
+                                } ?>!</h2>
 
     <div class="col-md-12 img">
     </div>
@@ -62,16 +61,31 @@
         </div>
 
     </form>
-    
+
+
 </div>
 
 </div>
 
 <?php $this->load->view('common/footer'); ?>
-<script>
+<script type="text/javascript">
+    //  window.onload = function exampleFunction() {
+    //      //alert('HIii');
+    //      $.ajax({
+    //          url: '<?= base_url(); ?>Project_Officer/update_notification',
+    //          method: 'POST',
+    //          datatype: 'json',
+    //          data: {
+    //         'id': '<?php echo $this->session->userdata('user_id'); ?>'
+    //          },
+    //          success: function(data) {
+    //              $('#notification').html(data);
+    //          },
+    //          async: true
+    //      });
+    //  }
+
     function seen(data) {
-        // alert('in');
-        // alert(data);
         // var receiver_id=$(this).attr('id');
         $.ajax({
             url: '<?= base_url(); ?>ChatController/seen',
