@@ -65,7 +65,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <?php if ($this->session->userdata('acct_type') == 'admin') { ?>
+            <?php if ($this->session->userdata('acct_type') == 'exo') { ?>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 

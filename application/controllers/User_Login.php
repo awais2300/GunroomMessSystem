@@ -28,7 +28,7 @@ class User_Login extends CI_Controller
 				redirect('ChiefMess');
 			} else if ($acct_type == "ChiefMaintenance") {
 				redirect('ChiefMaintenance');
-			} else if ($acct_type == "admin") {
+			} else if ($acct_type == "exo") {
 				redirect('Admin');
 			} else if ($acct_type == "Operator") {
 				redirect('Operator');

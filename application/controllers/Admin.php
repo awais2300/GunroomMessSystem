@@ -199,7 +199,7 @@ class Admin extends CI_Controller
     public function reservation()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['reservation_data'] = $this->db->get('guest_reservation')->result_array();
+            $data['reservation_data'] = $this->db->where('joto_seen','yes')->where('oic_seen','yes')->get('guest_reservation')->result_array();
             $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('guest_reservation');
             $this->load->view('Admin/reservations', $data);
         }
@@ -207,7 +207,7 @@ class Admin extends CI_Controller
     public function menu_requests()
     {
         if ($this->session->has_userdata('user_id')) {
-            $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
+            $data['menu_request_data'] = $this->db->where('joto_seen','yes')->where('oic_seen','yes')->where('chiefmess_seen','yes')->where('assistantmess_seen','yes')->get('requesting_menu')->result_array();
             $query = $this->db->set('admin_seen', 'yes')->where('admin_seen', 'no')->update('requesting_menu');
             $this->load->view('Admin/menu_requests', $data);
         }
