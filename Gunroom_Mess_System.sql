@@ -707,6 +707,9 @@ ALTER TABLE `guest_reservation`
 ALTER TABLE `guest_reservation` 
   ADD column `chiefmess_seen` enum('no','yes');
 
+
+ALTER TABLE `complaints` 
+  ADD column `oic_seen` enum('no','yes');
 ALTER TABLE `complaints` 
   ADD column `joto_seen` enum('no','yes');
 ALTER TABLE `complaints` 

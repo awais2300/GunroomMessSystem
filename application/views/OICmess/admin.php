@@ -27,6 +27,38 @@
 
     <div class="col-md-12 img">
     </div>
+
+    <form class="user" role="form" method="post" id="add_form">
+
+        <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>OICmess/complaint'">
+                <!-- <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" > -->
+                    <h5 style="font-weight: bold;">Complaints</h5>
+                    <!-- <h6>(Mess)</h6> -->
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>OICmess/reservation'">
+                    <h5 style="font-weight: bold;">Guest Reservation</h5>
+                </button>
+            </div>
+
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>OICmess/show_request_menu_list'">
+                    <h5 style="font-weight: bold;">Requested Menu</h5>
+                </button>
+            </div>
+            <!-- <div class="col-sm-3"> -->
+                <!-- <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" onclick="location.href='<?php echo base_url(); ?>UTO/complaint'"> -->
+                <!-- <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_material" >
+                    <h5 style="font-weight: bold;">Current Mess Menu</h5>
+                </button> -->
+            <!-- </div> -->
+
+        </div>
+
+    </form>
     
 </div>
 

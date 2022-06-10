@@ -107,6 +107,23 @@ $route['AssistantGunroom/gunroom_floor/(:num)/update-activity'] = 'ChatControlle
 $route['AssistantGunroom/gunroom_floor/(:num)/update-notification'] = 'ChatController/update_notification';
 $route['AssistantGunroom/gunroom_floor/(:num)/check-activity'] = 'ChatController/check_activity';
 
+
+$route['Joto/update_complaint/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_complaint/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_complaint/(:num)/check-activity'] = 'ChatController/check_activity';
+
+$route['Joto/update_guest_reservation/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_guest_reservation/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_guest_reservation/(:num)/check-activity'] = 'ChatController/check_activity';
+
+$route['Joto/update_menu_requests/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_menu_requests/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_menu_requests/(:num)/check-activity'] = 'ChatController/check_activity';
+
+$route['Joto/show_complaint/(:num)/update-activity'] = 'ChatController/update_activity';
+$route['Joto/show_complaint/(:num)/update-notification'] = 'ChatController/update_notification';
+$route['Joto/show_complaint/(:num)/check-activity'] = 'ChatController/check_activity';
+
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 
 $route['mission/(:any)']='Mission/mission/$1';

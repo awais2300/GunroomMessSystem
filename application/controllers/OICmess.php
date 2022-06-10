@@ -212,6 +212,16 @@ class OICmess extends CI_Controller
             $this->load->view('OICmess/menu_requests', $data);
         }
     }
+
+    public function show_request_menu_list()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['menu_request_data'] = $this->db->get('requesting_menu')->result_array();
+            $query = $this->db->set('seen', 'yes')->where('seen', 'no')->update('requesting_menu');
+            $this->load->view('chiefmess/menu_requests', $data);
+        }
+    }
+    
     public function update_guest_reservation($id = null)
     {
         $data['update_guest_reservation_data'] = $this->db->where('id', $id)->get('guest_reservation')->row_array();
