@@ -118,7 +118,7 @@ $this->load->view('chiefmaintenance/common/header');
                                 <div class="col-sm-12 mb-1">
                                     <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*" readonly>
                                 </div>
-                                <a href="<?php echo base_url(); ?>/uploads/complaints/<?= $complaint_data['attachement']; ?>" style="margin-left: 25px;"><?= $complaint_data['attachement']; ?></a>
+                                <a href="<?php echo base_url(); ?>uploads/complaints/<?= $complaint_data['attachement']; ?>" style="margin-left: 25px;"><?= $complaint_data['attachement']; ?></a>
                             </div>
                             <input type="hidden" name="old_file" value="<?= $complaint_data['attachement']; ?>">
 

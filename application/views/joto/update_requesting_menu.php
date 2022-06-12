@@ -45,7 +45,7 @@ $this->load->view('joto/common/header');
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>Joto/update_requesting_menu_process">
+                        <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>Joto/update_requesting_menu_process/<?= $update_menu_requests_data['id'] ?>">
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Name:</h6>
@@ -60,7 +60,7 @@ $this->load->view('joto/common/header');
                                     <input type="text" class="form-control form-control-user" id="name" value="<?= $update_menu_requests_data['name']; ?>" name="name" placeholder="name*" readonly>
                                 </div>
                                 <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*" value="<?= $update_menu_requests_data['p_no'] ?>" readonly>
+                                    <input type="text" class="form-control form-control-user" id="p_no" name="p_no" placeholder="p_no*" value="<?= $update_menu_requests_data['p_no']; ?>" readonly>
                                 </div>
                             </div>
 
@@ -86,20 +86,18 @@ $this->load->view('joto/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Menu:</h6>
                                 </div>
-
                             </div>
 
                             <div class="form-group row">
-
                                 <div class="col-sm-12 mb-1">
-                                    <select class="form-control form-control-user js-example-basic-multiple" name="menu[]" id="menu" style="height:50px;padding:10px" multiple="multiple" readonly>
-                                        <option value="">Select Menu</option>
-                                        <?php foreach ($menu_data as $data) { ?>
-                                            <option value="<?= $data['id'] ?>"><?= $data['menu_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <?php $arr = explode(',', $update_menu_requests_data['menu']);
+                                    $item_string = '';
+                                    for ($i = 0; $i < count($arr); $i++) {
+                                        $menu_items = $this->db->where('id', $arr[$i])->get('mess_menu')->row_array();
+                                        $item_string .= $menu_items['menu_name'] . " , ";
+                                    } ?>
+                                    <input type="text" class="form-control form-control-user" id="menu" name="menu" placeholder="Menu*" value="<?= $item_string; ?>" readonly>
                                 </div>
-
                             </div>
 
                             <div class="form-group row">
@@ -145,7 +143,7 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<!-- <?php //$this->load->view('common/footer');  ?> -->
+<?php $this->load->view('common/footer');  ?>
 <script type="text/javascript">
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
@@ -156,8 +154,6 @@ $this->load->view('joto/common/header');
         var no_of_persons = $('#no_of_persons').val();
         var menu = $('#menu').val();
         var description = $('#description').val();
-
-
 
         if (name == '') {
             validate = 1;
@@ -180,7 +176,7 @@ $this->load->view('joto/common/header');
             $('#menu').addClass('red-border');
         }
 
-        alert(validate);
+        // alert(validate);
         if (validate == 0) {
             $('#save_form')[0].submit();
             $('#show_error_save').hide();

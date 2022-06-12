@@ -162,11 +162,11 @@ class Admin extends CI_Controller
         $p_no = $postData['p_no'];
         $date = $postData['date'];
         $no_of_persons = $postData['no_of_persons'];
-        $menu = $postData['menu'];
+        // $menu = $postData['menu'];
         $description = $postData['description'];
         $remarks = $postData['remarks'];
 
-        $muenu_items = implode(',', $menu);
+        // $muenu_items = implode(',', $menu);
         // echo $_FILES['attachement'];exit;
         //$upload1 = $this->upload_attachement($_FILES['attachement']);
 
@@ -176,16 +176,16 @@ class Admin extends CI_Controller
             'description' => $description,
             'date' => $date,
             'total_persons' => $no_of_persons,
-            'menu' => $muenu_items,
-            'seen' => 'no',
-            'admin_seen' => 'no',
-            'joto_seen' => 'no',
-            'oic_seen' => 'no',
+            // 'menu' => $muenu_items,
+            // 'seen' => 'no',
+            // 'admin_seen' => 'no',
+            // 'joto_seen' => 'no',
+            // 'oic_seen' => 'no',
             'remarks' => $remarks
         );
         //print_r($insert_array);exit;
         $this->db->where('id', $id);
-        $insert = $this->db->insert('requesting_menu', $insert_array);
+        $insert = $this->db->update('requesting_menu', $insert_array);
 
 
         if (!empty($insert)) {

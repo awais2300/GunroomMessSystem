@@ -121,21 +121,19 @@ $route['Joto/update_guest_reservation/update-notification'] = 'ChatController/up
 $route['Joto/update_guest_reservation/check-activity'] = 'ChatController/check_activity';
 // $route['Joto/update_guest_reservation/check-notification'] = 'ChatController/check_activity';
 
-$route['Joto/update_menu_requests/(:num)/update-activity'] = 'ChatController/update_activity';
-$route['Joto/update_menu_requests/(:num)/update-notification'] = 'ChatController/update_notification';
-$route['Joto/update_menu_requests/(:num)/check-activity'] = 'ChatController/check_activity';
-$route['Joto/update_menu_requests/(:num)/check-notification'] = 'ChatController/check_activity';
+$route['Joto/update_menu_requests/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_menu_requests/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_menu_requests/check-activity'] = 'ChatController/check_activity';
 
 //joto/show_complaint/mess
 $route['Joto/show_complaint/update-activity'] = 'ChatController/update_activity';
 $route['Joto/show_complaint/update-notification'] = 'ChatController/update_notification';
 $route['Joto/show_complaint/check-activity'] = 'ChatController/check_activity';
 
-//joto/select_complaints
-// $route['Joto/select_complaints/update-activity'] = 'ChatController/update_activity';
-// $route['Joto/select_complaints/update-notification'] = 'ChatController/update_notification';
-// $route['Joto/select_complaints/check-activity'] = 'ChatController/check_activity';
-// $route['Joto/select_complaints/check-notification'] = 'ChatController/check_activity';
+//joto/update_complaints
+$route['Joto/update_complaint/update-activity'] = 'ChatController/update_activity';
+$route['Joto/update_complaint/update-notification'] = 'ChatController/update_notification';
+$route['Joto/update_complaint/check-activity'] = 'ChatController/check_activity';
 
 //OICmess/complaint
 $route['OICmess/update-activity'] = 'ChatController/update_activity';

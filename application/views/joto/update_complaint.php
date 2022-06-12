@@ -12,7 +12,7 @@ $this->load->view('joto/common/header');
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border: 1px dashed #BBB;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         background-color: #DDD;
         cursor: pointer;
@@ -47,60 +47,50 @@ $this->load->view('joto/common/header');
                     <div class="card-body bg-custom3">
                         <form class="user" role="form" enctype="multipart/form-data" method="post" id="save_form" action="<?= base_url(); ?>Joto/update_complaint_process">
                             <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Name:</h6>
-                                </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-2">
                                     <h6>&nbsp;P_no:</h6>
                                 </div>
+                                <div class="col-sm-10">
+                                    <h6>&nbsp;Name:</h6>
+                                </div>
+
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" id="name" value="<?= $complaint_data['name']; ?>" name="name" placeholder="name*" readonly>
-                                </div>
-                                <div class="col-sm-6 mb-1">
+                                <div class="col-sm-2 mb-1">
                                     <input type="text" class="form-control form-control-user" value="<?= $complaint_data['p_no']; ?>" id="p_no" name="p_no" placeholder="p_no*" readonly>
                                 </div>
+                                <div class="col-sm-10 mb-1">
+                                    <input type="text" class="form-control form-control-user" id="name" value="<?= $complaint_data['name']; ?>" name="name" placeholder="name*" readonly>
+                                </div>
+
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <h6>&nbsp;Allocated To:</h6>
-                                </div>
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Date:</h6>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-1">
-                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['allocated_to']; ?>" id="allocated_to" name="allocated_to" placeholder="allocated to*" readonly>
-                                </div>
-                                <div class="col-sm-6 mb-1">
-                                    <input type="date" class="form-control form-control-user" id="date" value="<?= date('Y-m-d',strtotime($complaint_data['date'])); ?>" name="date" placeholder="date*" readonly>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <div class="col-sm-6">
                                     <h6>&nbsp;Type:</h6>
                                 </div>
-                                <div class="col-sm-6">
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-1">
+                                    <input type="date" class="form-control form-control-user" id="date" value="<?= date('Y-m-d', strtotime($complaint_data['date'])); ?>" name="date" placeholder="date*" readonly>
+                                </div>
+                                <div class="col-sm-6 mb-1">
+                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['type']; ?>" id="type" name="type" placeholder="Enter Type" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12">
                                     <h6>&nbsp;Location:</h6>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-
-                                <div class="col-sm-6 mb-1">
-                                    <!-- <select class="form-control form-control-user" name="type" id="type"   style="height:50px;padding:10px" readonly>
-                                        <option value="">Account Type</option>
-                                        <option value="gunroom" <?= ($complaint_data['type']=="gunroom")?'selected':'' ?> >Gunroom</option>
-                                        <option value="mess"  <?= ($complaint_data['type']=="mess")?'selected':'' ?> >Mess</option>
-                                    </select> -->
-                                    <input type="text" class="form-control form-control-user" value="<?= $complaint_data['type']; ?>" id="type" name="type" placeholder="Enter Type" readonly>
-                                </div>
-                                <div class="col-sm-6 mb-1">
+                                <div class="col-sm-12 mb-1">
                                     <input type="text" class="form-control form-control-user" value="<?= $complaint_data['location']; ?>" id="location" name="location" placeholder="location*" readonly>
                                 </div>
                             </div>
@@ -109,9 +99,9 @@ $this->load->view('joto/common/header');
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Attachement:</h6>
                                 </div>
-                             
+
                             </div>
-                           <input type="hidden" value="<?= $complaint_data['id']; ?>" name="complaint_id">
+                            <input type="hidden" value="<?= $complaint_data['id']; ?>" name="complaint_id">
                             <!-- <div class="form-group row">
                                 <div class="col-sm-12">
                                     <input type="file" multiple="multiple" class="form-control form-control-user" id="attachement" name="attachement[]" placeholder="attachement*">
@@ -121,10 +111,10 @@ $this->load->view('joto/common/header');
                                 <div class="col-sm-12 mb-1">
                                     <input type="file" multiple="multiple" id="attachement" name="attachement[]" placeholder="attachement*" readonly>
                                 </div>
-                                <label><?= $complaint_data['attachement']; ?></label>
+                                <a href="<?php echo base_url(); ?>uploads/complaints/<?= $complaint_data['attachement']; ?>" style="margin-left: 25px;"><?= $complaint_data['attachement']; ?></a>
                             </div>
                             <input type="hidden" name="old_file" value="<?= $complaint_data['attachement']; ?>">
-                            
+
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <h6>&nbsp;Description:</h6>
@@ -166,7 +156,7 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<!-- <?php //$this->load->view('common/footer'); ?> -->
+<?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
     $('#add_btni').on('click', function() {
         $('#add_btni').attr('disabled', true);
@@ -205,7 +195,7 @@ $this->load->view('joto/common/header');
             validate = 1;
             $('#location').addClass('red-border');
         }
-    
+
 
         if (validate == 0) {
             $('#save_form')[0].submit();

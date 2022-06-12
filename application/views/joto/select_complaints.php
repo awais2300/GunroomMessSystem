@@ -69,7 +69,7 @@
         <div class="form-group row justify-content-center" style="margin-top:50px;padding:15px">
             <div class="col-sm-5">
                 <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type', 'gunroom')->from('complaints')->count_all_results(); ?>
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>joto/show_complaint/gunroom'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Joto/show_complaint/gunroom'">
                     <h5 style="font-weight: bold;"><span>Gunroom Complaints</span>
                         <?php if ($unseen_complaints != '0') { ?>
                             <span class="dot"><?= $unseen_complaints; ?></span>
@@ -82,7 +82,7 @@
             </div>
             <div class="col-sm-5">
                 <?php $unseen_complaints = $this->db->where('admin_seen', 'no')->where('account_type', 'mess')->from('complaints')->count_all_results(); ?>
-                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>joto/show_complaint/mess'">
+                <button type="button" class="btn btn-primary btn-user btn-block" style="height:55px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>Joto/show_complaint/mess'">
                     <h5 style="font-weight: bold;"><span>Mess Complaints</span>
                         <?php if ($unseen_complaints != '0') { ?>
                             <span class="dot"><?= $unseen_complaints; ?></span>

@@ -91,7 +91,7 @@ $this->load->view('joto/common/header');
                                             <td><?= $item_string ?></td>
                                             <td><?= date('Y-m-d', strtotime($data['date'])) ?></td>
                                             <td><?= $data['remarks'] ?></td>
-                                            <td><a href="<?= base_url(); ?>joto/update_menu_requests/<?= $data['id'] ?>"><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="<?= base_url(); ?>Joto/update_menu_requests/<?= $data['id'] ?>"><i class="fa fa-edit"></i></a></td>
                                         </tr>
 
                                     <?php } ?>
@@ -110,7 +110,7 @@ $this->load->view('joto/common/header');
 
 </div>
 
-<!-- <?php //$this->load->view('common/footer'); ?> -->
+<?php $this->load->view('common/footer'); ?>
 <script type="text/javascript">
     // $(document).ready(function() {
     //     $('#example').DataTable();
